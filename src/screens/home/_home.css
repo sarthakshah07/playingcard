@@ -1,0 +1,5 @@
+.maingrid{
+  background-color: aqua;
+    /* position: absolute; */
+    display: inline-flex;
+}

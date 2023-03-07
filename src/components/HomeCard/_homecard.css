@@ -1,0 +1,9 @@
+.maincard{
+    padding: 30px;
+    /* margin: 15px; */
+
+    box-shadow: 2px 2px 20px gray;
+}
+/* .maincard:hover{
+    transform: scale(1.25);
+} */
