@@ -1,8 +1,15 @@
 import React from 'react'
+import Loader from '../../components/loader'
+import Popup from '../../components/Popup'
 
-function VerifyEmail() {
+
+
+const VerifyEmail = () => {
   return (
-    <div>VerifyEmail</div>
+    <div>
+      <Popup/>
+      <Loader />
+    </div>
   )
 }
 
