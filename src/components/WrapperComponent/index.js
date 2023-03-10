@@ -1,9 +1,10 @@
 import { Grid } from "@mui/material";
 import React from "react";
 
-const WrapperComponent = ({ children }) => {
+const WrapperComponent = ({ children,sx }) => {
   return (
-    <Grid sx={{ }} container>
+    //backgroundColor:"gray"
+    <Grid sx={sx} height={"100vh"} container>
       {children}
     </Grid>
   );
