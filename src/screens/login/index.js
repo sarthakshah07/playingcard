@@ -1,3 +1,5 @@
+import React from 'react'
+import Logincard from '../../components/logincard'
 
 import { Grid } from '@mui/material'
 import React from 'react'
@@ -15,7 +17,8 @@ const  Login=()=> {
   console.log("getdata:",products)
   return (
     <WrapperComponent>
-    <div style={{display:'flex',flexDirection:"column",justifyContent:"center",alignItems:"center",width:"inherit",height:"100%", border:"1px solid red"}}>
+          <Logincard/>
+    {/* <div style={{display:'flex',flexDirection:"column",justifyContent:"center",alignItems:"center",width:"inherit",height:"100%", border:"1px solid red"}}>
       <MyButton
       title="get details"
       variant="outlined"
@@ -27,8 +30,9 @@ const  Login=()=> {
             
         </Grid>
       </Grid>
-    </div>
+    </div> */}
     </WrapperComponent>
+
   )
 }
 
