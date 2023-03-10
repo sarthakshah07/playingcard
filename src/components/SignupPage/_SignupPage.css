@@ -1,0 +1,14 @@
+.signup {
+    background-color: #363a3e !important;
+    font-family: Georgia, serif !important
+}
+.signupbox {
+    /* background-image: url("../../assets/Images/header-background.avif") !important; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px !important;
+    box-shadow: 5px 5px 40px rgb(109, 100, 100) !important;
+    width: 120%;
+    margin-left: 50%;
+   
+  }
