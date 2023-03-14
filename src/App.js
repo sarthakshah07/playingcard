@@ -7,7 +7,7 @@ import AuthNavigator from "./navigators/AuthNavigator";
 function App() {
   return (
     <>
-      {/* <AppNavigator /> */}
+      <AppNavigator />
       <AuthNavigator />
       {/* <SignUp/> */}
     </>

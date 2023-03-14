@@ -11,14 +11,15 @@ import headcardicon from '../../assets/images/headcardicon.png'
 const HomeScreen = () => {
   const { cardsData } = useSelector(counterSelector);
   const backstyle ={
-    backgroundColor:"black"
+    backgroundColor:"green"
+  
   }
   return (
     <WrapperComponent sx={backstyle}>
       <Marquee
-       speed={200} gradientWidth={200} gradientColor={[40,40,40]}><h1 style={{color:"green"}}><img src={headcardicon} alt=" "></img>Choose Card</h1></Marquee>
+       speed={200} gradientWidth={200} gradientColor={[200,200,200]}><h1 style={{color:"black"}}><img src={headcardicon} alt=" "></img>Choose Card</h1></Marquee>
       <Grid container
-        xs={12}
+        xs={11}
        className="maingrid"
        sx={{display:"flex",justifyContent:"center"}}
         >

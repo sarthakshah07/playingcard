@@ -5,16 +5,17 @@
   display: flex;
   justify-content: start;
   align-items: center;
-  background-image: url("../../assets/Images/wallpaperflare.com_wallpaper.jpg");
-  
+  background-image: url("../../assets/images/wallpaperflare.com_wallpaper.jpg");  
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .loginbox {
-  background-image: url("../../assets/Images/header-background.avif");
+  background-image: url("../../assets/images/header-background.avif");
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 20px !important;
   box-shadow: 5px 5px 40px rgb(109, 100, 100) !important;
-  width: 200%;
+  width: 150%;
   margin-left: 15%;
 }
 .Cardheader {
@@ -35,7 +36,7 @@
 }
 .forgotpassword {
   color: #000000 !important ;
-  margin-left: 50% !important;
+  margin-left: 45% !important;
 }
 .boxfooter {
   display: flex;
@@ -44,6 +45,6 @@
 .error{
   color: #d85353;
 }
-.Username{
+/* .Username{
   font-weight: bold;
-}
+} */
