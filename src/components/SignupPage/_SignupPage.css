@@ -8,7 +8,19 @@
     background-size: cover;
     border-radius: 20px !important;
     box-shadow: 5px 5px 40px rgb(109, 100, 100) !important;
-    width: 120%;
-    margin-left: 50%;
+    width: 75%;
+    margin-left: 40%;
    
+  }
+  .firstname{
+    /* margin-right: 15px !important; */
+    border-color: #363a3e;
+  }
+  .lastname{
+    margin-left: 15px !important;
+    width: 98%;
+  }
+  .cpassword{
+    margin-left: 15px !important;
+    width: 97%;
   }

@@ -1,17 +1,19 @@
 import React from "react";
-import SignUp from "./components/SignupPage";
-
+import { useSelector } from "react-redux";
+import Loader from "./components/loader";
 import AppNavigator from "./navigators/AppNavigator";
 import AuthNavigator from "./navigators/AuthNavigator";
+import { authSelector } from "./redux/auth/authSlice";
 
-function App() {
+const App = () => {
+  const authState = useSelector(authSelector);
+
   return (
     <>
-      {/* <AppNavigator /> */}
-      <AuthNavigator />
-      {/* <SignUp/> */}
+      <Loader />
+      {authState?.currentUser ? <AppNavigator /> : <AuthNavigator />}
     </>
   );
-}
+};
 
 export default App;

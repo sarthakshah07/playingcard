@@ -1,20 +1,25 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Login from "../screens/login";
-import ForgotPassword from "../screens/forgot-password";
-import SignUp from "../screens/signup";
-import VerifyEmail from "../screens/verify-email";
+
+const Login = lazy(() => import("../screens/login"));
+const ForgotPassword = lazy(() => import("../screens/forgot-password"));
+const SignUp = lazy(() => import("../screens/signup"));
+const VerifyEmail = lazy(() => import("../screens/verify-email"));
+const NotFound = lazy(() => import("../screens/page-not-found"));
 
 function AuthNavigator() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/login" element={<Login/>} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/verify-email" element={<VerifyEmail />} />
-      </Routes>
-    </BrowserRouter>
+    <Suspense fallback={<h1>Loading...</h1>}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/verify-email" element={<VerifyEmail />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </Suspense>
   );
 }
 
