@@ -6,7 +6,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 export default function HomeCard({ data }) {
   const clickable = () => {
-    console.log("clickable", data);
     Swal.fire({
       title: "Want To Choose This Card?",
       color: "#000",
