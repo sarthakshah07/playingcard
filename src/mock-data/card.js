@@ -1,4 +1,4 @@
-export const data = [
+export const cardsData = [
   //PLAYING CARD  OF SPADES
   {
     id: 1,

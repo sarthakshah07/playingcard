@@ -1,7 +1,6 @@
 // import React from "react";
 // import { useSelector } from "react-redux";
 // import WrapperComponent from "../../components/WrapperComponent";
-// import { counterSelector } from "../../slice/counter/counterSlice";
 
 // const ForgotPassword = () => {
 //   const counterData = useSelector(counterSelector);
@@ -26,6 +25,7 @@ import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
 import MyButton from "../../components/MyButton";
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 import { useNavigate } from "react-router-dom";
+import emailjs from 'emailjs-com';
 
 const initialValues = {
   Email: "",
@@ -44,15 +44,41 @@ const validate = (values) => {
   return errors;
 };
 
+
 export default function BasicCard() {
+  const [values, setValues] = React.useState({
+    fullName: '',
+    email: '',
+    role: '',
+    message: ''
+  });
   const formik = useFormik({
     initialValues,
     validate,
   });
 
   const navigate = useNavigate();
-  const handleclick = () => navigate("/login");
+  const handleclick = () => navigate("/");
 
+const [email,setEmail] =React.useState([])
+
+  const SendPassword =(e)=>{
+    // setEmail()
+    e.preventDefault();
+    emailjs.send('service_4yeybag', 'template_n2rxxv7', values, 'iRHPtssxLav_FkphK')
+    .then(response => {
+      console.log('SUCCESS!', response);
+      setValues({
+        fullName: 'sarthak',
+        email: 'sarthakshah44993@gmail.com',
+        role: '',
+        message: 'test1'
+      });
+      
+    }, error => {
+      console.log('FAILED...', error);
+    });
+  }
   return (
     <WrapperComponent>
       <div className="container-fluid">
@@ -106,7 +132,7 @@ export default function BasicCard() {
                 fullWidth={false}
                 title="Reset Password"
                 variant="contained"
-                // handleClick={()=>console.log("1123")}
+                handleClick={SendPassword}
               />
             </Grid>
 

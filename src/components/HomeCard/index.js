@@ -17,20 +17,21 @@ export default function HomeCard({ data }) {
       confirmButtonText: "Yes",
       confirmButtonColor: "green",
       cancelButtonText: `No`,
-      cancelButtonColor: "red",
-      // preConfirm:"true",
-      // showLoader:true
+      cancelButtonColor: "red"
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
-        console.log("succes", data);
         Swal.fire({
           icon: "success",
           title: "Card have been selected",
           text: "Api sent",
           showConfirmButton: false,
-          timer: 1500,
+          timer: 2000,
           timerProgressBar: true,
+        }).then((res, err) => {
+          console.log("done", result.isConfirmed);
+          if (result.isConfirmed) {
+          }
         });
       }
     });

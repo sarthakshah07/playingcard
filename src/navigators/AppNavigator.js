@@ -1,16 +1,19 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import PageNotFound from "../screens/page-not-found";
-import Home from "../screens/home";
+
+const Home = lazy(() => import("../screens/home"));
+const NotFound = lazy(() => import("../screens/page-not-found"));
 
 function AppNavigator() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
-    </BrowserRouter>
+    <Suspense fallback={<h1>Loading...</h1>}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </Suspense>
   );
 }
 
