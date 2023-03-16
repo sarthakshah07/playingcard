@@ -1,13 +1,18 @@
-import { Grid } from "@mui/material";
-import React from "react";
-import './wrappercomponent.css'
-const WrapperComponent = ({ children,sx }) => {
-  return (
-    //backgroundColor:"gray"
-    <Grid sx={sx} height={"100vh"}  className="wrappermain" >
-      {children}
-    </Grid>
-  );
-};
+import * as React from "react";
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
+import Header from "../Header";
 
+function WrapperComponent(props) {
+  const { children, isHeader } = props;
+  return (
+    <Box sx={{ width: "100%"}}>
+      <CssBaseline />
+      <Box >
+        {isHeader && <Header />}
+        {children}
+      </Box>
+    </Box>
+  );
+}
 export default WrapperComponent;

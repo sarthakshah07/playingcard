@@ -85,7 +85,7 @@ export default function Popup() {
             ))}
           </ImageList>
           <h2 style={{ textAlign: "center" }}>
-         You've entered the address of your account
+            You've entered the address of your account
           </h2>
         </DialogContent>
       </BootstrapDialog>

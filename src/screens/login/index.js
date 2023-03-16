@@ -19,6 +19,7 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import { useNavigate } from "react-router-dom";
 import { loginUserByEmailAction } from "../../redux/auth/middleware";
 import { authSelector } from "../../redux/auth/authSlice";
+import ExpandCircleDownTwoToneIcon from '@mui/icons-material/ExpandCircleDownTwoTone';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -51,11 +52,14 @@ const Login = () => {
   const NavigateOnClick = () => {
     navigate("/forgot-password");
   };
+  const NavigateOnClickRegistraion =()=>{
+    navigate("/signUp")
+  }
 
   return (
     <WrapperComponent>
-      <Grid className="container">
-        <Grid>
+      <Grid container border={1} className="container">
+        <Grid item xs={9} md={4}>
           <Box>
             <Card className="loginbox">
               <CardContent>
@@ -122,26 +126,60 @@ const Login = () => {
                       </Grid>
                     </Grid>
                   </Typography>
-                  <Typography variant="body2" className="boxfooter" />
-                  <MyButton
-                    className="signin"
-                    // fullWidth={true}
-                    title="sign in"
-                    variant="contained"
-                    type="submit"
-                  />
-
-                  <MyButton
-                    className="forgotpassword"
-                    // fullWidth={true}
-                    size="small"
-                    title="Forgot password ?"
-                    variant="text"
-                    handleClick={NavigateOnClick}
-                  />
+                  <Typography variant="body2" className="boxfooter">
+                    <Grid container>
+                      <Grid
+                        item
+                        xs={12}
+                        md={6}
+                        sx={{ display: "flex", justifyContent: "center" }}
+                      >
+                        <MyButton
+                          className="signin"
+                          // fullWidth={true}
+                          title="sign in"
+                          variant="contained"
+                          type="submit"
+                        />
+                      </Grid>
+                      <Grid
+                        item
+                        xs={12}
+                        md={6}
+                        sx={{ display: "flex", justifyContent: "center" }}
+                      >
+                        <MyButton
+                          className="forgotpassword"
+                          size="small"
+                          title="Forgot password ?"
+                          variant="text"
+                          handleClick={NavigateOnClick}
+                        />
+                      </Grid>
+                    </Grid>
+                  </Typography>
                 </form>
               </CardContent>
             </Card>
+            <Grid
+              container
+              xs={3}
+              sx={{ textAlign: "center"}}
+              className="registrationbox"
+            >
+              <Grid item xs={12}>
+                <ExpandCircleDownTwoToneIcon />
+              </Grid>
+              <Grid item xs={12}  >
+                <MyButton
+                 className="registrationbtn"
+                  size="small"
+                  title="Don't have Account?"
+                  variant="text"
+                  handleClick={NavigateOnClickRegistraion}
+                />
+              </Grid>
+            </Grid>
           </Box>
         </Grid>
       </Grid>

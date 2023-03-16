@@ -8,6 +8,7 @@ const MyButton = ({
   variant,
   handleClick,
   type,
+  sx
 }) => {
   return (
     <Button
@@ -16,6 +17,7 @@ const MyButton = ({
       variant={variant}
       onClick={handleClick}
       type={type}
+      sx={sx}
     >
       {title}
     </Button>
