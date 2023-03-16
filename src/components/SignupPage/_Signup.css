@@ -1,0 +1,26 @@
+.signup {
+    background-color: #363a3e !important;
+    font-family: Georgia, serif !important
+}
+.signupbox {
+    /* background-image: url("../../assets/Images/header-background.avif") !important; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px !important;
+    box-shadow: 5px 5px 40px rgb(109, 100, 100) !important;
+    width: 75%;
+    margin-left: 40%;
+   
+  }
+  .firstname{
+    /* margin-right: 15px !important; */
+    border-color: #363a3e;
+  }
+  .lastname{
+    margin-left: 15px !important;
+    width: 98%;
+  }
+  .cpassword{
+    margin-left: 15px !important;
+    width: 97%;
+  }

@@ -82,13 +82,14 @@ const [email,setEmail] =React.useState([])
   return (
     <WrapperComponent>
       <div className="container-fluid">
+      <Grid container xs={10} md={3} >
         <Card className="forgotpsswdCard">
-          <Grid xs={12} border={1}>
-            <Grid xs={12} item justifyContent="center" container>
+          
+            <Grid xs={12} item   sx={{display:"flex" ,justifyContent:"center",alignItems:"baseline"}}>
               <KeyRoundedIcon className="icon" />
             </Grid>
 
-            <Grid xs={12} item justifyContent="center" container>
+            <Grid xs={12} item  sx={{display:"flex" ,justifyContent:"center",alignItems:"baseline"}}>
               <CardHeader
                 className="FPheader"
                 title="forgot password?"
@@ -96,13 +97,13 @@ const [email,setEmail] =React.useState([])
               />
             </Grid>
 
-            <Grid xs={12} item justifyContent= "center" container>
+            <Grid xs={12} item sx={{textAlign:"center",margin:"1%"}}>
               <Typography className="FPtext" gutterBottom>
                 No worries, we'll send you reset instructions.
               </Typography>
             </Grid>
 
-            <Grid item xs={12} className="mail">
+            <Grid item xs={11} className="mail" sx={{display:"flex" ,justifyContent:"center",alignItems:"baseline"}}>
               <TextField
                 // fullWidth
 
@@ -155,8 +156,9 @@ const [email,setEmail] =React.useState([])
                 handleClick={handleclick}
               />
             </Grid>
-          </Grid>
+         
         </Card>
+        </Grid>
       </div>
     </WrapperComponent>
   );
