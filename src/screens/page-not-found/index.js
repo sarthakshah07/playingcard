@@ -8,22 +8,21 @@ function PageNotFound() {
   return (
     <WrapperComponent>
       <Grid container border={1} className="pagenotfoundcontainer" sx={{height:"100vh", display:"flex",justifyContent:"center",alignItems:"center"}}>
-        <Grid item border={1} sx={{width:"100%",height:"100%",display:"flex",justifyContent:"center",alignItems:"center"}}>
-        <Typography>
+        {/* <Grid item border={1} sx={{width:"30%",height:"100%",display:"flex",justifyContent:"center",alignItems:"center"}}> */}
+        <Typography className='heading'> Page Not Found</Typography>
         <video 
         //  autoPlay
+        style={{position:"absolute", width:"90%"}}
          loop
          muted
-         width="100%" height="90%"
-        //  poster="https://assets.codepen.io/6093409/river.jpg"
          >
           <source  
           src={video}
           type="video/mp4">
           </source>
         </video>
-      </Typography>
-        </Grid>
+      {/* </Typography> */}
+        {/* </Grid> */}
       </Grid>
       
     </WrapperComponent>
