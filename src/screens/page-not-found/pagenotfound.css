@@ -1,5 +1,12 @@
 .pagenotfoundcontainer{
-    /* background-image: url("../../assets/videos/404vid.mp4"); */
-    /* background-color: aqua; */
-
+    background-color: rgb(119, 178, 212);
+}
+.heading{
+    position:absolute;
+    top :15%;
+    left :25%;
+    scale: 5;
+    font-family:cursive;
+    color: rgb(163, 26, 26);
+    z-index: 1;
 }
