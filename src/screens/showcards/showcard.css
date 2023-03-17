@@ -1,0 +1,6 @@
+.tablerow{
+    background-color: aqua;
+}
+.tablerow:hover{
+    border: 1px solid red;
+}

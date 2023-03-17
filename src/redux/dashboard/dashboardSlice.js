@@ -1,10 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { userData } from "../../mock-data/usercard"
 import {
-  fetchCardAction
+  fetchCardAction,
+  cardListAction
 } from "./middleware"
 
 const INITIAL_STATE = {
   cardsData: [],
+  cardListData: [],
 }
 
 const authSlice = createSlice({
@@ -15,6 +18,10 @@ const authSlice = createSlice({
     builder.addCase(fetchCardAction.fulfilled, (state, { payload }) => ({
       ...state,
       cardsData: payload
+    })) 
+    builder.addCase(cardListAction.fulfilled, (state, { payload }) => ({
+      ...state,
+      cardListData: payload
     })) 
   },
 })

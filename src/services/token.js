@@ -3,6 +3,7 @@ import { encryptStorage } from "./secureLocalStorage";
 export const getUser = () => {
   const userData = encryptStorage.getItem("user");
   if (userData === undefined) return null;
+  console.log("userdata: ",userData);
   return userData;
 };
 

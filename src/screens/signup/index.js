@@ -19,6 +19,8 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import * as yup from "yup";
 import Divider from "@mui/material/Divider";
 import { useNavigate } from "react-router-dom";
+import { signUpUserAction } from "../../redux/auth/middleware";
+import { authSelector } from "../../redux/auth/authSlice";
 
 
 const initialValues = {
@@ -97,16 +99,29 @@ const signUpSchema = yup.object().shape({
 const Signup = () => {
   const [showPassword, setShowPassword] = React.useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const signup = useSelector(authSelector)
+
+console.log("signup dta:",signup);
+
+  const initialValues = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    contactNo:"",
+    password: "",
+
+  };
   const { handleChange, handleSubmit, handleBlur, values, touched, errors } =
     useFormik({
       initialValues: initialValues,
       validationSchema: signUpSchema,
       onSubmit: (val) => {
-        console.log("val", val);
-        // dispatch(loginUserSuccess())
+        console.log("singup details", val);
+        dispatch(signUpUserAction(val))
       },
     });
-    const navigate = useNavigate();
+    
   const Navigatetologin = () => navigate("/");
   
   const handleClickShowPassword = () => setShowPassword((show) => !show);

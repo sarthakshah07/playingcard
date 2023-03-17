@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Loader from "../components/loader";
 
 const Login = lazy(() => import("../screens/login"));
 const ForgotPassword = lazy(() => import("../screens/forgot-password"));
@@ -9,7 +10,7 @@ const NotFound = lazy(() => import("../screens/page-not-found"));
 
 function AuthNavigator() {
   return (
-    <Suspense fallback={<h1>Loading...</h1>}>
+    <Suspense fallback={<><h2>loading.........</h2></>}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
