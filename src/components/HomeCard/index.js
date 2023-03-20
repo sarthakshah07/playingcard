@@ -3,8 +3,10 @@ import CardMedia from "@mui/material/CardMedia";
 import "./_homecard.css";
 import Swal from "sweetalert2";
 import "react-toastify/dist/ReactToastify.css";
+import { Box, Skeleton, Stack } from "@mui/material";
 
-export default function HomeCard({ data }) {
+export default function HomeCard({ data,showCards }) {
+  
   const clickable = () => {
     Swal.fire({
       title: "Want To Choose This Card?",
@@ -36,8 +38,20 @@ export default function HomeCard({ data }) {
     });
   };
   return (
-    <Card className="maincard" onClick={clickable}>
-      <CardMedia component="img" image={data.url} alt="card" />
-    </Card>
+  <>        
+    {showCards ?
+          (
+            <Card className="maincard" onClick={clickable}>
+            <CardMedia component="img" image={data.url} alt="card" />
+            </Card>
+           ):(
+            <Box sx={{ width: 300 }}>
+      <Skeleton />
+      <Skeleton animation="wave" />
+      <Skeleton animation={false} />
+    </Box>
+          )
+    }
+  </>
   );
 }

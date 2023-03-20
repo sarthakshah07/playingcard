@@ -19,6 +19,7 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import { useNavigate } from "react-router-dom";
 import { loginUserByEmailAction } from "../../redux/auth/middleware";
 import { authSelector } from "../../redux/auth/authSlice";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -43,7 +44,23 @@ const Login = () => {
     useFormik({
       initialValues: initialValues,
       validationSchema: signInSchema,
-      onSubmit: (val) => {
+      onSubmit: (val,err) => {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'bottom-end',
+          zIndex:1,
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        })
+        Toast.fire({
+          icon: 'success',
+          title: 'Logged in successfully'
+        })
         dispatch(loginUserByEmailAction(val));
       },
     });
