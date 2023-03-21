@@ -3,55 +3,55 @@ import CardMedia from "@mui/material/CardMedia";
 import "./_homecard.css";
 import Swal from "sweetalert2";
 import "react-toastify/dist/ReactToastify.css";
-import { Box, Skeleton, Stack } from "@mui/material";
+import { Box, Skeleton } from "@mui/material";
+import Popup from "../Popup";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function HomeCard({ data,showCards }) {
-  
+export default function HomeCard({ data, showCards }) {
+  const [openPopup, setOpenPopup] = useState(false);
+  const navigate = useNavigate();
+
   const clickable = () => {
-    Swal.fire({
-      title: "Want To Choose This Card?",
-      color: "#000",
-      text: "Try Your Luck",
-      icon: "question",
-      width: 600,
-      showCancelButton: true,
-      confirmButtonText: "Yes",
-      confirmButtonColor: "green",
-      cancelButtonText: `No`,
-      cancelButtonColor: "red"
-    }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
-      if (result.isConfirmed) {
-        Swal.fire({
-          icon: "success",
-          title: "Card have been selected",
-          text: "Api sent",
-          showConfirmButton: false,
-          timer: 2000,
-          timerProgressBar: true,
-        }).then((res, err) => {
-          console.log("done", result.isConfirmed);
-          if (result.isConfirmed) {
-          }
-        });
-      }
+    console.log("sdhf", data);
+    const url = data.url;
+    setOpenPopup(true);
+  };
+  const ConfirmClick = () => {
+    console.log("confirm");
+    navigate("card", {
+      state: {
+        data: data,
+      },
     });
   };
   return (
-  <>        
-    {showCards ?
-          (
-            <Card className="maincard" onClick={clickable}>
-            <CardMedia component="img" image={data.url} alt="card" />
-            </Card>
-           ):(
-            <Box sx={{ width: 300 }}>
-      <Skeleton />
-      <Skeleton animation="wave" />
-      <Skeleton animation={false} />
-    </Box>
-          )
-    }
-  </>
+    <>
+      {showCards ? (
+        <Card className="maincard" onClick={clickable}>
+          <CardMedia component="img" image={data.url} alt="card" />
+          {openPopup && (
+            <Popup
+              data={data}
+              image={data.url}
+              popupsx={{
+                height: "500px",
+                width: "600px",
+                backgroundColor: "#c7c7c7",
+              }}
+              ConfirmClick={ConfirmClick}
+              imagesx={{ width: "100%", height: "720px", ml: 1.5 }}
+              imgtitle="  No Image"
+            />
+          )}
+        </Card>
+      ) : (
+        <Box sx={{ width: 300 }}>
+          <Skeleton />
+          <Skeleton animation="wave" />
+          <Skeleton animation={false} />
+        </Box>
+      )}
+    </>
   );
 }

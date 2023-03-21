@@ -1,0 +1,9 @@
+
+.tablerow:hover{
+    border: 1px solid red;
+}
+.changeCard{
+    background-color: teal !important;
+    font-variant: small-caps;
+    font-weight: bold;
+}
