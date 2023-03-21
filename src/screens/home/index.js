@@ -14,9 +14,10 @@ import PreviewIcon from '@mui/icons-material/Preview';
 const HomeScreen = () => {
   const [showCards, setShowCards]=useState(false)
   const dashboardData = useSelector(dashboardSelector);
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
   useEffect(() => {
+    
     dispatch(fetchCardAction());
   }, []);
 
@@ -28,8 +29,8 @@ const HomeScreen = () => {
           minHeight: "94vh",
           maxWidth: "100%",
           backgroundColor: "green",
-          marginTop: "65px",
-          padding: "0",
+          marginTop: "81px",
+          paddingTop: "1%",
         }}
         xs={8}
         md={12}
@@ -79,12 +80,12 @@ const HomeScreen = () => {
             display: "flex",
             justifyContent: "center",
             flexWrap: "wrap",
-            paddingRight: "8%",
+            paddingRight: "4%",
             marginTop: "5%",
           }}
         >
           {dashboardData?.cardsData.map((cardItem) => (
-            <Grid item xs={4} md={12 / 27}>
+            <Grid item xs={4} md={12 / 13}>
               <HomeCard showCards={showCards} data={cardItem} />
             </Grid>
           ))}

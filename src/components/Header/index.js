@@ -61,6 +61,8 @@ const ButtonAppBar = () => {
             title: 'Logged out successfully'
           })
           dispatch(logoutUserAction());
+          navigate("/");
+          
           // Swal.fire({
           //   icon: "success",
           //   showConfirmButton: false,
