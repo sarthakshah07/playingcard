@@ -8,7 +8,8 @@ const MyButton = ({
   variant,
   handleClick,
   type,
-  sx
+  sx,
+  img
 }) => {
   return (
     <Button
@@ -18,6 +19,7 @@ const MyButton = ({
       onClick={handleClick}
       type={type}
       sx={sx}
+      img={img}
     >
       {title}
     </Button>

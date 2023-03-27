@@ -1,7 +1,7 @@
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import "./_homecard.css";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 import "react-toastify/dist/ReactToastify.css";
 import { Box, Skeleton } from "@mui/material";
 import Popup from "../Popup";
