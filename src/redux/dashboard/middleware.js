@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { fetchCardsAsync } from "./services";
-import { cardsData } from "../../mock-data/card";
+import cardsData  from "../../mock-data/cards-data.json";
 import {userData} from "../../mock-data/usercard"
 import { hideLoader, showLoader } from "../lem/lemSlice";
 

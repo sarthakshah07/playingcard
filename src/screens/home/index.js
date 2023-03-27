@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Grid, Skeleton, Switch, Typography } from "@mui/material";
+import { Fab, Grid, Skeleton, Switch, Typography } from "@mui/material";
 import Marquee from "react-fast-marquee";
 import { useDispatch, useSelector } from "react-redux";
 import HomeCard from "../../components/HomeCard";
@@ -9,15 +9,14 @@ import { dashboardSelector } from "../../redux/dashboard/dashboardSlice";
 import { fetchCardAction } from "../../redux/dashboard/middleware";
 import "./_home.css";
 import MyButton from "../../components/MyButton";
-import PreviewIcon from '@mui/icons-material/Preview';
+import PreviewIcon from "@mui/icons-material/Preview";
 
 const HomeScreen = () => {
-  const [showCards, setShowCards]=useState(false)
+  const [showCards, setShowCards] = useState(false);
   const dashboardData = useSelector(dashboardSelector);
 
   const dispatch = useDispatch();
   useEffect(() => {
-    
     dispatch(fetchCardAction());
   }, []);
 
@@ -55,15 +54,32 @@ const HomeScreen = () => {
             justifyContent: "center",
           }}
         >
-          <PreviewIcon sx={{ color: "lightseagreen", scale: "2" }} />
-          <br />
-          <MyButton
+          {/* <MyButton
               varient="text"
               size="small"
-              title="show cards"
               sx={{color:"black"}}
               handleClick={()=>setShowCards(true)}
-              />
+              /> */}
+          <Fab
+            onClick={() => setShowCards(true)}
+            sx={{
+              background: "none",
+              backgroundColor: "white",
+              border: "none",
+              borderRadius: "none",
+            }}
+          >
+            <PreviewIcon sx={{ color: "lightseagreen", scale: "2" }} />
+          </Fab>
+
+          <br />
+          <MyButton
+            varient="text"
+            size="small"
+            title="show cards"
+            sx={{ color: "white" }}
+            handleClick={() => setShowCards(true)}
+          />
           {/* <Switch
             // checked={checked}
             onChange={()=>setShowCards(true)}
@@ -84,11 +100,13 @@ const HomeScreen = () => {
             marginTop: "5%",
           }}
         >
-          {dashboardData?.cardsData.map((cardItem) => (
-            <Grid item xs={4} md={12 / 13}>
-              <HomeCard showCards={showCards} data={cardItem} />
-            </Grid>
-          ))}
+          {dashboardData?.cardsData?.map((item) =>
+            item.data.map((cardItem) => (
+              <Grid item xs={4} md={12 / 13}>
+                <HomeCard showCards={showCards} data={cardItem} />
+              </Grid>
+            ))
+          )}
         </Grid>
         <Marquee
           speed={200}
