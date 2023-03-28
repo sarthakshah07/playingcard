@@ -1,24 +1,24 @@
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import "./_homecard.css";
-// import Swal from "sweetalert2";
+
 import "react-toastify/dist/ReactToastify.css";
 import { Box, Skeleton } from "@mui/material";
 import Popup from "../Popup";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function HomeCard({ data, showCards }) {
+
+export default function HomeCard({ data, showCards ,cardImg}) {
   const [openPopup, setOpenPopup] = useState(false);
   const navigate = useNavigate();
 
   const clickable = () => {
-    console.log("sdhf", data);
-    const url = data.url;
+    // console.log("sdhf", data);
+    // const url = data.url;
     setOpenPopup(true);
   };
   const ConfirmClick = () => {
-    console.log("confirm");
     navigate("card", {
       state: {
         data: data,
@@ -27,9 +27,7 @@ export default function HomeCard({ data, showCards }) {
   };
   return (
     <>
-      {showCards ? (
-        <Card className="maincard" onClick={clickable}>
-          <CardMedia component="img" image={data.url} alt="card" />
+          <CardMedia component="img" image={data.url} alt="card" style={cardImg} className="imgcard" onClick={clickable}  />
           {openPopup && (
             <Popup
               data={data}
@@ -44,14 +42,6 @@ export default function HomeCard({ data, showCards }) {
               imgtitle="  No Image"
             />
           )}
-        </Card>
-      ) : (
-        <Box sx={{ width: 300 }}>
-          <Skeleton />
-          <Skeleton animation="wave" />
-          <Skeleton animation={false} />
-        </Box>
-      )}
     </>
   );
 }

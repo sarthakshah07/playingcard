@@ -3,12 +3,12 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-// import LoginRoundedIcon from "@mui/icons-material/LoginRounded";
+
 import MyButton from "../MyButton";
-// import "./_logincard.css";
+
 import { Grid, IconButton, InputAdornment } from "@mui/material";
 import CardHeader from "@mui/material/CardHeader";
-// import Textfield from "./Textfeild";
+
 import "./_SignupPage.css";
 import FieldText from "../fieldtext";
 import { useFormik } from "formik";
