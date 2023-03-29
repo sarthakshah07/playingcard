@@ -3,7 +3,7 @@ import CardMedia from "@mui/material/CardMedia";
 import "./_homecard.css";
 
 import "react-toastify/dist/ReactToastify.css";
-import { Box, Skeleton } from "@mui/material";
+import { Box, Grid, Skeleton } from "@mui/material";
 import Popup from "../Popup";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -27,7 +27,12 @@ export default function HomeCard({ data, showCards ,cardImg}) {
   };
   return (
     <>
-          <CardMedia component="img" image={data.url} alt="card" style={cardImg} className="imgcard" onClick={clickable}  />
+    <Grid container>
+      <Grid item>
+        <CardMedia component="img" image={data.url} alt="card" style={cardImg} className="imgcard" onClick={clickable}  />
+      </Grid>
+    </Grid>
+       
           {openPopup && (
             <Popup
               data={data}
