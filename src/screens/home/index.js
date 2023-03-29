@@ -103,6 +103,7 @@ const HomeScreen = () => {
                   (item) => item.name === "joker"
                 )}
                 showCards={showCards}
+                isTrue
               />
             </Grid>
 
