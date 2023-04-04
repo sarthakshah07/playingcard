@@ -110,7 +110,7 @@ export default function SplitButton() {
         <MyButton
           size="small"
           title={
-            <AccountCircleIcon onClick={handleClick} style={{ border: "none" }}>
+            <AccountCircleIcon onClick={handleClick} style={{ border: "none",color:"white" }}>
               {options[selectedIndex]}
             </AccountCircleIcon>
           }

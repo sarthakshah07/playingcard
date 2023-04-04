@@ -7,6 +7,7 @@ const ForgotPassword = lazy(() => import("../screens/forgot-password"));
 const SignUp = lazy(() => import("../screens/signup"));
 const VerifyEmail = lazy(() => import("../screens/verify-email"));
 const NotFound = lazy(() => import("../screens/page-not-found"));
+const LandingPage = lazy(()=> import ("../screens/landingpage"))
 
 function AuthNavigator() {
   return (
@@ -17,6 +18,7 @@ function AuthNavigator() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/verify-email" element={<VerifyEmail />} />
+          <Route path="/Landingpage" element={<LandingPage/>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
