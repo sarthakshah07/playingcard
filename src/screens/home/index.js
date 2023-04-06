@@ -11,6 +11,7 @@ import "./_home.css";
 // import MyButton from "../../components/MyButton";
 // import PreviewIcon from "@mui/icons-material/Preview";
 import Slider from "../../components/Slider/index";
+import Footer from "../../components/Footer";
 
 const HomeScreen = () => {
   const [showCards, setShowCards] = useState(false);
@@ -37,48 +38,6 @@ const HomeScreen = () => {
         xs={8}
         md={12}
       >
-        {/* <Marquee
-          speed={200}
-          gradientWidth={200}
-          gradientColor={[200, 200, 200]}
-        >
-          <Typography style={{ color: "black" }}>
-            <img src={headcardicon} alt=" " />
-            Choose Card{" "}
-          </Typography>
-        </Marquee> */}
-        {/* <Grid
-          item
-          xs={12}
-          sx={{
-            display: "flex ",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Fab
-            onClick={() => setShowCards(true)}
-            sx={{
-              background: "none",
-              backgroundColor: "white",
-              border: "none",
-              borderRadius: "none",
-            }}
-          >
-            <PreviewIcon sx={{ color: "lightseagreen", scale: "2" }} />
-          </Fab>
-
-          <br />
-          <MyButton
-            varient="text"
-            size="small"
-            title="show cards"
-            sx={{ color: "white" }}
-            handleClick={() => setShowCards(true)}
-          />
-        </Grid> */}
-
         <Grid item xs={12}>
           <Grid container justifyContent="center" spacing={4}>
             <Grid item xs={9}>
@@ -131,14 +90,10 @@ const HomeScreen = () => {
           speed={200}
           gradientWidth={200}
           gradientColor={[200, 200, 200]}
-        >
-          {/* <Typography style={{ color: "black" }}>
-            <span style={{ fontSize: "20px", color: "red" }}>
-              Choose by clicking on Card
-            </span>
-          </Typography> */}
-        </Marquee>
+        ></Marquee>
       </Grid>
+      <br/>
+      <Footer/>
     </WrapperComponent>
   );
 };

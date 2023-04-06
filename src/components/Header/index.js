@@ -30,11 +30,7 @@ const ButtonAppBar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // const handleClose = (event, reason) => {
-  //   if (reason === 'clickaway') {
-  //     dispatch(logoutUserAction());
-  //     // return;
-  //   }
+  
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);

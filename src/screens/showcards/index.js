@@ -3,12 +3,12 @@ import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
-// import TableContainer from "@mui/material/TableContainer";
+
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import WrapperComponent from "../../components/WrapperComponent";
-// import { userData } from "../../mock-data/usercard";
+
 import { Grid } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { dashboardSelector } from "../../redux/dashboard/dashboardSlice";
@@ -19,7 +19,7 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { useTimer } from "react-timer-hook";
-// import "react-clock/dist/Clock.css";
+
 import Timer from "../../components/timer";
 import MyButton from "../../components/MyButton";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -62,8 +62,7 @@ const ShowCards = ({ state }) => {
   const dispatch = useDispatch();
   const location = useLocation();
   const [value, setValue] = useState(new Date());
-  // console.log("routes",location.state);
-  //  console.log("usercardlist", userCardList.map((item)=>{item.url}));
+
   useEffect(() => {
     const interval = setInterval(() => setValue(new Date()), 1000);
     return () => {
@@ -188,10 +187,17 @@ const ShowCards = ({ state }) => {
                   Date
                 </StyledTableCell>
                 <StyledTableCell align="right" style={{ fontSize: "30px" }}>
-                  bidOpen
+                status
                 </StyledTableCell>
                 <StyledTableCell align="right" style={{ fontSize: "30px" }}>
                   UserCard
+                </StyledTableCell>
+                <StyledTableCell align="right" style={{ fontSize: "30px" }}>
+                  BidCard
+                </StyledTableCell>
+                <StyledTableCell align="right" style={{ fontSize: "30px" }}>
+               
+               
                 </StyledTableCell>
               </TableRow>
             </TableHead>
@@ -209,19 +215,20 @@ const ShowCards = ({ state }) => {
                   <StyledTableCell>
                     <Typography
                       sx={{
-                        backgroundColor:(row.bidOpen==="true" ? 'green':'red'),
+                        backgroundColor:
+                          row.bidOpen === "true" ? "green" : "red",
                         float: "right",
                         textAlign: "center",
                         width: "25%",
-                        height:"30px",
-                        display:"flex",
-                        alignItems:"center",
-                        justifyContent:"center",
-                        borderRadius:"15px"
+                        height: "30px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        borderRadius: "15px",
                       }}
                     >
                       {" "}
-                      {row.bidOpen === "true"? 'won':'lost'}
+                      {row.bidOpen === "true" ? "won" : "lost"}
                     </Typography>
                   </StyledTableCell>
 

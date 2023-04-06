@@ -1,6 +1,7 @@
 import React from "react";
   import { InputAdornment, TextField } from "@mui/material";
 import AccountCircle from "@mui/icons-material/AccountCircle";
+import "./_fieldtext.css"
 
 
 
@@ -18,11 +19,13 @@ const FieldText = ({
   name,
   touched,
   errors,
+  sx
 }) => {
   return (
     <TextField
+      disableUnderline={true}
       fullWidth={fullWidth || false}
-      sx={{ mt: 1.5, mb: 1.5 }}
+      sx={sx}
       className={className}
       type={type}
       id={id}

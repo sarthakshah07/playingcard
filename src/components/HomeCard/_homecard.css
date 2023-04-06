@@ -24,7 +24,7 @@
   cursor: pointer;
     background-color: red !important;
 /* rotate: 20deg; */
-transform: rotateY(180deg)
-/* transform: rotateZ(30deg) */
+/* transform: rotateY(180deg) */
+transform: rotateZ(360deg)
 };
 

@@ -8,14 +8,11 @@ import Popup from "../Popup";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-
-export default function HomeCard({ data, showCards ,cardImg}) {
+export default function HomeCard({ data, showCards, cardImg }) {
   const [openPopup, setOpenPopup] = useState(false);
   const navigate = useNavigate();
 
   const clickable = () => {
-    // console.log("sdhf", data);
-    // const url = data.url;
     setOpenPopup(true);
   };
   const ConfirmClick = () => {
@@ -27,26 +24,33 @@ export default function HomeCard({ data, showCards ,cardImg}) {
   };
   return (
     <>
-    <Grid container>
-      <Grid item>
-        <CardMedia component="img" image={data.url} alt="card" style={cardImg} className="imgcard" onClick={clickable}  />
+      <Grid container>
+        <Grid item>
+          <CardMedia
+            component="img"
+            image={data.url}
+            alt="card"
+            style={cardImg}
+            className="imgcard"
+            onClick={clickable}
+          />
+        </Grid>
       </Grid>
-    </Grid>
-       
-          {openPopup && (
-            <Popup
-              data={data}
-              image={data.url}
-              popupsx={{
-                height: "500px",
-                width: "600px",
-                backgroundColor: "#c7c7c7",
-              }}
-              ConfirmClick={ConfirmClick}
-              imagesx={{ width: "100%", height: "720px", ml: 1.5 }}
-              imgtitle="  No Image"
-            />
-          )}
+
+      {openPopup && (
+        <Popup
+          data={data}
+          image={data.url}
+          popupsx={{
+            height: "500px",
+            width: "600px",
+            backgroundColor: "#c7c7c7",
+          }}
+          ConfirmClick={ConfirmClick}
+          imagesx={{ width: "100%", height: "720px", ml: 1.5 }}
+          imgtitle="  No Image"
+        />
+      )}
     </>
   );
 }
