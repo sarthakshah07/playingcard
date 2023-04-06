@@ -22,7 +22,8 @@ function AppNavigator() {
           <Route path="/landingpage" element={<LandingPage />} />
           <Route path="/cardpayment" element={<PaymentMethodPage />} />
           <Route path="*" element={<NotFound />} />
-
+  
+  
          
         </Routes>
       </BrowserRouter>
