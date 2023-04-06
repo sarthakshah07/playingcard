@@ -15,7 +15,7 @@ function AuthNavigator() {
         <>
           <h2>loading.........</h2>
         </>
-      }
+      }   
     >
       <BrowserRouter>
         <Routes>
