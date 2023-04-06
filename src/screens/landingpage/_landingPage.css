@@ -1,0 +1,36 @@
+.firstgrid{
+    background: linear-gradient(180deg,rgba(254,163,64,0) 25.44%,rgba(12,5,70,0.5) 100%),#31996A;
+    
+}
+.winpricecontainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: baseline;
+  background-color:#230332;
+  /* background-image: url("../../assets/images/winbannerback.jpg"); */
+ 
+}
+.graphicscontainer{
+
+
+}
+@keyframes rotatee {
+  from{color: black;}
+
+    to {color: red; font-weight: bold;}
+  
+}
+@keyframes textee {
+  from{color: rgb(255, 231, 93);}
+
+    to {color: goldenrod; font-weight: bold;}
+  
+}
+.toto {
+    animation: rotatee 1s linear infinite;
+  display:inline-block;
+}
+.bigwin{
+  animation: textee 1s linear infinite;
+}

@@ -12,9 +12,10 @@ import MyButton from "../MyButton";
 import Account from "../Account/index";
 
 import {
-  Backdrop,
+  // Backdrop,
   Divider,
   Drawer,
+  Grid,
   List,
   ListItem,
   Snackbar,
@@ -30,7 +31,11 @@ const ButtonAppBar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  
+  // const handleClose = (event, reason) => {
+  //   if (reason === 'clickaway') {
+  //     dispatch(logoutUserAction());
+  //     // return;
+  //   }
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -119,7 +124,7 @@ const ButtonAppBar = () => {
       }}
     >
       <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
+      
       </Typography>
       <Divider />
       <List>
@@ -155,15 +160,18 @@ const ButtonAppBar = () => {
   );
  
   return (
-    <Box>
-      <AppBar
+    <Grid container justifyContent="center" bgcolor="#31996A" 
+    // sx={{borderBottom:"1px solid black" }}
+    >
+      <Grid item xs={8}>
+      {/* <AppBar
         component="nav"
         style={{
-          backgroundColor: "lightseagreen",
+          backgroundColor: "#31996A",
           display: "flex",
           justifyContent: "space-evenly",
         }}
-      >
+      > */}
         <Toolbar>
           <IconButton
             color="inherit"
@@ -177,11 +185,13 @@ const ButtonAppBar = () => {
           <Typography
             variant="h6"
             component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+            sx={{ flexGrow: 1, display: { xs: "none", sm: "flex" } ,alignItems:"center"}}
           >
-            <img src={logoheader} style={{ height: "70px" }} alt="img"></img>
+            <img src={logoheader} style={{ height: "50px" }} alt="img"></img>
+            <Typography variant="h4" sx={{marginLeft:"15px",color:"black",fontFamily:"-apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serif"}}>Card Login</Typography>
           </Typography>
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
+
+          <Box sx={{ display: { xs: "none", sm: "flex" } }}>
             <MyButton
               size="small"
               title="home"
@@ -197,10 +207,10 @@ const ButtonAppBar = () => {
               handleClick={handleCardList}
             />
 
-            <Account />
+            <Account/>
           </Box>
         </Toolbar>
-      </AppBar>
+      {/* </AppBar> */}
       <Box component="nav">
         <Drawer
           // container={container}
@@ -221,7 +231,8 @@ const ButtonAppBar = () => {
           {drawer}
         </Drawer>
       </Box>
-    </Box>
+      </Grid>
+    </Grid>
   );
 };
 
