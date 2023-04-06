@@ -78,8 +78,8 @@ export default function Wallet() {
     <Grid
       container
       height="100vh"
-      border="1px solid red"
-      bgcolor="#31996A"
+      
+      bgcolor="white"
       justifyContent="center"
       alignItems="center"
       marginTop={5}

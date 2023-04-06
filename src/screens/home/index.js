@@ -93,7 +93,7 @@ const HomeScreen = () => {
         ></Marquee>
       </Grid>
       <br/>
-      <Footer/>
+     
     </WrapperComponent>
   );
 };

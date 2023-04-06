@@ -12,7 +12,7 @@ function WrapperComponent(props) {
       <Box >
         {isHeader && <Header />}
         {children}
-        {isFooter && <Footer/>}
+        {isHeader && <Footer/>}
       </Box>
     </Box>
   );

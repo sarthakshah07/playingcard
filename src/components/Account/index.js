@@ -15,7 +15,7 @@ import { logoutUserAction } from "../../redux/auth/middleware";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
- const options = ["hrh"];
+const options = ["hrh"];
 
 export default function SplitButton() {
   const [open, setOpen] = React.useState(false);
@@ -98,27 +98,33 @@ export default function SplitButton() {
       }
     });
   };
-  
 
   return (
     <React.Fragment>
-      <ButtonGroup
+      {/* <ButtonGroup
         variant="contained"
         ref={anchorRef}
         aria-label="split button"
       >
-        <MyButton
-          size="small"
-          title={
-            <AccountCircleIcon onClick={handleClick} style={{ border: "none" }}>
-              {options[selectedIndex]}
-            </AccountCircleIcon>
-          }
-          variant="text"
-          sx={{ border: "none", height: "30px", scale: "1.5", color: "black" }}
-          handleClick={handleToggle}
-        />
-      </ButtonGroup>
+        
+      </ButtonGroup> */}
+
+      <MyButton
+        size="small"
+        title={
+          <AccountCircleIcon
+            ref={anchorRef}
+            onClick={handleClick}
+            style={{ border: "none" }}
+          >
+            {options[selectedIndex]}
+          </AccountCircleIcon>
+        }
+        variant="text"
+        sx={{ border: "none", height: "30px", scale: "1.5", color: "white" }}
+        handleClick={handleToggle}
+      />
+
       <Popper
         sx={{
           zIndex: 1,
@@ -158,17 +164,18 @@ export default function SplitButton() {
                           backgroundColor: "#FAF0CB",
                           margin: "15%",
                           borderRadius: "15px",
-                          
-                          
                         }}
                         handleClick={() => navigate("/Userinfo")}
-                        
                       />
                       <MyButton
                         size="small"
                         title="logout"
                         variant="contained"
-                        sx={{ color: "black", backgroundColor: "#FAF0CB",borderRadius: "15px" }}
+                        sx={{
+                          color: "black",
+                          backgroundColor: "#FAF0CB",
+                          borderRadius: "15px",
+                        }}
                         handleClick={handleLogout}
                       />
                     </MenuItem>

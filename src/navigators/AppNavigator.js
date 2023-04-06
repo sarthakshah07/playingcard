@@ -7,6 +7,7 @@ const Userinfo  = lazy (() =>  import ("../screens/Userinfo/index"))
 const UserCardShow = lazy(() => import ("../screens/showcards/index"));
 const Wallet = lazy(() => import("../screens/Wallet"));
 const LandingPage = lazy(()=> import("../screens/landingpage"))
+const PaymentMethodPage = lazy(()=> import("../screens/PaymentMethod"))
 
   
 function AppNavigator() {
@@ -18,6 +19,7 @@ function AppNavigator() {
           <Route path="/card" element= {<UserCardShow/>} />
           <Route path="/wallet" element={<Wallet />} />
           <Route path="/Userinfo" element={<Userinfo />} />
+          <Route path="/cardpayment" element={<PaymentMethodPage />} />
           <Route path="/landingpage" element={<LandingPage />} />
           <Route path="*" element={<NotFound />} />
 
