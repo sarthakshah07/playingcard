@@ -44,23 +44,23 @@ const Login = () => {
     useFormik({
       initialValues: initialValues,
       validationSchema: signInSchema,
-      onSubmit: (val,err) => {
+      onSubmit: (val, err) => {
         const Toast = Swal.mixin({
           toast: true,
-          position: 'bottom-end',
-          zIndex:1,
+          position: "bottom-end",
+          zIndex: 1,
           showConfirmButton: false,
           timer: 3000,
           timerProgressBar: true,
           didOpen: (toast) => {
-            toast.addEventListener('mouseenter', Swal.stopTimer)
-            toast.addEventListener('mouseleave', Swal.resumeTimer)
-          }
-        })
+            toast.addEventListener("mouseenter", Swal.stopTimer);
+            toast.addEventListener("mouseleave", Swal.resumeTimer);
+          },
+        });
         Toast.fire({
-          icon: 'success',
-          title: 'Logged in successfully'
-        })
+          icon: "success",
+          title: "Logged in successfully",
+        });
         dispatch(loginUserByEmailAction(val));
       },
     });
@@ -74,8 +74,16 @@ const Login = () => {
 
   return (
     <WrapperComponent>
-      <Grid container border={1} className="container">
-        <Grid item xs={9} md={4}>
+      <Grid container justifyContent= "center" border={1} className="container">
+        <Grid
+          item
+          sx={{
+            width: { xs: "95vw",lg:"40vw",sm:"70vw",md:"60vw"  },
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           <Box>
             <Card className="loginbox">
               <CardContent>
@@ -85,6 +93,7 @@ const Login = () => {
                   variant="h1"
                   sx={{
                     fontFamily: "Georgia, 'Times New Roman', Times, serif",
+                    // textShadow: "1px 1px 20px red",
                   }}
                 />
                 <form noValidate onSubmit={handleSubmit}>

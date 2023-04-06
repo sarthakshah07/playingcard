@@ -22,7 +22,6 @@ import { useNavigate } from "react-router-dom";
 import { signUpUserAction } from "../../redux/auth/middleware";
 import { authSelector } from "../../redux/auth/authSlice";
 
-
 const initialValues = {
   firstName: "",
   lastName: "",
@@ -100,17 +99,16 @@ const Signup = () => {
   const [showPassword, setShowPassword] = React.useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const signup = useSelector(authSelector)
+  const signup = useSelector(authSelector);
 
-console.log("signup dta:",signup);
+  console.log("signup dta:", signup);
 
   const initialValues = {
     firstName: "",
     lastName: "",
     email: "",
-    contactNo:"",
+    contactNo: "",
     password: "",
-
   };
   const { handleChange, handleSubmit, handleBlur, values, touched, errors } =
     useFormik({
@@ -118,12 +116,12 @@ console.log("signup dta:",signup);
       validationSchema: signUpSchema,
       onSubmit: (val) => {
         console.log("singup details", val);
-        dispatch(signUpUserAction(val))
+        dispatch(signUpUserAction(val));
       },
     });
-    
+
   const Navigatetologin = () => navigate("/");
-  
+
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   const handleMouseDownPassword = (event) => {
@@ -132,24 +130,41 @@ console.log("signup dta:",signup);
   };
 
   return (
-    <Grid container  className="mainsignup" sx={{display:"flex",justifyContent:"center"}}>
-      <Grid item  xs={8} md={4}  sx={{display:"flex", alignItems:"center",justifyContent:"center", height:"100vh"}}>
+    <Grid
+      container
+      className="mainsignup"
+      sx={{ display: "flex", justifyContent: "center" }}
+    >
+      <Grid
+        item
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          height: { xs: "100vh" },
+          width: { xs: "97vw",lg:"40vw",sm:"60vw",md:"50vw" },
+          // mr: { xs: "%" },
+        }}
+      >
         <Box>
-          <Card className="signupbox" sx={{overflow:"auto"}}>
-            <CardContent >
-              <Grid item xs={12}  sx={{textAlign:"center"}}>
-              <CardHeader
-                title="Sign up"
-                variant="h1"
-                sx={{ fontFamily: "Georgia, 'Times New Roman', Times, serif",textShadow:"1px 1px 20px red" }}
-                className="Cardheader"
-              />
+          <Card className="signupbox" sx={{ overflow: "auto" }}>
+            <CardContent>
+              <Grid item xs={12} sx={{ textAlign: "center" }}>
+                <CardHeader
+                  title="Sign up"
+                  variant="h1"
+                  sx={{
+                    fontFamily: "Georgia, 'Times New Roman', Times, serif",
+                    textShadow: "1px 1px 20px red",
+                  }}
+                  className="Cardheader"
+                />
               </Grid>
               <form noValidate onSubmit={handleSubmit}>
                 <Typography sx={{ mt: 1.5, mb: 1.5 }} color="text.secondary">
                   {/* <Textfield/> */}
-                  <Grid container xs={12} spacing={1} >
-                    <Grid item xs={12}  md={6}>
+                  <Grid container xs={12} spacing={1}>
+                    <Grid item xs={12} md={6}>
                       <FieldText
                         fullWidth={true}
                         className="firstname"
@@ -250,7 +265,7 @@ console.log("signup dta:",signup);
                         <div className="error">{errors.contactNo}</div>
                       ) : null}
                     </Grid>
-                    <Grid item xs={12} md={6} >
+                    <Grid item xs={12} md={6}>
                       <FieldText
                         fullWidth={true}
                         // type="password"
@@ -337,7 +352,7 @@ console.log("signup dta:",signup);
                     </Grid>
                   </Grid>
                 </Typography>
-                <Grid item  >
+                <Grid item>
                   <Typography variant="body2" className="signupboxfooter">
                     <MyButton
                       className="signup"
@@ -345,7 +360,11 @@ console.log("signup dta:",signup);
                       title="sign up"
                       variant="contained"
                       type="submit"
-                      sx={{width:"80%",marginLeft:"10%",backgroundColor:"#363a3e"}}
+                      sx={{
+                        width: "80%",
+                        marginLeft: "10%",
+                        backgroundColor: "#363a3e",
+                      }}
                     />
                   </Typography>
                 </Grid>
@@ -357,15 +376,15 @@ console.log("signup dta:",signup);
                   <Typography className="SUtext" gutterBottom>
                     Already have a account ?
                   </Typography>
-                  </Grid>
-                  <Grid item xs={12} textAlign="center">
+                </Grid>
+                <Grid item xs={12} textAlign="center">
                   <MyButton
                     className="Slogin"
                     fullWidth={false}
                     title="Log in"
                     handleClick={Navigatetologin}
                   />
-                  </Grid>
+                </Grid>
               </form>
             </CardContent>
           </Card>
