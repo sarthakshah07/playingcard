@@ -78,17 +78,21 @@ export default function Wallet() {
     <Grid
       container
       height="100vh"
-      
       bgcolor="white"
       justifyContent="center"
       alignItems="center"
       marginTop={5}
     >
-      <Grid xs={12} md={3} sx={{height:{sm:"80vh",xs:"100%"}}} justifyContent="center">
+      <Grid
+        xs={12}
+        md={3}
+        sx={{ height: { sm: "80vh", xs: "100%" } }}
+        justifyContent="center"
+      >
         <Card
           sx={{
             // minWidth: 20,
-            height: "100%", 
+            height: "100%",
             // width: "100%",
             justifyContent: "center",
             borderRadius: "25px",
@@ -96,14 +100,6 @@ export default function Wallet() {
           }}
         >
           <CardContent>
-            {/* <Typography
-              variant="h4"
-              justifyContent="center"
-              alignItems="center"
-              sx={{ backgroundColor: "grey" ,textAlign:"center", Merge:"7%"}}
-            >
-              Total Balance
-            </Typography > */}
             <Grid xs={12} item justifyContent="center" textAlign="center">
               <CardHeader title="Total Balance" />
               <Typography sx={{ fontWeight: "900" }} variant="body2">
@@ -129,12 +125,12 @@ export default function Wallet() {
                 Winnings
               </Typography>
               <MyButton
-                className="Slogin"
+                className="login"
                 fullWidth={false}
                 title="Instant Withdraw"
                 // handleClick={Navigatetologin}
                 variant="outlined"
-                sx={{ width: "12vw", alignItems: "left" }}
+                sx={{ width: "70vw", alignItems: "left" }}
               />
             </Grid>
             <Grid xs={12} item>
@@ -215,7 +211,7 @@ export default function Wallet() {
                 </Accordion>
               </Grid>
             </Grid>
-            <Grid item xs={12} border={1}  >
+            <Grid item xs={12} border={1}>
               <MyButton
                 className="signup"
                 fullWidth={false}
@@ -223,9 +219,9 @@ export default function Wallet() {
                 variant="contained"
                 type="submit"
                 sx={{
-                  position:"absolute",
-                  top:{sm:"90%",xs:"87%"},
-                  right:{sm:"47%",xs:"40%"},
+                  position: "absolute",
+                  top: { sm: "89%", xs: "89%" },
+                  right: { sm: "47%", xs: "40%" },
                   // right:"47%",
                   // width: "100%",
                   // marginLeft: "10%",
