@@ -12,6 +12,7 @@ import "./_home.css";
 // import PreviewIcon from "@mui/icons-material/Preview";
 import Slider from "../../components/Slider/index";
 import Footer from "../../components/Footer";
+// import  Card from "react-custom-heading"
 
 const HomeScreen = () => {
   const [showCards, setShowCards] = useState(false);
@@ -39,6 +40,7 @@ const HomeScreen = () => {
         md={12}
       >
         <Grid item xs={12}>
+          {/* <Card title="harshad"/> */}
           <Grid container justifyContent="center" spacing={4}>
             <Grid item xs={9}>
               <Slider

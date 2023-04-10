@@ -161,7 +161,7 @@ const ButtonAppBar = () => {
  
   return (
     <Grid container justifyContent="center" bgcolor="#31996A" 
-    // sx={{borderBottom:"1px solid black" }}
+    // sx={{borderBottom:"1px solid white" }}
     >
       <Grid item xs={8}>
       {/* <AppBar
@@ -188,7 +188,7 @@ const ButtonAppBar = () => {
             sx={{ flexGrow: 1, display: { xs: "none", sm: "flex" } ,alignItems:"center"}}
           >
             <img src={logoheader} style={{ height: "50px" }} alt="img"></img>
-            <Typography variant="h4" sx={{marginLeft:"15px",color:"black",fontFamily:"-apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serif"}}>Card Login</Typography>
+            <Typography variant="h4" sx={{marginLeft:"15px",color:"white",fontFamily:"-apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serif"}}>Card Login</Typography>
           </Typography>
 
           <Box sx={{ display: { xs: "none", sm: "flex" } }}>
@@ -196,14 +196,14 @@ const ButtonAppBar = () => {
               size="small"
               title="home"
               variant="text"
-              sx={{ color: "black", marginRight: "20px" }}
+              sx={{ color: "white", marginRight: "20px" }}
               handleClick={ClickToHome}
             />
             <MyButton
               size="small"
               title="Card list"
               variant="text"
-              sx={{ color: "black", marginRight: "20px" }}
+              sx={{ color: "white", marginRight: "20px" }}
               handleClick={handleCardList}
             />
 

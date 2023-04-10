@@ -102,23 +102,17 @@ export default function SplitButton() {
 
   return (
     <React.Fragment>
-      <ButtonGroup
-        variant="contained"
-        ref={anchorRef}
-        aria-label="split button"
-      >
         <MyButton
           size="small"
           title={
-            <AccountCircleIcon onClick={handleClick} style={{ border: "none" }}>
+            <AccountCircleIcon onClick={handleClick} ref={anchorRef} style={{ border: "none" }}>
               {options[selectedIndex]}
             </AccountCircleIcon>
           }
           variant="text"
-          sx={{ border: "none", height: "30px", scale: "1.5", color: "black" }}
+          sx={{ border: "none", height: "30px", scale: "1.5", color: "white" }}
           handleClick={handleToggle}
         />
-      </ButtonGroup>
       <Popper
         sx={{
           zIndex: 1,

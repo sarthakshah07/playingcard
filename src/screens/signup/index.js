@@ -359,7 +359,7 @@ console.log("signup dta:",signup);
                   </Typography>
                   </Grid>
                   <Grid item xs={12} textAlign="center">
-                  <MyButton
+                  <MyButton  
                     className="Slogin"
                     fullWidth={false}
                     title="Log in"

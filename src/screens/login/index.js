@@ -73,7 +73,7 @@ const Login = () => {
   };
 
   return (
-    <WrapperComponent>
+    <WrapperComponent isHeader>
       <Grid container border={1} className="container">
         <Grid item xs={9} md={4}>
           <Box>

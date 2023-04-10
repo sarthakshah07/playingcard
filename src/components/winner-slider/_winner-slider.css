@@ -1,0 +1,12 @@
+.slick-slider {
+    margin:0 -15px;
+}
+.slick-slide {
+    border: none;
+    /* padding:10px; */
+    /* background-color:red; */
+    z-index: 0;
+    /* text-align:center; */
+    /* margin-right:5px; */
+    /* margin-left:15px; */
+}

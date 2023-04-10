@@ -11,8 +11,9 @@ function WrapperComponent(props) {
       <CssBaseline />
       <Box >
         {isHeader && <Header />}
+      
         {children}
-        {isFooter && <Footer/>}
+        {/* {isHeader && <Footer/>} */}
       </Box>
     </Box>
   );
