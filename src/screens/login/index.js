@@ -20,18 +20,16 @@ import { useNavigate } from "react-router-dom";
 import { loginUserByEmailAction } from "../../redux/auth/middleware";
 import { authSelector } from "../../redux/auth/authSlice";
 import Swal from "sweetalert2";
-
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const authData = useSelector(authSelector);
   console.log("authData : ", authData);
-
   const initialValues = {
-    email: "",
+    
+    emaill: "",
     password: "",
   };
-
   const signInSchema = yup.object().shape({
     email: yup.string().email().required("Email is required"),
     password: yup
@@ -39,52 +37,59 @@ const Login = () => {
       .required("Password is required")
       .min(4, "Password is too short - should be 4 chars min"),
   });
-
   const { handleChange, handleSubmit, handleBlur, values, touched, errors } =
     useFormik({
       initialValues: initialValues,
       validationSchema: signInSchema,
-      onSubmit: (val,err) => {
+      onSubmit: (val, err) => {
         const Toast = Swal.mixin({
           toast: true,
-          position: 'bottom-end',
-          zIndex:1,
+          position: "bottom-end",
+          zIndex: 1,
           showConfirmButton: false,
           timer: 3000,
           timerProgressBar: true,
           didOpen: (toast) => {
-            toast.addEventListener('mouseenter', Swal.stopTimer)
-            toast.addEventListener('mouseleave', Swal.resumeTimer)
-          }
-        })
+            toast.addEventListener("mouseenter", Swal.stopTimer);
+            toast.addEventListener("mouseleave", Swal.resumeTimer);
+          },
+        });
         Toast.fire({
-          icon: 'success',
-          title: 'Logged in successfully'
-        })
+          icon: "success",
+          title: "Logged in successfully",
+        });
         dispatch(loginUserByEmailAction(val));
       },
     });
-
   const NavigateOnClick = () => {
     navigate("/forgot-password");
   };
   const NavigateOnClickRegistraion = () => {
     navigate("/signUp");
   };
-
   return (
     <WrapperComponent>
-      <Grid container border={1} className="container">
-        <Grid item xs={9} md={4}>
+      <Grid container justifyContent= "center" border={1} className="container">
+        <Grid
+          item
+          sx={{
+            width: { xs: "95vw",lg:"40vw",sm:"70vw",md:"60vw"  },
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           <Box>
             <Card className="loginbox">
               <CardContent>
                 <CardHeader
                   className="Cardheader"
+                  // fontFamily="apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serif"
                   title="Sign in"
                   variant="h1"
                   sx={{
-                    fontFamily: "Georgia, 'Times New Roman', Times, serif",
+                      // fontFamily: "Georgia, 'Times New Roman', Times, serif",
+                    // textShadow: "1px 1px 20px red",
                   }}
                 />
                 <form noValidate onSubmit={handleSubmit}>
@@ -92,6 +97,8 @@ const Login = () => {
                     <Grid container>
                       <Grid item xs={12}>
                         <FieldText
+                        sx={{ fontFamily:
+                          "apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serifi"}}
                           fullWidth={true}
                           type="email"
                           value={values.email}
@@ -117,6 +124,8 @@ const Login = () => {
                       </Grid>
                       <Grid item xs={12}>
                         <FieldText
+                        sx={{ fontFamily:
+                          "apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serifi"}}
                           fullWidth={true}
                           type="password"
                           id="password"
@@ -152,6 +161,7 @@ const Login = () => {
                       >
                         <MyButton
                           className="signin"
+                          fontFamily="apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serif"
                           // fullWidth={true}
                           title="sign in"
                           variant="contained"
@@ -190,5 +200,17 @@ const Login = () => {
     </WrapperComponent>
   );
 };
-
 export default Login;
+
+
+
+
+
+
+
+
+
+
+
+
+

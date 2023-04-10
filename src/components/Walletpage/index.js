@@ -17,17 +17,15 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-
+import { useNavigate } from "react-router-dom";
 function createData(Id, Amount, Status) {
   return { Id, Amount, Status };
 }
-
 const rows = [
   createData(1, 159, "Successful"),
   createData(2, 237, " Successful"),
   createData(3, 262, "Unsuccessful"),
 ];
-
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -39,7 +37,6 @@ const Accordion = styled((props) => (
     display: "none",
   },
 }));
-
 const AccordionSummary = styled((props) => (
   <MuiAccordionSummary
     expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: "0.9rem" }} />}
@@ -58,35 +55,34 @@ const AccordionSummary = styled((props) => (
     marginLeft: theme.spacing(1),
   },
 }));
-
 const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   padding: theme.spacing(2),
   borderTop: "1px solid rgba(0, 0, 0, .125)",
 }));
-
 export default function Wallet() {
+  const navigate = useNavigate();
   const options = ["Option 1", "Option 2"];
   const [value, setValue] = React.useState(options[0]);
   const [inputValue, setInputValue] = React.useState("");
   const [expanded, setExpanded] = React.useState("panel1");
-
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
-
+  const NavigateOnClick = () => {
+    navigate("/cardpayment  ");
+  };
   return (
     <Grid
       container
-      height="100vh"
+      height="85vh"
+      // border="1px solid red"
       bgcolor="white"
       justifyContent="center"
       alignItems="center"
       marginTop={5}
     >
       <Grid
-        xs={12}
-        md={3}
-        sx={{ height: { sm: "80vh", xs: "100%" } }}
+        sx={{ height: { sm: "100%", xs: "100%" },width:{xs:"95vw",sm:"65vw",md:"50vw",lg:"35vw",xl:"30vw"} }}
         justifyContent="center"
       >
         <Card
@@ -125,12 +121,12 @@ export default function Wallet() {
                 Winnings
               </Typography>
               <MyButton
-                className="login"
+                className="Slogin"
                 fullWidth={false}
                 title="Instant Withdraw"
                 // handleClick={Navigatetologin}
                 variant="outlined"
-                sx={{ width: "70vw", alignItems: "left" }}
+                sx={{ width: "95vw", alignItems: "left" }}
               />
             </Grid>
             <Grid xs={12} item>
@@ -157,11 +153,10 @@ export default function Wallet() {
                     title="Debit/Credit card"
                     variant="text"
                     type="submit"
+                    handleClick={NavigateOnClick}
                     sx={{
                       width: "100%",
                       maxHeight: "100px",
-                      // marginLeft: "10%",
-                      // backgroundColor: "#363a3e",
                     }}
                   />
                 </AccordionDetails>
@@ -220,12 +215,12 @@ export default function Wallet() {
                 type="submit"
                 sx={{
                   position: "absolute",
-                  top: { sm: "89%", xs: "89%" },
+                  top: { sm: "90%", xs: "90%" },
                   right: { sm: "47%", xs: "40%" },
                   // right:"47%",
                   // width: "100%",
                   // marginLeft: "10%",
-                  backgroundColor: "#363a3e",
+                  backgroundColor: "#363A3E",
                 }}
               />
             </Grid>

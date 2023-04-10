@@ -11,7 +11,6 @@ const Footer = () => {
     <>
       <Grid
         container
-        border={1}
         className="footercontainer"
         sx={{
           minHeight: "350px",
@@ -20,8 +19,8 @@ const Footer = () => {
         }}
         justifyContent="center"
       >
-        <Grid container border={1} md={8} marginTop={5}>
-          <Grid item border={1} md={6} justifyContent="flex-end">
+        <Grid container md={8} marginTop={5}>
+          <Grid item md={6} justifyContent="flex-end">
             <Grid container justifyContent="center">
               <Typography
                 variant="h4"
@@ -38,13 +37,14 @@ const Footer = () => {
               </Typography>
             </Grid>
             <Grid container justifyContent="center">
-              <Grid item border={1} md={8}>
+              <Grid item md={8} xs={10}>
                 <Typography
                   sx={{
                     fontFamily:
                       "apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serif",
-                    textAlign: "center",
+                    textAlign: "left",
                     boxSizing: "inherit",
+                    marginTop: 3,
                   }}
                 >
                   card game, game played for pleasure or gambling (or both) with
@@ -56,11 +56,11 @@ const Footer = () => {
               </Grid>
             </Grid>
           </Grid>
-          <Grid item border={1} md={6} xs={12}>
+          <Grid item md={6} xs={12}>
             <Grid container>
-              <Grid item border={1} md={6} xs={12}>
+              <Grid item md={6} xs={12}>
                 <Grid container>
-                  <Grid item md={12} xs={12} border={1}>
+                  <Grid item md={12} xs={12}>
                     <Typography
                       variant="h4"
                       sx={{
@@ -79,9 +79,12 @@ const Footer = () => {
                   <Grid
                     item
                     md={12}
-                    xs={4}
-                    border={1}
-                    sx={{ display: "flex", justifyContent: "center",marginTop:6}}
+                    xs={12}
+                    sx={{
+                      display: "flex",
+                      justifyContent: "center",
+                      marginTop: 3,
+                    }}
                   >
                     <Typography
                       sx={{
@@ -99,184 +102,118 @@ const Footer = () => {
                   </Grid>
                 </Grid>
               </Grid>
-              <Grid item border={1} md={6}>
-                <Grid container>
-                  <Grid item md={12} border={1} sx={{display:"flex",justifyContent:"center"}} >
-                  <Typography
-              variant="h4"
-              sx={{
-                fontFamily:
-                  "apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serif",
-                Color: "#008080",
-                boxSizing: "inherit",
-                fontWeight: "600",
-                fontSize: "1.8rem!important;",
-                Padding: "1rem 0",
-              }}
-            >
-              Keep Connected
-            </Typography>
-                  </Grid>
+
+              <Grid item md={6} xs={12} >
+                <Grid container 
+                justifyContent="end"
+              >
                   <Grid
                     item
                     md={12}
-                    border={1}
+                    xs={12}
+                    sx={{ display: "flex", justifyContent: "center" }}
+                  >
+                    <Typography
+                      variant="h4"
+                      sx={{
+                        fontFamily:
+                          "apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serif",
+                        Color: "#008080",
+                        boxSizing: "inherit",
+                        fontWeight: "600",
+                        fontSize: "1.8rem!important;",
+                        Padding: "1rem 0",
+                      }}
+                    >
+                      Keep Connected
+                    </Typography>
+                  </Grid>
+                  <Grid
+                    item
+                   
+                    md={10}
+                    xs={12}
                     sx={{ display: "flex", justifyContent: "center" }}
                   >
                     <Grid container >
-                  <Grid
-                    item
-                    border={1} md={3} 
-                    sx={{ display: "flex", justifyContent:"right",alignItems:"center",paddingTop:8}}
-                  >
-                    <FacebookIcon
-                      sx={{
-                        scale: "1.65",
-                      }}
-                    />
-                  </Grid>
-                  <Grid
-                    item
-                    border={1} md={3}
-                    
-                    sx={{ display: "flex", justifyContent:"center",alignItems:"center",paddingTop:8}}
-                  >
-                    <TwitterIcon
-                      sx={{
-                        scale: "1.65",
-                      }}
-                    />
-                  </Grid>
-                  <Grid
-                    item
-                    border={1} md={3}
-                    
-                    sx={{ display: "flex", justifyContent:"center",alignItems:"center",paddingTop:8}}
-                  >
-                    <InstagramIcon
-                      sx={{
-                        scale: "1.65",
-                      }}
-                    />
-                  </Grid>
-                  <Grid
-                    item
-                    border={1} md={3}
-                    
-                    sx={{ display: "flex", justifyContent:"left",alignItems:"center",paddingTop:8}}
-                  >
-                    <YouTubeIcon
-                      sx={{
+                      <Grid
+                        item
+                        md={3}
+                        xs={3}   sx={{
+                          display: "flex",
+                          justifyContent: "right",
+                          alignItems: "center",
+                           paddingTop: { sm: 3, xs: 2 },
+                        }}
+                      >
+                        <FacebookIcon
+                          sx={{
+                            scale: "1.65",
+                            marginRight: "40px",
+                          }}
+                        />
+                      </Grid>
+                      <Grid
+                        item
+                        md={3}
+                        xs={3}
                         
-                       
-                        scale: "1.65",
-                      }}
-                    />
-                  </Grid>
-                </Grid>
-                    
-                  </Grid>
-                </Grid>
-              </Grid>
-              {/* <Grid
-                item
-                border={1} md={6}
-                
-                sx={{ display: "flex", justifyContent: "center", padding: 6 }}
-              >
-                <Typography
-                  sx={{
-                    whiteSpace: "normal",
-                    variant: "h4",
-                    fontFamily:
-                      "apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serifi",
-                    boxSizing: "inherit",
-                  }}
-                >
-                  mon-fri: 9.00 PM
-                  <br />
-                  sat-sun : closed
-                </Typography>
-              </Grid>
-   
-              <Grid
-                item
-                border={1} md={6}
-                
-                sx={{ display: "flex", justifyContent: "center" }}
-              >
-                <Typography
-                  variant="h4"
-                  sx={{
-                    fontFamily:
-                      "apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serif",
-                    Color: "#008080",
-                    boxSizing: "inherit",
-                    fontWeight: "600",
-                    fontSize: "1.8rem!important;",
-                    Padding: "1rem 0",
-                  }}
-                >
-                  Keep Connected
-                </Typography>
-                <Grid item border={1} md={12} >
-                <Grid container >
-                  <Grid
-                    item
-                    border={1} md={3} 
-                    sx={{ display: "flex", justifyContent:"right",alignItems:"center",paddingTop:8}}
-                  >
-                    <FacebookIcon
-                      sx={{
-                        scale: "1.65",
-                      }}
-                    />
-                  </Grid>
-                  <Grid
-                    item
-                    border={1} md={3}
-                    
-                    sx={{ display: "flex", justifyContent:"center",alignItems:"center",paddingTop:8}}
-                  >
-                    <TwitterIcon
-                      sx={{
+                        sx={{
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                         paddingTop: { sm: 3, xs: 2 },
+                        }}
+                      >
+                        <TwitterIcon
+                          sx={{
+                            scale: "1.65",
+                            marginRight: "40px",
+                          }}
+                        />
+                      </Grid>
+                      <Grid
+                        item
+                        md={3}
+                        xs={3}
+                     
+                        sx={{
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          paddingTop: { sm: 3, xs: 2 },
+                        }}
+                      >
+                        <InstagramIcon
+                          sx={{
+                            scale: "1.65",
+                            marginRight: "40px",
+                          }}
+                        />
+                      </Grid>
+                      <Grid
+                        item
+                        md={3}
+                        xs={3}
                         
-                       
-                        scale: "1.65",
-                      }}
-                    />
-                  </Grid>
-                  <Grid
-                    item
-                    border={1} md={3}
-                    
-                    sx={{ display: "flex", justifyContent:"center",alignItems:"center",paddingTop:8}}
-                  >
-                    <InstagramIcon
-                      sx={{
-                        
-                       
-                        scale: "1.65",
-                      }}
-                    />
-                  </Grid>
-                  <Grid
-                    item
-                    border={1} md={3}
-                    
-                    sx={{ display: "flex", justifyContent:"left",alignItems:"center",paddingTop:8}}
-                  >
-                    <YouTubeIcon
-                      sx={{
-                        
-                       
-                        scale: "1.65",
-                      }}
-                    />
+                        sx={{
+                          display: "flex",
+                          justifyContent: "left",
+                          alignItems: "center",
+                           paddingTop: { sm: 3, xs: 1 },
+                        }}
+                      >
+                        <YouTubeIcon
+                          sx={{
+                            scale: "1.65",
+                            marginRight: "40px",
+                          }}
+                        />
+                      </Grid>
+                    </Grid>
                   </Grid>
                 </Grid>
               </Grid>
-              </Grid> */}
             </Grid>
           </Grid>
         </Grid>

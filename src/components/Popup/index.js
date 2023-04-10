@@ -1,10 +1,9 @@
-
 import * as React from "react";
 import PropTypes from "prop-types";
 import { styled } from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
-import DialogContent from "@mui/material/DialogContent";
+
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import ImageList from "@mui/material/ImageList";
@@ -12,7 +11,7 @@ import ImageListItem from "@mui/material/ImageListItem";
 import { Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import MyButton from "../MyButton";
-import Swal from "sweetalert2";
+
 // import Verificationlogo from "../../assets/Images/emailverification.jpg";
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -25,7 +24,7 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 function BootstrapDialogTitle(props) {
   const { children, onClose, ...other } = props;
   return (
-    <DialogTitle sx={{ m: 0, p: 0 }} {...other}>
+    <DialogTitle sx={{ m: 0, p: 0 }} {...other} >
       {children}
       {onClose ? (
         <IconButton
@@ -62,8 +61,6 @@ export default function Popup({
 
   const itemData = [
     {
-      // img: "D:\nikitaRummyplayingcardsrcassetsimagesemailverification.jpg",
-      // title: "verification-image",
       img: image,
       imgtitle: imgtitle,
       text: text,
@@ -71,18 +68,17 @@ export default function Popup({
   ];
 
   return (
-    <div>
+    <>
       <BootstrapDialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}
       >
-        {/* <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
-          Modal title
-        </BootstrapDialogTitle > */}
         <Box dividers className="dialogmain" sx={popupsx}>
-          <Grid container>
-            <Grid item xs={12}>
+          <Grid container 
+          // border="1px solid red"
+          >
+            <Grid item xs={6}  md={12} border="1px solid red">
               <ImageList
                 sx={{
                   marginLeft: "20%",
@@ -91,8 +87,6 @@ export default function Popup({
                   display: "flex",
                   justifyContent: "center",
                 }}
-                // cols={1}
-                // rowHeight={385}
               >
                 {itemData.map((item) => (
                   <ImageListItem key={item.img} sx={{ width: "180px" }}>
@@ -101,7 +95,9 @@ export default function Popup({
                 ))}
               </ImageList>
             </Grid>
-            <Grid item xs={12} textAlign="center">
+            <Grid item xs={12} textAlign="center" 
+            //  border="1px solid red"
+             >
               <Typography fontSize="30px">
                 Want To Choose This Card <span style={{ color: "red" }}>?</span>
               </Typography>
@@ -112,6 +108,7 @@ export default function Popup({
               </Typography>
             </Grid>
             <Grid
+            //  border="1px solid red"
               item
               xs={12}
               sx={{ display: "flex", justifyContent: "space-evenly" }}
@@ -121,6 +118,7 @@ export default function Popup({
                 sx={{
                   height: "50px",
                   width: "150px",
+
                   backgroundColor: "green",
                 }}
                 handleClick={ConfirmClick}
@@ -138,12 +136,8 @@ export default function Popup({
               />
             </Grid>
           </Grid>
-
-          {/* <h2 style={{ textAlign: "center" }}>
-            you've entered the address of your account
-          </h2> */}
         </Box>
       </BootstrapDialog>
-    </div>
+    </>
   );
 }

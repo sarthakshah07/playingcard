@@ -26,7 +26,7 @@ const FieldText = ({
       disableUnderline={true}
       fullWidth={fullWidth || false}
       sx={sx}
-      className={className}
+      className="textfont"
       type={type}
       id={id}
       label={label}
@@ -38,6 +38,7 @@ const FieldText = ({
       name={name}
       touched={touched}
       errors={errors}
+      
     />
   );
 };
