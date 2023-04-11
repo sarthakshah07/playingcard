@@ -125,7 +125,7 @@ const ButtonAppBar = () => {
             size="small"
             title="home"
             variant="text"
-            sx={{ color: "black", marginRight: "20px" }}
+            sx={{ color: "white", marginRight: "20px" }}
             handleClick={ClickToHome}
           />
         </ListItem>
@@ -134,7 +134,7 @@ const ButtonAppBar = () => {
             size="small"
             title="Card list"
             variant="text"
-            sx={{ color: "black", marginRight: "20px" }}
+            sx={{ color: "white", marginRight: "20px" }}
             handleClick={handleCardList}
           />
         </ListItem>
@@ -143,7 +143,7 @@ const ButtonAppBar = () => {
             size="small"
             title="logout"
             variant="contained"
-            sx={{ color: "black", backgroundColor: "#FAF0CB" }}
+            sx={{ color: "white", backgroundColor: "#FAF0CB" }}
             handleClick={handleLogout}
           />
         </ListItem>
