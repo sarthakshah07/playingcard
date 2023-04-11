@@ -1,30 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { Fab, Grid, Skeleton, Switch, Typography } from "@mui/material";
+import {Grid} from "@mui/material";
 import Marquee from "react-fast-marquee";
 import { useDispatch, useSelector } from "react-redux";
-// import HomeCard from "../../components/HomeCard";
 import WrapperComponent from "../../components/WrapperComponent";
-// import headcardicon from "../../assets/images/headcardicon.png";
 import { dashboardSelector } from "../../redux/dashboard/dashboardSlice";
 import { fetchCardAction } from "../../redux/dashboard/middleware";
 import "./_home.css";
-// import MyButton from "../../components/MyButton";
-// import PreviewIcon from "@mui/icons-material/Preview";
 import Slider from "../../components/Slider/index";
-import Footer from "../../components/Footer";
-// import  Card from "react-custom-heading"
+
 
 const HomeScreen = () => {
   const [showCards, setShowCards] = useState(false);
   const dashboardData = useSelector(dashboardSelector);
-
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchCardAction());
   }, []);
-
-  // console.log("dashbr",dashboardData);
-  // console.log("dashbr2",dashboardData.cardsData);
 
   return (
     <WrapperComponent isHeader>
@@ -36,13 +27,13 @@ const HomeScreen = () => {
           marginTop: "81px",
           paddingTop: "1%",
         }}
+        justifyContent="center"
         xs={8}
         md={12}
       >
-        <Grid item xs={12}>
-          {/* <Card title="harshad"/> */}
+        <Grid item xs={7}>
           <Grid container justifyContent="center" spacing={4}>
-            <Grid item xs={9}>
+            <Grid item xs={12}>
               <Slider
                 data={dashboardData?.cardsData?.find(
                   (item) => item.name === "heartscard"
@@ -50,7 +41,7 @@ const HomeScreen = () => {
                 showCards={showCards}
               />
             </Grid>
-            <Grid item xs={9}>
+            <Grid item xs={12}>
               <Slider
                 data={dashboardData?.cardsData?.find(
                   (item) => item.name === "clubscard"
@@ -58,7 +49,7 @@ const HomeScreen = () => {
                 showCards={showCards}
               />
             </Grid>
-            <Grid item xs={9}>
+            <Grid item xs={12}>
               <Slider
                 data={dashboardData?.cardsData?.find(
                   (item) => item.name === "joker"
@@ -67,8 +58,7 @@ const HomeScreen = () => {
                 isTrue
               />
             </Grid>
-
-            <Grid item xs={9}>
+            <Grid item xs={12}>
               <Slider
                 data={dashboardData?.cardsData?.find(
                   (item) => item.name === "diamondscard"
@@ -76,8 +66,7 @@ const HomeScreen = () => {
                 showCards={showCards}
               />
             </Grid>
-
-            <Grid item xs={9}>
+            <Grid item xs={12}>
               <Slider
                 data={dashboardData?.cardsData?.find(
                   (item) => item.name === "spadescard"
@@ -87,15 +76,8 @@ const HomeScreen = () => {
             </Grid>
           </Grid>
         </Grid>
-
-        <Marquee
-          speed={200}
-          gradientWidth={200}
-          gradientColor={[200, 200, 200]}
-        ></Marquee>
       </Grid>
       <br/>
-      <Footer/>
     </WrapperComponent>
   );
 };

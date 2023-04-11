@@ -15,7 +15,7 @@ const PageNotFound = () => {
     navigate("/");
   };
   return (
-    <WrapperComponent isHeader>
+    <WrapperComponent >
       <Grid
         container
         className="pagenotfoundcontainer"
@@ -27,14 +27,17 @@ const PageNotFound = () => {
         }}
         xs={12}
       >
-        <Grid item xs={2}  zIndex={1} className="heading">
-        <Typography noWrap> Page Not Found</Typography>
+        <Grid item xs={12}  zIndex={1} className="heading" left={{sm:"25%"}}>
+        <Typography noWrap sx={{fontSize:{xs:10,sm:20},textAlign:"center"}}> Page Not Found</Typography>
         </Grid>
-      
-        <Typography className="content">
-          <span style={{ fontSize: "22px", color: "red" }}>Oops!!</span> We
+        
+        <Grid item  className="content">
+        <Typography sx={{fontSize:{xs:8,sm:20}}}>
+          <span style={{ fontSize:{xs:5,sm:20}, color: "red" }}>Oops!!</span> We
           can't seem to find the page you're looking for!{" "}
         </Typography>
+        </Grid>
+        
         <MyButton
           sx={{
             position: "absolute",
@@ -43,7 +46,7 @@ const PageNotFound = () => {
             zIndex: "1",
             backgroundColor: "green",
             padding:"10px",
-            width:"10%"
+            width:{sm:"10%",xs:"50%"}
           }}
           size="small"
           title="Go Home"

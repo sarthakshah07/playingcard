@@ -1,3 +1,4 @@
+
 import React from "react";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
@@ -21,8 +22,6 @@ import Divider from "@mui/material/Divider";
 import { useNavigate } from "react-router-dom";
 import { signUpUserAction } from "../../redux/auth/middleware";
 import { authSelector } from "../../redux/auth/authSlice";
-
-
 const initialValues = {
   firstName: "",
   lastName: "",
@@ -64,53 +63,18 @@ const signUpSchema = yup.object().shape({
     .min(4, "Password is too short - should be 4 chars min")
     .oneOf([yup.ref("password"), null], "Passwords must match"),
 });
-
-// const validate = (values) => {
-//   let errors = {};
-
-//   if (!values.Firstname) {
-//     errors.Firstname = "Required*";
-//   }
-//   if (!values.Lastname) {
-//     errors.Lastname = "Required*";
-//   }
-//   if (!values.ContactNo) {
-//     errors.ContactNo = "Required*";
-//   }
-//   if (!values.Password) {
-//     errors.Password = "Required*";
-//   }
-//   if (!values.Cpassword) {
-//     errors.Cpassword = "Required*";
-//   }
-//   // console.log("errors", errors);
-//   if (!values.email) {
-//     errors.email = "Required";
-//   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.Email)) {
-//     errors.email = "Invalid email address";
-//   }
-//   if (values.Password !== values.Cpassword) {
-//     errors.Password = "not matching";
-//   }
-//   console.log("errors", errors);
-//   return errors;
-// };
-
 const Signup = () => {
   const [showPassword, setShowPassword] = React.useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const signup = useSelector(authSelector)
-
-console.log("signup dta:",signup);
-
+  const signup = useSelector(authSelector);
+  console.log("signup dta:", signup);
   const initialValues = {
     firstName: "",
     lastName: "",
     email: "",
-    contactNo:"",
+    contactNo: "",
     password: "",
-
   };
   const { handleChange, handleSubmit, handleBlur, values, touched, errors } =
     useFormik({
@@ -118,38 +82,48 @@ console.log("signup dta:",signup);
       validationSchema: signUpSchema,
       onSubmit: (val) => {
         console.log("singup details", val);
-        dispatch(signUpUserAction(val))
+        dispatch(signUpUserAction(val));
       },
     });
-    
   const Navigatetologin = () => navigate("/");
-  
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
     console.log("show password");
   };
-
   return (
-    <Grid container  className="mainsignup" sx={{display:"flex",justifyContent:"center"}}>
-      <Grid item  xs={8} md={4}  sx={{display:"flex", alignItems:"center",justifyContent:"center", height:"100vh"}}>
+    <Grid
+      container
+      className="mainsignup"
+      sx={{ display: "flex", justifyContent: "center" }}
+    >
+      <Grid
+        item
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          height: { xs: "100vh" },
+          width: { xs: "97vw", lg: "40vw", sm: "60vw", md: "50vw" },
+          // mr: { xs: "%" },
+        }}
+      >
         <Box>
-          <Card className="signupbox" sx={{overflow:"auto"}}>
-            <CardContent >
-              <Grid item xs={12}  sx={{textAlign:"center"}}>
-              <CardHeader
-                title="Sign up"
-                variant="h1"
-                sx={{ fontFamily: "Georgia, 'Times New Roman', Times, serif",textShadow:"1px 1px 20px red" }}
-                className="Cardheader"
-              />
+          <Card className="signupbox" sx={{ overflow: "auto" }}>
+            <CardContent>
+              <Grid item xs={12} sx={{ textAlign: "center" }}>
+                <CardHeader
+                  title="Sign Up"
+                  variant="h1"
+                  sx={{}}
+                  className="Cardheader"
+                />
               </Grid>
               <form noValidate onSubmit={handleSubmit}>
                 <Typography sx={{ mt: 1.5, mb: 1.5 }} color="text.secondary">
                   {/* <Textfield/> */}
-                  <Grid container xs={12} spacing={1} >
-                    <Grid item xs={12}  md={6}>
+                  <Grid container xs={12} spacing={1}>
+                    <Grid item xs={12} md={6}>
                       <FieldText
                         fullWidth={true}
                         className="firstname"
@@ -250,7 +224,7 @@ console.log("signup dta:",signup);
                         <div className="error">{errors.contactNo}</div>
                       ) : null}
                     </Grid>
-                    <Grid item xs={12} md={6} >
+                    <Grid item xs={12} md={6}>
                       <FieldText
                         fullWidth={true}
                         // type="password"
@@ -337,7 +311,7 @@ console.log("signup dta:",signup);
                     </Grid>
                   </Grid>
                 </Typography>
-                <Grid item  >
+                <Grid item>
                   <Typography variant="body2" className="signupboxfooter">
                     <MyButton
                       className="signup"
@@ -345,27 +319,30 @@ console.log("signup dta:",signup);
                       title="sign up"
                       variant="contained"
                       type="submit"
-                      sx={{width:"80%",marginLeft:"10%",backgroundColor:"#363a3e"}}
+                      sx={{
+                        width: "80%",
+                        marginLeft: "10%",
+                        backgroundColor: "#363A3E",
+                      }}
                     />
                   </Typography>
                 </Grid>
                 <br />
-
                 <Divider />
                 <br />
                 <Grid item textAlign="center">
                   <Typography className="SUtext" gutterBottom>
                     Already have a account ?
                   </Typography>
-                  </Grid>
-                  <Grid item xs={12} textAlign="center">
-                  <MyButton  
+                </Grid>
+                <Grid item xs={12} textAlign="center">
+                  <MyButton
                     className="Slogin"
                     fullWidth={false}
                     title="Log in"
                     handleClick={Navigatetologin}
                   />
-                  </Grid>
+                </Grid>
               </form>
             </CardContent>
           </Card>

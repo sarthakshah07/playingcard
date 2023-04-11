@@ -9,11 +9,10 @@ function WrapperComponent(props) {
   return (
     <Box sx={{ width: "100%"}}>
       <CssBaseline />
-      <Box >
+      <Box  sx={{fontFamily:"apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serif"}}>
         {isHeader && <Header />}
-      
         {children}
-        {/* {isHeader && <Footer/>} */}
+        {isHeader && <Footer/>}
       </Box>
     </Box>
   );

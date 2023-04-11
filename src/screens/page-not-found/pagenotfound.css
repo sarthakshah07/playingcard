@@ -4,9 +4,7 @@
 .heading{
     position:absolute;
     top :15%;
-    left :25%;
     scale: 5;
-    font-family:cursive !important;
     color: rgb(197, 42, 42);
     z-index: 1;
 }
@@ -14,8 +12,7 @@
     position: absolute;
     top:80%;
     left: 20%;
-    scale: 2;
-    font-family:cursive !important;
+    scale: 1.7;
     z-index: 1;
     color: white;
 }

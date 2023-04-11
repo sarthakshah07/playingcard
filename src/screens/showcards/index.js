@@ -78,7 +78,6 @@ const ShowCards = ({ state }) => {
   const TommorowDate = `${current.getDate() + 1}/${
     current.getMonth() + 1
   }/${current.getFullYear()}`;
-  const tommorrow = new Date(TommorowDate + 1);
   const NavigateOnHome = () => {
     Swal.fire({
       title: "Are You Sure ?",
@@ -95,7 +94,6 @@ const ShowCards = ({ state }) => {
       cancelButtonText: `No`,
       cancelButtonColor: "red",
     }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         navigate("/");
       }
@@ -107,17 +105,19 @@ const ShowCards = ({ state }) => {
     <WrapperComponent isHeader>
       <Grid
         container
-        component={Paper}
-        style={{ width: "100%", marginTop: "5%" }}
+        // component={Paper}
+        justifyContent="center"
+        style={{marginTop: "5%" ,border:"none"}}
       >
-        <Grid item xs={10} sx={{ marginLeft: "10%" }}>
+        <Grid item xs={10} sm={10} md={8} lg={8} xl={8} >
           {cardImg && (
-            <Card sx={{ minWidth: 275, boxShadow: "1px 1px 20px 20px gray" }}>
+            <Card sx={{ boxShadow: "5px 4px 10px  black", borderRadius: "55px 10px 55px 10px"}}>
               <CardContent>
-                <Grid item xs={12} sx={{ display: "flex" }}>
+                <Grid container xs={12}  sx={{ display: "flex" }}>
                   <Grid
                     item
-                    xs={6}
+                    xs={12}
+                    md={6}
                     sx={{
                       display: "flex",
                       flexDirection: "column-reverse",
@@ -131,7 +131,11 @@ const ShowCards = ({ state }) => {
                       style={{ height: "280px" }}
                     />
                   </Grid>
-                  <Grid item xs={6}>
+                  <Grid item  
+                  xs={12}
+                    md={6}
+                     textAlign="center"
+                    sx={{display:"flex",flexDirection:"column"}} >
                     <Typography
                       sx={{
                         fontVariant: "small-caps",
@@ -140,7 +144,10 @@ const ShowCards = ({ state }) => {
                       }}
                     >
                       Time Left:
-                      <Timer TommorowDate={TommorowDate} />
+                      
+                    </Typography>
+                    <Typography sx={{display:"flex",justifyContent:"center"}}>
+                    <Timer TommorowDate={TommorowDate}/>
                     </Typography>
                     <br />
                     <Typography
@@ -156,7 +163,7 @@ const ShowCards = ({ state }) => {
                   </Grid>
                 </Grid>
               </CardContent>
-              <Grid item sx={{ marginLeft: "49.5%" }}>
+              <Grid container justifyContent="center" marginTop={4}>
                 <CardActions>
                   <MyButton
                     className="changeCard"
@@ -174,11 +181,15 @@ const ShowCards = ({ state }) => {
       <Grid
         container
         component={Paper}
-        style={{ width: "100%", marginTop: "2%" }}
+        justifyContent="center"
+        style={{ width: "100%", marginTop: "5%" }}
       >
-        <Grid item xs={10} sx={{ marginLeft: "10%" }}>
+        <Grid item xs={10} md={8} marginBottom={4}  textAlign="center"  >
+        <Typography variant="h4" sx={{backgroundColor:"#31996A",color:"white",padding:2}}>Cards History</Typography>
+          <Grid container overflow="auto" sx={{height:{xs:800}}}>
+
           <Table aria-label="customized table">
-            <TableHead>
+            <TableHead sx={{position:"sticky",top:0}}>
               <TableRow>
                 <StyledTableCell style={{ fontSize: "30px" }}>
                   Id
@@ -235,10 +246,15 @@ const ShowCards = ({ state }) => {
                   <StyledTableCell align="right">
                     <img src={row.url} style={{ height: "90px" }} alt=""></img>
                   </StyledTableCell>
+                  <StyledTableCell align="right">
+                    <img src={row.url} style={{ height: "90px" }} alt=""></img>
+                  </StyledTableCell>
                 </StyledTableRow>
               ))}
             </TableBody>
           </Table>
+          </Grid>
+         
         </Grid>
       </Grid>
     </WrapperComponent>

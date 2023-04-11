@@ -1,5 +1,4 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -7,12 +6,11 @@ import { logoutUserAction } from "../../redux/auth/middleware";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import MyButton from "../MyButton";
 import Account from "../Account/index";
 
 import {
-  // Backdrop,
   Divider,
   Drawer,
   Grid,
@@ -21,8 +19,10 @@ import {
   Snackbar,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import logoheader from "../../assets/images/headerlogo.png";
+import logoheader from "../../assets/images/cardlogo1.jpg";
+import logoheader2 from "../../assets/images/logoheader.png";
 import Swal from "sweetalert2";
+import { authSelector } from "../../redux/auth/authSlice";
 
 const drawerWidth = 240;
 const ButtonAppBar = () => {
@@ -30,12 +30,8 @@ const ButtonAppBar = () => {
   const [open, setOpen] = React.useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const authState = useSelector(authSelector);
 
-  // const handleClose = (event, reason) => {
-  //   if (reason === 'clickaway') {
-  //     dispatch(logoutUserAction());
-  //     // return;
-  //   }
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -47,20 +43,9 @@ const ButtonAppBar = () => {
   const ClickToHome = () => {
     navigate("/");
   };
-  // const container =
-  //   window !== undefined ? () => window().document.body : undefined;
 
-  const snack = (
-    <Snackbar
-      open={open}
-      autoHideDuration={6000}
-      // onClose={handleClose}
-      message="Note archived"
-      // action={action}
-    />
-  );
   const handleLogout = () => {
-    console.log("log")
+    console.log("log");
     Swal.fire({
       title: "Are You Sure?",
       color: "#000",
@@ -73,7 +58,6 @@ const ButtonAppBar = () => {
       cancelButtonText: `No`,
       cancelButtonColor: "red",
     }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         const Toast = Swal.mixin({
           toast: true,
@@ -123,8 +107,16 @@ const ButtonAppBar = () => {
         justifyContent: "center",
       }}
     >
-      <Typography variant="h6" sx={{ my: 2 }}>
-      
+      <Typography
+        variant="h4"
+        sx={{
+          marginLeft: "15px",
+          color: "black",
+          fontFamily:
+            "-apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serif",
+        }}
+      >
+        Card Login
       </Typography>
       <Divider />
       <List>
@@ -158,39 +150,63 @@ const ButtonAppBar = () => {
       </List>
     </Box>
   );
- 
+
   return (
-    <Grid container justifyContent="center" bgcolor="#31996A" 
-    // sx={{borderBottom:"1px solid white" }}
-    >
-      <Grid item xs={8}>
-      {/* <AppBar
-        component="nav"
-        style={{
-          backgroundColor: "#31996A",
-          display: "flex",
-          justifyContent: "space-evenly",
-        }}
-      > */}
+    <Grid container justifyContent="center" bgcolor="#31996A">
+      <Grid item sm={8} xs={12}>
         <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
+          <Grid
+            container
+            sx={{
+              display: {
+                sm: "none",
+                xs: "flex",
+                justifyContent: "space-evenly",
+              },
+            }}
           >
-            <MenuIcon />
-          </IconButton>
-          <Typography
+            <Grid item  xs={4}>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+            >
+              <MenuIcon />
+              </IconButton>
+            </Grid>
+            <Grid item xs={8}>
+            <Typography variant="h4" sx={{ color: "white" }}>
+                Card Login
+              </Typography>
+            </Grid>
+           
+              
+           
+          </Grid>
+           <Typography
             variant="h6"
             component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "flex" } ,alignItems:"center"}}
+            sx={{
+              flexGrow: 2,
+              display: { xs: "none", sm: "flex" },
+              alignItems: "center",
+              margin:1
+            }}
           >
-            <img src={logoheader} style={{ height: "50px" }} alt="img"></img>
-            <Typography variant="h4" sx={{marginLeft:"15px",color:"white",fontFamily:"-apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serif"}}>Card Login</Typography>
+            <img src={logoheader2} style={{height:"70px"}} alt="img"></img>
+            <Typography
+              variant="h4"
+              sx={{
+                marginLeft: "15px",
+                color: "white",
+                fontFamily:
+                  "-apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serif",
+              }}
+            >
+              Card Login
+            </Typography>
           </Typography>
-
           <Box sx={{ display: { xs: "none", sm: "flex" } }}>
             <MyButton
               size="small"
@@ -206,34 +222,40 @@ const ButtonAppBar = () => {
               sx={{ color: "white", marginRight: "20px" }}
               handleClick={handleCardList}
             />
-
-            <Account/>
+            {
+              authState?.currentUser?
+              <Account />
+              :
+              <MyButton title="lOGIN" variant="text" sx={{color:"white"}} handleClick={()=>navigate("/login")}/>
+            }
+            
           </Box>
         </Toolbar>
-      {/* </AppBar> */}
-      <Box component="nav">
+      
+        <Box component="nav">
         <Drawer
-          // container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-          sx={{
-            display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-            },
-          }}
-        >
-          {drawer}
-        </Drawer>
-      </Box>
+            // container={container}
+            variant="temporary"
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            ModalProps={{
+              keepMounted: true, // Better open performance on mobile.
+            }}
+            sx={{
+              display: { xs: "block", sm: "none" },
+              "& .MuiDrawer-paper": {
+                boxSizing: "border-box",
+                width: drawerWidth,
+              },
+            }}
+          >
+            {drawer}
+          </Drawer>
+        </Box>
+       
       </Grid>
     </Grid>
-  );
+  );   
 };
 
 export default ButtonAppBar;

@@ -1,10 +1,8 @@
-
 import * as React from "react";
 import PropTypes from "prop-types";
 import { styled } from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
-import DialogContent from "@mui/material/DialogContent";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import ImageList from "@mui/material/ImageList";
@@ -12,7 +10,6 @@ import ImageListItem from "@mui/material/ImageListItem";
 import { Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import MyButton from "../MyButton";
-import Swal from "sweetalert2";
 // import Verificationlogo from "../../assets/Images/emailverification.jpg";
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -59,30 +56,30 @@ export default function Popup({
   const handleClose = () => {
     setOpen(false);
   };
-
   const itemData = [
     {
-      // img: "D:\nikitaRummyplayingcardsrcassetsimagesemailverification.jpg",
-      // title: "verification-image",
       img: image,
       imgtitle: imgtitle,
       text: text,
     },
   ];
-
   return (
-    <div>
+    <>
       <BootstrapDialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}
       >
-        {/* <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
-          Modal title
-        </BootstrapDialogTitle > */}
-        <Box dividers className="dialogmain" sx={popupsx}>
-          <Grid container>
-            <Grid item xs={12}>
+        <Box dividers  sx={popupsx}>
+          <Grid
+            container
+            xs={7}
+            md={10}
+            sm={12}
+            lg={12}
+            justifyContent="center"
+          >
+            <Grid item xs={12} md={12}>
               <ImageList
                 sx={{
                   marginLeft: "20%",
@@ -91,8 +88,6 @@ export default function Popup({
                   display: "flex",
                   justifyContent: "center",
                 }}
-                // cols={1}
-                // rowHeight={385}
               >
                 {itemData.map((item) => (
                   <ImageListItem key={item.img} sx={{ width: "180px" }}>
@@ -101,11 +96,19 @@ export default function Popup({
                 ))}
               </ImageList>
             </Grid>
-            <Grid item xs={12} textAlign="center">
-              <Typography fontSize="30px">
+            <Grid
+              item
+              textAlign="center"
+              xs={8}
+              md={12}
+            >
+              <Typography fontSize="30px" sx={{fontSize:{xs:"22px",sm:"30px",md:"30px",lg:"30px"}}} >
                 Want To Choose This Card <span style={{ color: "red" }}>?</span>
               </Typography>
-              <Typography sx={{ marginBottom: "30px" }}>
+              <Typography
+                sx={{ marginBottom: {md:"30px",xs:"0"} }}
+                md={8}
+              >
                 If you click on confirm then your bid will be placed and{" "}
                 <span style={{ color: "red", fontSize: "20px" }}>1$</span> will
                 be deducted from your account{" "}
@@ -113,7 +116,8 @@ export default function Popup({
             </Grid>
             <Grid
               item
-              xs={12}
+              xs={10}
+              md={12}
               sx={{ display: "flex", justifyContent: "space-evenly" }}
             >
               <MyButton
@@ -122,6 +126,7 @@ export default function Popup({
                   height: "50px",
                   width: "150px",
                   backgroundColor: "green",
+                  margin:"10px"
                 }}
                 handleClick={ConfirmClick}
                 title="Confirm"
@@ -132,18 +137,22 @@ export default function Popup({
                   height: "50px",
                   width: "150px",
                   backgroundColor: "red",
+                  margin:"10px"
                 }}
                 handleClick={handleClose}
                 title="Cancel"
               />
             </Grid>
           </Grid>
-
-          {/* <h2 style={{ textAlign: "center" }}>
-            you've entered the address of your account
-          </h2> */}
         </Box>
       </BootstrapDialog>
-    </div>
+    </>
   );
 }
+
+
+
+
+
+
+

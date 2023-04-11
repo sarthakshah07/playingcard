@@ -1,24 +1,15 @@
 .cardheader{
-    /* font-weight: 900px !important;
-     */
-     font-family: initial !important;
+
 }
 
 .paymentmethodpage{
-     /* background-color: rgba(184, 67, 67, 0.09); */
     width: 100% !important;
     height: 100vh !important;
     display: flex; 
     justify-content: center !important;
     align-items: center;
-    /* background-color: black; */
-    /* background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%); */
-    /* background: linear-gradient(180deg,rgba(254,163,64,0) 25.44%,rgba(12,5,70,0.5) 100%),#31996A; */
-    /* background-image: url(../../assets/images/Credit-card-logo.png); */
 }
 .maincard{
-    /* width: 40vw !important; */
-    /* height: 100vh !important;     */
     display: flex;
     align-items: baseline;
     justify-content: space-evenly;
@@ -26,10 +17,6 @@
     flex-wrap: wrap !important;
     border-radius: 5% !important;
     box-shadow: 5px 5px 50px 20px rgb(71, 71, 71) !important;
-    /* box-shadow: 5px 5px 50px 20px rgb(40, 122, 74) !important; */
-
-    /* background: linear-gradient(180deg,rgba(254,163,64,0) 25.44%,rgba(12,5,70,0.5) 100%),#31996A; */
-    
 }
 .expirydate{
     display: flex;
@@ -37,7 +24,6 @@
     flex-wrap: wrap;
     align-content: stretch;
     align-items: baseline;
-    /* justify-content: space-evenly; */
     justify-content: flex-start
 }
 

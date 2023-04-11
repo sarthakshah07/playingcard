@@ -15,8 +15,6 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import CreditCardRoundedIcon from "@mui/icons-material/CreditCardRounded";
 import CalendarTodayRoundedIcon from "@mui/icons-material/CalendarTodayRounded";
 import picture from "../../assets/images/Credit-card-logo.png";
-// import picture from "../../assets/images/Credit-card-logo.png";
-// import { useCreditCardValidator, images } from "react-creditcardvalidator";
 
 const Visacard= /^4[0-9]{12}(?:[0-9]{3})?$/;
 const Mastercard = /^5[1-5][0-9]{14}$/;
@@ -49,12 +47,6 @@ const PaymentMethodPage = () => {
         console.log("singup details");
       },
     });
-  //
-//   const {
-//     getCardNumberProps,
-//     getCardImageProps,
-//     meta: { erroredInputs },
-//  } = useCreditCardValidator();
 
   return (
     <WrapperComponent isHeader>
@@ -63,16 +55,12 @@ const PaymentMethodPage = () => {
           className="maincard"
           sx={{
             width: { xs: "38vh", sm: "45vw", md: "45vw", lg: "40vw" },
-
-            // boxShadow: "5px 5px 10px 10px  #596861",
           }}
         >
           <CardContent sx={{ width: "100%", justifyContent: "center" }}>
             <CardHeader
-              // fullWidth
               sx={{
                 mb: "3",
-                fontFamily: "moz-initial",
               }}
               className="cardheader"
               title="Payment Information"
@@ -84,7 +72,6 @@ const PaymentMethodPage = () => {
                 sx={{
                   mt: "2%",
                   mb: "2",
-                  fontFamily: "-moz-initial",
                   fontWeight: "bold",
                 }}
                 component="div"
@@ -95,7 +82,6 @@ const PaymentMethodPage = () => {
                 <CardMedia
                   className="cardlogo"
                   component="img"
-                  // width="10vh"
                   sx={{
                     width: { xs: "35vh", sm: "25vw" },
                     height: { xs: "40", sm: "50" },
@@ -105,7 +91,7 @@ const PaymentMethodPage = () => {
               </Grid>
               <Grid item xs={12} display={"contents"}>
                 <Typography
-                  sx={{ fontFamily: "-moz-initial", fontWeight: "bold" }}
+                  sx={{fontWeight: "bold" }}
                   variant="subtitle1"
                 >
                   Name on card :
@@ -136,7 +122,7 @@ const PaymentMethodPage = () => {
               <br />
               <Grid item xs={12} display={"contents"} sx={{ mt: "3" }}>
                 <Typography
-                  sx={{ fontFamily: "-moz-initial", fontWeight: "bold" }}
+                  sx={{ fontWeight: "bold" }}
                   variant="subtitle1"
                 >
                   Card Number :
@@ -144,17 +130,14 @@ const PaymentMethodPage = () => {
                 <FieldText
                   fullWidth={true}
                   className="cardnumber"
-           
                   type="tel"
                   value={values.cardNumber}
                   onchange={handleChange}
                   onBlur={handleBlur}
-                  // label="Card Number"
                   id="number"
                   name="cardNumber"
                   touched={touched?.cardNumber}
                   errors={errors?.cardNumber}
-                  // variant="standard"
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
@@ -178,14 +161,12 @@ const PaymentMethodPage = () => {
                 >
                   <Grid item xs={12}>
                     <Typography
-                      sx={{ fontFamily: "-moz-initial", fontWeight: "bold" }}
+                      sx={{fontWeight: "bold" }}
                       variant="subtitle1"
                     >
                       Expiry Date
                     </Typography>
                   </Grid>
-
-                  {/* <Typography variant="body2">date </Typography> */}
                   <Grid item md={2} xs={5}>
                     <FieldText
                       fullWidth={true}
@@ -199,7 +180,6 @@ const PaymentMethodPage = () => {
                       name="expiryMonth"
                       touched={touched?.expiryMonth}
                       errors={errors?.expiryMonth}
-                      //   // variant="standard"
                       InputProps={{
                         startAdornment: (
                           <InputAdornment position="start">
@@ -225,7 +205,6 @@ const PaymentMethodPage = () => {
                       name="expiryYear"
                       touched={touched?.expiryYear}
                       errors={errors?.expiryYear}
-                      // variant="standard"
                       InputProps={{
                         startAdornment: (
                           <InputAdornment position="start">
@@ -251,14 +230,6 @@ const PaymentMethodPage = () => {
                       name="cvv"
                       touched={touched?.cvv}
                       errors={errors?.cvv}
-                      // variant="standard"
-                      // InputProps={{
-                      //   startAdornment: (
-                      //     <InputAdornment position="start">
-                      //       <AccountCircle />
-                      //     </InputAdornment>
-                      //   ),
-                      // }}
                     />
                     {touched.cvv && errors.cvv ? (
                       <div className="error">{errors.cvv}</div>

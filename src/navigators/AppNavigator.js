@@ -15,11 +15,11 @@ function AppNavigator() {
     <Suspense fallback={<h1>Loading...</h1>}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<LandingPage />} />
           <Route path="/card" element= {<UserCardShow/>} />
           <Route path="/wallet" element={<Wallet />} />
           <Route path="/Userinfo" element={<Userinfo />} />
-          <Route path="/landingpage" element={<LandingPage />} />
+          <Route path="/home" element={<Home/>} />
           <Route path="/cardpayment" element={<PaymentMethodPage />} />
           <Route path="*" element={<NotFound />} />
   

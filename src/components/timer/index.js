@@ -13,7 +13,7 @@ const daySeconds = 86400;
 const timerProps = {
   isPlaying: true,
   size: 120,
-  strokeWidth: 6
+  strokeWidth: 6,
 };
 
 const renderTime = (dimension, time) => {
@@ -30,7 +30,7 @@ const getTimeMinutes = (time) => ((time % hourSeconds) / minuteSeconds) | 0;
 const getTimeHours = (time) => ((time % daySeconds) / hourSeconds) | 0;
 const getTimeDays = (time) => (time / daySeconds) | 0;
 
-export default function Timer({TommorowDate}) {
+export default function Timer({TommorowDate,isStyle}) {
   const stratTime = Date.now() / 1000; // use UNIX timestamp in seconds
   const endTime = stratTime + 243248; // use UNIX timestamp in seconds
 
@@ -38,23 +38,19 @@ export default function Timer({TommorowDate}) {
   const days = Math.ceil(remainingTime / daySeconds);
   const daysDuration = days * daySeconds;
 
+  
+  const style = {
+    '@media only screen and (max-width: 600px)': {
+          flexDirection: 'column'
+    }
+  }
+
   return (
-    <div className="App">
-      {/* <CountdownCircleTimer
-        {...timerProps}
-        colors="#7E2E84"
-        duration={daysDuration}
-        initialRemainingTime={remainingTime}
-      >
-        {({ elapsedTime, color }) => (
-          <span style={{ color }}>
-            {renderTime("days", getTimeDays(daysDuration - elapsedTime))}
-          </span>
-        )}
-      </CountdownCircleTimer> */}
+    <div className="App" >
       <CountdownCircleTimer
         {...timerProps}
         colors="#D14081"
+        style={{margin:"10px"}}
         duration={daySeconds}
         initialRemainingTime={remainingTime % daySeconds}
         onComplete={(totalElapsedTime) => ({
@@ -62,7 +58,7 @@ export default function Timer({TommorowDate}) {
         })}
       >
         {({ elapsedTime, color }) => (
-          <span style={{ color }}>
+          <span style={{ color,width:"50%" }}>
             {renderTime("hours", getTimeHours(daySeconds - elapsedTime))}
           </span>
         )}

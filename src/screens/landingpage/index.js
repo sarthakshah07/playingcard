@@ -46,7 +46,7 @@ const LandingPage = () => {
 
   return (
     <WrapperComponent isHeader>
-      <Grid container position="absolute">
+      <Grid container >
         <Grid item xs={12} height="94vh" data-aos="fade-right">
           <Grid
             container
@@ -73,7 +73,7 @@ const LandingPage = () => {
               >
                 <Typography
                   variant="h4"
-                  fontFamily="cursive"
+                  
                   color="white"
                   data-aos="fade-down"
                 >
@@ -261,7 +261,7 @@ const LandingPage = () => {
             </Stack>
           </Grid>
           {/* section */}
-          <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" }}>
+          <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" ,marginBottom:"20px"}}>
             <Grid container xs={12} md={8} >
               <Grid item xs={12} sm={12} md={12} lg={6} xl={6} textAlign="center">
                 <Typography
@@ -275,7 +275,7 @@ const LandingPage = () => {
                   Tommorrow's date : {TommorowDate}
                 </Typography>
               </Grid>
-              <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
+              <Grid item xs={12} sm={12} md={12} lg={6} xl={6} >
                 <Typography
                   sx={{
                     fontVariant: "small-caps",
@@ -286,9 +286,11 @@ const LandingPage = () => {
                   }}
                 >
                   Time Left Until next Drawn:
-                  <Timer TommorowDate={TommorowDate} />
+                  
                 </Typography>
-                <br />
+                <Grid container  justifyContent="center">
+                <Timer TommorowDate={TommorowDate} />
+                </Grid>
               </Grid>
             </Grid>
           </Grid>
@@ -328,7 +330,6 @@ const LandingPage = () => {
                 <Typography
                   variant="h2"
                   sx={{ color: "goldenrod" }}
-                  fontFamily="cursive"
                   className="bigwin"
                   data-aos="zoom-out-right"
                 >
@@ -352,6 +353,7 @@ const LandingPage = () => {
               minHeight: { sm: 2500, xs: 2000, md:1500,lg:1100 },
             }}
             className="firstgrid"
+            id="section1"
           >
             <Grid
               container
@@ -394,7 +396,6 @@ const LandingPage = () => {
                     <Typography
                       variant="h5"
                       color="white"
-                      fontFamily="cursive"
                       data-aos="fade-left"
                     >
                       Choose the Card
@@ -410,7 +411,6 @@ const LandingPage = () => {
                     <Typography
                       variant="text"
                       color="white"
-                      fontFamily="serif"
                       data-aos="fade-left"
                     >
                       Click on the{" "}
@@ -444,7 +444,6 @@ const LandingPage = () => {
                     <Typography
                       variant="h5"
                       color="white"
-                      fontFamily="cursive"
                       data-aos="fade-left"
                     >
                       Create your account
@@ -460,7 +459,6 @@ const LandingPage = () => {
                     <Typography
                       variant="text"
                       color="white"
-                      fontFamily="serif"
                       data-aos="fade-left"
                     >
                       Create your account, we need to know who can be the new
@@ -488,7 +486,6 @@ const LandingPage = () => {
                     <Typography
                       variant="h5"
                       color="white"
-                      fontFamily="cursive"
                       data-aos="fade-left"
                     >
                       Complete the purchase
@@ -504,7 +501,6 @@ const LandingPage = () => {
                     <Typography
                       variant="text"
                       color="white"
-                      fontFamily="serif"
                       data-aos="fade-left"
                     >
                       Once you have logged in to your account, finalize the
@@ -519,7 +515,6 @@ const LandingPage = () => {
           <Grid
             item
             xs={12}
-            border={1}
             sx={{
               display: "flex",
               flexDirection: "column",
@@ -583,7 +578,6 @@ const LandingPage = () => {
                 {/* <Typography
                   variant="h6"
                   className="bigwin"
-                  fontFamily="cursive"
                   fontSize="30px"
                   data-aos="zoom-out-left"
                   data-aos-duration="4500"
@@ -630,7 +624,6 @@ const LandingPage = () => {
 
                 <WinnerSlider
                   data-aos="fade-up"
-                  //  data-aos-anchor-placement="bottom-bottom"
                   data-aos-duration="4500"
                   data-aos-delay="1800"
                 />
