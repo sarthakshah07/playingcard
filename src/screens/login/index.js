@@ -60,7 +60,7 @@ const Login = () => {
         });
         dispatch(loginUserByEmailAction(val));
         navigate("/")
-        window.location.reload()
+        
       },
     });
   const NavigateOnClick = () => {
