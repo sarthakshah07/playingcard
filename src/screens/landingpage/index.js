@@ -25,13 +25,18 @@ import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrow
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import {useRef} from 'react';
+import AboutUs from "../../components/aboutus";
 
 const LandingPage = () => {
   const handleDelete = () => {
-    console.log("fsdfg");
+    
   };
 
   //changes
+  const ref1 = useRef(null);
+  const ref2 = useRef(null);
+  const ref3 = useRef(null);
   const current = new Date();
   const TommorowDate = `${current.getDate() + 1}/${
     current.getMonth() + 1
@@ -44,6 +49,7 @@ const LandingPage = () => {
     });
   }, []);
 
+ 
   return (
     <WrapperComponent isHeader>
       <Grid container >
@@ -95,7 +101,6 @@ const LandingPage = () => {
               </Grid>
             </Grid>
             <Grid item xs={6} sx={{ display: {sm:"none",xs:"none",md:"none",lg:"none",xl:"flex"}, justifyContent: "end" }}>
-              {/* <Grid item xs={6} md={6} > */}
                 <img
                   src="card-images/HeartsCard/ACE_OF_HEARTS.png"
                   alt=""
@@ -106,7 +111,6 @@ const LandingPage = () => {
                     right: 180,
                     rotate: "290deg",
                   }}
-                  //  className="cardanimation1"
                   data-aos="fade-up"
                   data-aos-duration="4500"
                   data-aos-delay="1500"
@@ -121,7 +125,6 @@ const LandingPage = () => {
                     right: 150,
                     rotate: "310deg",
                   }}
-                  // className="cardanimation2"
                   data-aos="fade-up"
                   data-aos-duration="4500"
                   data-aos-delay="1500"
@@ -136,7 +139,6 @@ const LandingPage = () => {
                     right: 90,
                     rotate: "330deg",
                   }}
-                  //  /className="cardanimation3"
                   data-aos="fade-up"
                   data-aos-duration="4500"
                   data-aos-delay="1500"
@@ -151,12 +153,10 @@ const LandingPage = () => {
                     right: 10,
                     rotate: "350deg",
                   }}
-                  // className="cardanimation4"
                   data-aos="fade-up"
                   data-aos-duration="4500"
                   data-aos-delay="1500"
                 ></img>
-              {/* </Grid> */}
             </Grid>
           </Grid>
           <Grid
@@ -177,6 +177,7 @@ const LandingPage = () => {
                 data-aos="zoom-in"
                 data-aos-duration="4500"
                 data-aos-delay="2000"
+                
                 sx={{
                   width: 380,
                   height: "50px",
@@ -185,13 +186,14 @@ const LandingPage = () => {
                   justifyContent: "space-between",
                   backgroundColor: "#F4BB44",
                   boxShadow: "2px 2px 5px gray",
+                  cursor:"pointer",
                   "&:hover": {
                     scale: "1.05",
                     backgroundColor: "#F4BB44",
                   },
                 }}
                 variant="contained"
-                onClick={handleDelete}
+                onClick={()=> ref2.current?.scrollIntoView({behavior: 'smooth'})}
                 onDelete={handleDelete}
                 deleteIcon={
                   <ExpandCircleDownOutlinedIcon
@@ -218,7 +220,7 @@ const LandingPage = () => {
                   },
                 }}
                 variant="contained"
-                onClick={handleDelete}
+                onClick={()=> ref3.current?.scrollIntoView({behavior: 'smooth'})}
                 onDelete={handleDelete}
                 deleteIcon={
                   <ExpandCircleDownOutlinedIcon
@@ -250,7 +252,7 @@ const LandingPage = () => {
                   },
                 }}
                 variant="contained"
-                onClick={handleDelete}
+                // onClick={()=> ref4.current?.scrollIntoView({behavior: 'smooth'})}
                 onDelete={handleDelete}
                 deleteIcon={
                   <ExpandCircleDownOutlinedIcon
@@ -260,8 +262,8 @@ const LandingPage = () => {
               />
             </Stack>
           </Grid>
-          {/* section */}
-          <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" ,marginBottom:"20px"}}>
+          {/* section 1 */}
+          <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" ,marginBottom:"20px"}} id="section1">
             <Grid container xs={12} md={8} >
               <Grid item xs={12} sm={12} md={12} lg={6} xl={6} textAlign="center">
                 <Typography
@@ -298,6 +300,7 @@ const LandingPage = () => {
             item
             xs={12}
             sx={{ display: "flex", justifyContent: "center", height: 450 }}
+            id="section2"
           >
             <Grid
               container
@@ -353,7 +356,8 @@ const LandingPage = () => {
               minHeight: { sm: 2500, xs: 2000, md:1500,lg:1100 },
             }}
             className="firstgrid"
-            id="section1"
+            id="section3"
+            ref={ref2}
           >
             <Grid
               container
@@ -515,6 +519,7 @@ const LandingPage = () => {
           <Grid
             item
             xs={12}
+            id="section3"
             sx={{
               display: "flex",
               flexDirection: "column",
@@ -526,6 +531,7 @@ const LandingPage = () => {
               paddingTop: {xs:1, sm:1 ,lg:10,xl:10},
               minHeight: { sm: 1000, xs: 1000 },
             }}
+            ref={ref3}
           >
             <Grid
               container
@@ -628,6 +634,54 @@ const LandingPage = () => {
                   data-aos-delay="1800"
                 />
               </Grid>
+            </Grid>
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            id="section3"
+            className="firstgrid"
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              // justifyContent: {md:"start", sm:"center",xs:"center"},
+              justifyContent:"center",
+              alignItems: "center",
+              // backgroundColor: "#31996A",
+              marginTop: "10px",
+              paddingTop: {xs:1, sm:1 ,lg:10,xl:10},
+              minHeight: { sm: 1000, xs: 1000 },
+            }}
+            ref={ref3}
+          >
+            <Grid
+              container
+              xs={10}
+              md={8}
+              sx={{
+                boxShadow: "5px 5px 30px  black",
+                borderRadius: "55px 10px 55px 10px",
+                backgroundColor: "white",
+                display: "flex",
+                justifyContent: "center",
+              }}
+              pb={10}
+            >
+              {/* <Grid item xs={12} textAlign="center">
+                <Typography
+                  variant="h4"
+                  data-aos="zoom-out-left"
+                  data-aos-duration="4500"
+                  data-aos-delay="100"
+                  //  className="toto"
+                >
+                  WINNING HISTORY
+                </Typography>
+              </Grid> */}
+              
+              
+             <AboutUs/>
+
             </Grid>
           </Grid>
         </Grid>

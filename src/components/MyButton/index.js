@@ -1,5 +1,10 @@
 import { Button } from "@mui/material";
 import React from "react";
+// import { logoutUserAction } from "../../redux/auth/middleware";
+// import { useDispatch, useSelector } from "react-redux";
+// import { authSelector } from "../../redux/auth/authSlice";
+
+
 
 const MyButton = ({
   title,
@@ -9,8 +14,11 @@ const MyButton = ({
   handleClick,
   type,
   sx,
-  img
+  img,
+  Disabled
 }) => {
+  // const authState = useSelector(authSelector);
+  // console.log("button",authState);
   return (
     <Button
       className={className}
@@ -20,6 +28,7 @@ const MyButton = ({
       type={type}
       sx={sx}
       img={img}
+      disabled={Disabled}
     >
       {title}
     </Button>
