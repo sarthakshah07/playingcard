@@ -6,7 +6,7 @@ import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArro
 import "./_Slider.css";
 
 const index = ({ data, showCards,isTrue }) => {
-  console.log("infinite",isTrue);
+  console.log("infinite",data);
 
   const settings = {
     dots: false,
@@ -47,7 +47,7 @@ const index = ({ data, showCards,isTrue }) => {
   };
 
   return (
-    <Slider {...settings}>
+    <Slider {...settings} > 
       {data?.data.map((row, index) => (
         <HomeCard
           showCards={showCards}

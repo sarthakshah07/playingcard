@@ -16,7 +16,7 @@ import Footer from "../../components/Footer";
 const HomeScreen = () => {
   const [showCards, setShowCards] = useState(false);
   const dashboardData = useSelector(dashboardSelector);
-
+console.log("data", dashboardData)
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchCardAction());
@@ -40,7 +40,7 @@ const HomeScreen = () => {
       >
         <Grid item xs={12}>
           <Grid container justifyContent="center" spacing={4}>
-            <Grid item xs={9}>
+            <Grid item xs={9} >
               <Slider
                 data={dashboardData?.cardsData?.find(
                   (item) => item.name === "heartscard"
@@ -86,11 +86,6 @@ const HomeScreen = () => {
           </Grid>
         </Grid>
 
-        <Marquee
-          speed={200}
-          gradientWidth={200}
-          gradientColor={[200, 200, 200]}
-        ></Marquee>
       </Grid>
       <br/>
      

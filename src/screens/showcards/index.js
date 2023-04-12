@@ -187,16 +187,16 @@ const ShowCards = ({ state }) => {
                   Date
                 </StyledTableCell>
                 <StyledTableCell align="right" style={{ fontSize: "30px" }}>
-                BidOpen
+                  BidOpen
                 </StyledTableCell>
                 <StyledTableCell align="right" style={{ fontSize: "30px" }}>
                   UserCard
                 </StyledTableCell>
-              
-                <StyledTableCell align="right" style={{ fontSize: "30px" }}>
-               
-               
-                </StyledTableCell>
+
+                <StyledTableCell
+                  align="right"
+                  style={{ fontSize: "30px" }}
+                ></StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>

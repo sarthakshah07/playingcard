@@ -24,7 +24,7 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 function BootstrapDialogTitle(props) {
   const { children, onClose, ...other } = props;
   return (
-    <DialogTitle sx={{ m: 0, p: 0 }} {...other} >
+    <DialogTitle sx={{ m: 0, p: 0 }} {...other}>
       {children}
       {onClose ? (
         <IconButton
@@ -74,11 +74,16 @@ export default function Popup({
         aria-labelledby="customized-dialog-title"
         open={open}
       >
-        <Box dividers className="dialogmain" sx={popupsx}>
-          <Grid container 
-          // border="1px solid red"
+        <Box dividers  sx={popupsx}>
+          <Grid
+            container
+            xs={7}
+            md={10}
+            sm={12}
+            lg={12}
+            justifyContent="center"
           >
-            <Grid item xs={6}  md={12} border="1px solid red">
+            <Grid item xs={12} md={12}>
               <ImageList
                 sx={{
                   marginLeft: "20%",
@@ -95,22 +100,28 @@ export default function Popup({
                 ))}
               </ImageList>
             </Grid>
-            <Grid item xs={12} textAlign="center" 
-            //  border="1px solid red"
-             >
-              <Typography fontSize="30px">
+            <Grid
+              item
+              textAlign="center"
+              xs={8}
+              md={12}
+            >
+              <Typography fontSize="30px" sx={{fontSize:{xs:"22px",sm:"30px",md:"30px",lg:"30px"}}} >
                 Want To Choose This Card <span style={{ color: "red" }}>?</span>
               </Typography>
-              <Typography sx={{ marginBottom: "30px" }}>
+              <Typography
+                sx={{ marginBottom: {md:"30px",xs:"0"} }}
+                md={8}
+              >
                 If you click on confirm then your bid will be placed and{" "}
                 <span style={{ color: "red", fontSize: "20px" }}>1$</span> will
                 be deducted from your account{" "}
               </Typography>
             </Grid>
             <Grid
-            //  border="1px solid red"
               item
-              xs={12}
+              xs={10}
+              md={12}
               sx={{ display: "flex", justifyContent: "space-evenly" }}
             >
               <MyButton
@@ -118,8 +129,8 @@ export default function Popup({
                 sx={{
                   height: "50px",
                   width: "150px",
-
                   backgroundColor: "green",
+                  margin:"10px"
                 }}
                 handleClick={ConfirmClick}
                 title="Confirm"
@@ -130,6 +141,7 @@ export default function Popup({
                   height: "50px",
                   width: "150px",
                   backgroundColor: "red",
+                  margin:"10px"
                 }}
                 handleClick={handleClose}
                 title="Cancel"

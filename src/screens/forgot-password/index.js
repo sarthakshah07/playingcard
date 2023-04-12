@@ -1,12 +1,3 @@
-
-// import { useSelector } from "react-redux";
-// import WrapperComponent from "../../components/WrapperComponent";
-// const ForgotPassword = () => {
-//   const counterData = useSelector(counterSelector);
-//   console.log("counterData : 0 ", counterData);
-//   return <WrapperComponent>ForgotPassword</WrapperComponent>;
-// };
-// export default ForgotPassword;
 import * as React from "react";
 import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
@@ -23,19 +14,7 @@ import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 import { useNavigate } from "react-router-dom";
 import FieldText from "../../components/fieldtext";
 import * as yup from "yup";
-// const initialValues = {
-//   Email: "",
-// };
-// const validate = (values) => {
-//   let errors = {};
-//   if (!values.Email) {
-//     errors.Email = "required*";
-//   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.Email)) {
-//     errors.Email = "Invalid email address";
-//   }
-//   console.log("errors", errors);
-//   return errors;
-// };
+
 const resetPasswordSchema = yup.object().shape({
   email: yup.string().email().required("Email is required"),
 });
@@ -61,8 +40,8 @@ const ForgotPasswordPage = () => {
             <Grid
               item
               sx={{
-                width: { xs: "95vw",lg:"25vw",sm:"60vw",md:"40vw"  },
-                // height: { xs: "5vh" },
+                width: { xs: "95vw", lg: "25vw", sm: "60vw", md: "40vw" },
+
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "baseline",
@@ -101,7 +80,11 @@ const ForgotPasswordPage = () => {
               }}
             >
               <FieldText
-                sx={{ mt: 1.5, mb: 1.5, width: {sm:"80%",md:"80%",lg:"80%",xs:"98%"} }}
+                sx={{
+                  mt: 1.5,
+                  mb: 1.5,
+                  width: { sm: "80%", md: "80%", lg: "80%", xs: "98%" },
+                }}
                 type="email"
                 id="email"
                 label="Email"
@@ -129,7 +112,6 @@ const ForgotPasswordPage = () => {
                 fullWidth={false}
                 title="Reset Password"
                 variant="contained"
-                // handleClick={SendPassword}
                 type="submit"
               />
             </Grid>
@@ -140,21 +122,23 @@ const ForgotPasswordPage = () => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                mt: "1.5%",
+                mt: "7.5%",
+                fontSize:"40px"
               }}
             >
               <ArrowBackRoundedIcon />
-              <MyButton
+             <MyButton
                 className="bcklogin"
                 fullWidth={false}
                 title="Back to log in"
+                size="big"
+                variant="text"
                 handleClick={handleclick}
-              />
+              /> 
             </Grid>
           </form>
         </Card>
       </Grid>
-      {/* </div> */}
     </WrapperComponent>
   );
 };

@@ -1,5 +1,4 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -11,17 +10,9 @@ import { useDispatch } from "react-redux";
 import MyButton from "../MyButton";
 import Account from "../Account/index";
 
-import {
-  // Backdrop,
-  Divider,
-  Drawer,
-  Grid,
-  List,
-  ListItem,
-  Snackbar,
-} from "@mui/material";
+import { Divider, Drawer, Grid, List, ListItem, Snackbar } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import logoheader from "../../assets/images/headerlogo.png";
+import logoheader from "../../assets/images/cardlogo.jpg";
 import Swal from "sweetalert2";
 
 const drawerWidth = 240;
@@ -30,12 +21,6 @@ const ButtonAppBar = () => {
   const [open, setOpen] = React.useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  // const handleClose = (event, reason) => {
-  //   if (reason === 'clickaway') {
-  //     dispatch(logoutUserAction());
-  //     // return;
-  //   }
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -47,20 +32,12 @@ const ButtonAppBar = () => {
   const ClickToHome = () => {
     navigate("/");
   };
-  // const container =
-  //   window !== undefined ? () => window().document.body : undefined;
 
   const snack = (
-    <Snackbar
-      open={open}
-      autoHideDuration={6000}
-      // onClose={handleClose}
-      message="Note archived"
-      // action={action}
-    />
+    <Snackbar open={open} autoHideDuration={6000} message="Note archived" />
   );
   const handleLogout = () => {
-    console.log("log")
+    console.log("log");
     Swal.fire({
       title: "Are You Sure?",
       color: "#000",
@@ -73,7 +50,6 @@ const ButtonAppBar = () => {
       cancelButtonText: `No`,
       cancelButtonColor: "red",
     }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         const Toast = Swal.mixin({
           toast: true,
@@ -123,9 +99,7 @@ const ButtonAppBar = () => {
         justifyContent: "center",
       }}
     >
-      <Typography variant="h6" sx={{ my: 2 }}>
-      
-      </Typography>
+      <Typography variant="h6" sx={{ my: 2 }}></Typography>
       <Divider />
       <List>
         <ListItem sx={{ pt: 5 }}>
@@ -158,20 +132,10 @@ const ButtonAppBar = () => {
       </List>
     </Box>
   );
- 
+
   return (
-    <Grid container justifyContent="center" bgcolor="#31996A" 
-    // sx={{borderBottom:"1px solid white" }}
-    >
+    <Grid container justifyContent="center" bgcolor="#31996A">
       <Grid item xs={8}>
-      {/* <AppBar
-        component="nav"
-        style={{
-          backgroundColor: "#31996A",
-          display: "flex",
-          justifyContent: "space-evenly",
-        }}
-      > */}
         <Toolbar>
           <IconButton
             color="inherit"
@@ -185,10 +149,24 @@ const ButtonAppBar = () => {
           <Typography
             variant="h6"
             component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "flex" } ,alignItems:"center"}}
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", sm: "flex" },
+              alignItems: "center",
+            }}
           >
-            <img src={logoheader} style={{ height: "50px" }} alt="img"></img>
-            <Typography variant="h4" sx={{marginLeft:"15px",color:"white",fontFamily:"-apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serif"}}>Card Login</Typography>
+            <img src={logoheader} style={{ height: "100px" }} alt="img"></img>
+            <Typography
+              variant="h4"
+              sx={{
+                marginLeft: "15px",
+                color: "white",
+                fontFamily:
+                  "-apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serif",
+              }}
+            >
+              Card Login
+            </Typography>
           </Typography>
 
           <Box sx={{ display: { xs: "none", sm: "flex" } }}>
@@ -207,30 +185,29 @@ const ButtonAppBar = () => {
               handleClick={handleCardList}
             />
 
-            <Account/>
+            <Account />
           </Box>
         </Toolbar>
-      {/* </AppBar> */}
-      <Box component="nav">
-        <Drawer
-          // container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-          sx={{
-            display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-            },
-          }}
-        >
-          {drawer}
-        </Drawer>
-      </Box>
+
+        <Box component="nav">
+          <Drawer
+            variant="temporary"
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            ModalProps={{
+              keepMounted: true,
+            }}
+            sx={{
+              display: { xs: "block", sm: "none" },
+              "& .MuiDrawer-paper": {
+                boxSizing: "border-box",
+                width: drawerWidth,
+              },
+            }}
+          >
+            {drawer}
+          </Drawer>
+        </Box>
       </Grid>
     </Grid>
   );

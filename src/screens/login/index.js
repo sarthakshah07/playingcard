@@ -26,7 +26,6 @@ const Login = () => {
   const authData = useSelector(authSelector);
   console.log("authData : ", authData);
   const initialValues = {
-    
     emaill: "",
     password: "",
   };
@@ -69,11 +68,11 @@ const Login = () => {
   };
   return (
     <WrapperComponent>
-      <Grid container justifyContent= "center" border={1} className="container">
+      <Grid container justifyContent="center" border={1} className="container">
         <Grid
           item
           sx={{
-            width: { xs: "95vw",lg:"40vw",sm:"70vw",md:"60vw"  },
+            width: { xs: "95vw", lg: "40vw", sm: "70vw", md: "60vw" },
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -84,21 +83,24 @@ const Login = () => {
               <CardContent>
                 <CardHeader
                   className="Cardheader"
-                  // fontFamily="apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serif"
                   title="Sign in"
                   variant="h1"
-                  sx={{
+                  sx={
+                    {
                       // fontFamily: "Georgia, 'Times New Roman', Times, serif",
-                    // textShadow: "1px 1px 20px red",
-                  }}
+                      // textShadow: "1px 1px 20px red",
+                    }
+                  }
                 />
                 <form noValidate onSubmit={handleSubmit}>
                   <Typography sx={{ mt: 1.5, mb: 1.5 }} color="text.secondary">
                     <Grid container>
                       <Grid item xs={12}>
                         <FieldText
-                        sx={{ fontFamily:
-                          "apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serifi"}}
+                          sx={{
+                            fontFamily:
+                              "apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serifi",
+                          }}
                           fullWidth={true}
                           type="email"
                           value={values.email}
@@ -124,8 +126,10 @@ const Login = () => {
                       </Grid>
                       <Grid item xs={12}>
                         <FieldText
-                        sx={{ fontFamily:
-                          "apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serifi"}}
+                          sx={{
+                            fontFamily:
+                              "apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serifi",
+                          }}
                           fullWidth={true}
                           type="password"
                           id="password"
@@ -182,10 +186,10 @@ const Login = () => {
                         sx={{ display: "flex", justifyContent: "center" }}
                       >
                         <MyButton
+                          // sx={{fonts}}
                           className="forgotpassword"
                           size="small"
                           title="Forgot password ?"
-                          variant="text"
                           handleClick={NavigateOnClick}
                         />
                       </Grid>
@@ -201,16 +205,3 @@ const Login = () => {
   );
 };
 export default Login;
-
-
-
-
-
-
-
-
-
-
-
-
-

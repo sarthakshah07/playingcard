@@ -174,7 +174,7 @@ export default function Wallet() {
                   </AccordionSummary>
                   <AccordionDetails>
                     {/* <TableContainer component={Paper}> */}
-                    <Table sx={{ minWidth: 150 }} aria-label="simple table">
+                    <Table sx={{ minWidth: 200 }} aria-label="simple table">
                       <TableHead>
                         <TableRow>
                           <TableCell>Id</TableCell>
@@ -228,5 +228,6 @@ export default function Wallet() {
         </Card>
       </Grid>
     </Grid>
+    
   );
 }

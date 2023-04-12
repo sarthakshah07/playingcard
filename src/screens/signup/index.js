@@ -141,7 +141,9 @@ console.log("signup dta:",signup);
               <CardHeader
                 title="Sign up"
                 variant="h1"
-                sx={{ fontFamily: "Georgia, 'Times New Roman', Times, serif",textShadow:"1px 1px 20px red" }}
+                sx={{ fontFamily: "Georgia, 'Times New Roman', Times, serif",
+                // textShadow:"1px 1px 20px red"
+               }}
                 className="Cardheader"
               />
               </Grid>

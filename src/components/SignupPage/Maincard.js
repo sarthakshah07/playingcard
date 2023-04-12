@@ -129,7 +129,7 @@ const Signup = () => {
                         type="text"
                         value={values.firstName}
                         onchange={handleChange}
-                        onBlur={handleBlur}
+                         onBlur={handleBlur}
                         label="First Name"
                         id="firstName"
                         name="firstName"
@@ -334,7 +334,7 @@ const Signup = () => {
                     Already have a account ?
                   </Typography>
                 </Grid>
-                <Grid item xs={12} textAlign="center">
+                <Grid item xs={12} textAlign="center" width="50px" height="40px">
                   <MyButton
                     className="Slogin"
                     fullWidth={false}

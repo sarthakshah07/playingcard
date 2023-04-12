@@ -103,10 +103,8 @@ const Footer = () => {
                 </Grid>
               </Grid>
 
-              <Grid item md={6} xs={12} >
-                <Grid container 
-                justifyContent="end"
-              >
+              <Grid item md={6} xs={12}>
+                <Grid container justifyContent="end">
                   <Grid
                     item
                     md={12}
@@ -130,20 +128,20 @@ const Footer = () => {
                   </Grid>
                   <Grid
                     item
-                   
                     md={10}
                     xs={12}
                     sx={{ display: "flex", justifyContent: "center" }}
                   >
-                    <Grid container >
+                    <Grid container>
                       <Grid
                         item
                         md={3}
-                        xs={3}   sx={{
+                        xs={3}
+                        sx={{
                           display: "flex",
                           justifyContent: "right",
                           alignItems: "center",
-                           paddingTop: { sm: 3, xs: 2 },
+                          paddingTop: { sm: 3, xs: 2 },
                         }}
                       >
                         <FacebookIcon
@@ -157,12 +155,11 @@ const Footer = () => {
                         item
                         md={3}
                         xs={3}
-                        
                         sx={{
                           display: "flex",
                           justifyContent: "center",
                           alignItems: "center",
-                         paddingTop: { sm: 3, xs: 2 },
+                          paddingTop: { sm: 3, xs: 2 },
                         }}
                       >
                         <TwitterIcon
@@ -176,7 +173,6 @@ const Footer = () => {
                         item
                         md={3}
                         xs={3}
-                     
                         sx={{
                           display: "flex",
                           justifyContent: "center",
@@ -195,12 +191,11 @@ const Footer = () => {
                         item
                         md={3}
                         xs={3}
-                        
                         sx={{
                           display: "flex",
                           justifyContent: "left",
                           alignItems: "center",
-                           paddingTop: { sm: 3, xs: 1 },
+                          paddingTop: { sm: 3, xs: 1 },
                         }}
                       >
                         <YouTubeIcon
