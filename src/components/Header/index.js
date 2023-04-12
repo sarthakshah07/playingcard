@@ -2,10 +2,9 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { logoutUserAction } from "../../redux/auth/middleware";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-
+import { logoutUserAction } from "../../redux/auth/middleware";
 import { useDispatch, useSelector } from "react-redux";
 import MyButton from "../MyButton";
 import Account from "../Account/index";
@@ -33,6 +32,8 @@ const ButtonAppBar = () => {
   const authState = useSelector(authSelector);
 
 
+console.log("header",authState.user);
+
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
@@ -41,8 +42,12 @@ const ButtonAppBar = () => {
     navigate("/card");
   };
   const ClickToHome = () => {
+    console.log("home clicking");
     navigate("/");
   };
+  const ClickToSelectCard =()=>{
+    navigate("/home");
+  }
 
   const handleLogout = () => {
     console.log("log");
@@ -75,6 +80,7 @@ const ButtonAppBar = () => {
           icon: "success",
           title: "Logged out successfully",
         });
+        window.location.reload()
         dispatch(logoutUserAction());
         navigate("/");
       } else {
@@ -126,6 +132,8 @@ const ButtonAppBar = () => {
             title="home"
             variant="text"
             sx={{ color: "white", marginRight: "20px" }}
+            // disabled={authState?.currentUser?true:false}
+            Disabled={true}
             handleClick={ClickToHome}
           />
         </ListItem>
@@ -214,6 +222,13 @@ const ButtonAppBar = () => {
               variant="text"
               sx={{ color: "white", marginRight: "20px" }}
               handleClick={ClickToHome}
+            />
+             <MyButton
+              size="small"
+              title="Select Card"
+              variant="text"
+              sx={{ color: "white", marginRight: "20px" }}
+              handleClick={ClickToSelectCard}
             />
             <MyButton
               size="small"

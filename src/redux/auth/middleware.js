@@ -25,6 +25,7 @@ export const loginUserByEmailAction = createAsyncThunk(
         setTimeout(() => {
           dispatch(hideLoader());
         }, 1500);
+        window.location.reload()
         return fakeJson;
       }
       return rejectWithValue(response);
@@ -45,6 +46,7 @@ export const logoutUserAction = createAsyncThunk(
       if (response.status === 200 ) {
         await removeUser();
         dispatch(hideLoader());
+        window.location.reload()
         return null;
       }
       return rejectWithValue(response);

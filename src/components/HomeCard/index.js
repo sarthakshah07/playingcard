@@ -16,7 +16,7 @@ export default function HomeCard({ data, showCards, cardImg }) {
     setOpenPopup(true);
   };
   const ConfirmClick = () => {
-    navigate("card", {
+    navigate("/card", {
       state: {
         data: data,
       },
