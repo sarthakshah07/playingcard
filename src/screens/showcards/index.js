@@ -147,7 +147,7 @@ const ShowCards = ({ state }) => {
                       Time Left:
                       
                     </Typography>
-                    <Timer TommorowDate={TommorowDate}/>
+                      <Timer TommorowDate={TommorowDate}/>
                     <Typography
                       sx={{
                         mt: 3,

@@ -33,14 +33,35 @@ const HomeScreen = () => {
       >
         <Grid item xs={7}>
           <Grid container justifyContent="center" spacing={4}>
+              <Grid item xs={12}>
+                <Slider
+                  data={dashboardData?.cardsData?.find(
+                    (item) => item.name === "spadescard"
+                  )}
+                  showCards={showCards}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <Slider
+                  data={dashboardData?.cardsData?.find(
+                    (item) => item.name === "diamondscard"
+                  )}
+                  showCards={showCards}
+                />
+              </Grid>
+           
+                  
             <Grid item xs={12}>
               <Slider
                 data={dashboardData?.cardsData?.find(
-                  (item) => item.name === "heartscard"
+                  (item) => item.name === "joker"
                 )}
                 showCards={showCards}
+                isTrue
               />
             </Grid>
+           
+            
             <Grid item xs={12}>
               <Slider
                 data={dashboardData?.cardsData?.find(
@@ -52,24 +73,7 @@ const HomeScreen = () => {
             <Grid item xs={12}>
               <Slider
                 data={dashboardData?.cardsData?.find(
-                  (item) => item.name === "joker"
-                )}
-                showCards={showCards}
-                isTrue
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Slider
-                data={dashboardData?.cardsData?.find(
-                  (item) => item.name === "diamondscard"
-                )}
-                showCards={showCards}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Slider
-                data={dashboardData?.cardsData?.find(
-                  (item) => item.name === "spadescard"
+                  (item) => item.name === "heartscard"
                 )}
                 showCards={showCards}
               />

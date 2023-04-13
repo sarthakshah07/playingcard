@@ -9,11 +9,22 @@ import { useDispatch, useSelector } from "react-redux";
 import MyButton from "../MyButton";
 import Account from "../Account/index";
 
-import { Divider, Drawer, Grid, List, ListItem } from "@mui/material";
+import {
+  Divider,
+  Drawer,
+  Grid,
+  List,
+  ListItem,
+  Tooltip,
+  tooltipClasses,
+  styled,
+} from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import logoheader2 from "../../assets/images/logoheader.png";
 import Swal from "sweetalert2";
 import { authSelector } from "../../redux/auth/authSlice";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const drawerWidth = 240;
 const ButtonAppBar = () => {
@@ -21,6 +32,48 @@ const ButtonAppBar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const authState = useSelector(authSelector);
+  const [isDisabled, setIsDisabled] = useState(false);
+  const [tooltipTitle, setTooltipTitle] = useState("");
+  // const [id,seId] =useState([])
+
+  // const {Titles,setTitles} = useState({
+  //   "home":" Go to Home",
+  //   "cardList": " open Card list",
+  //   "selectCard":"open select card"
+  // })
+  const [Titles, setTitles] = useState(["HOME","CardList"]);
+  // console.log("title:",Titles.cardList);
+  // 'home','cardList','selectCard'
+  useEffect(() => {
+    // setTitles(home,cardList);
+
+   
+    if (authState?.currentUser) {
+      const newTitles = Titles.map((ele)=>ele)
+      console.log("ids",Titles.filter((res)=>res.includes('HOME')));
+      setIsDisabled(false);
+      // setTooltipTitle("yes")
+     if (Titles.filter((res)=>res.includes('HOME'))) {
+      setTooltipTitle("open home page")
+     }
+    } else {
+      setIsDisabled(true);
+      setTooltipTitle("you Need to Login first to access this page");
+    }
+  },[200]);
+  const BootstrapTooltip = styled(({ className, ...props }) => (
+    <Tooltip {...props} arrow classes={{ popper: className }} />
+  ))(({ theme }) => ({
+    [`& .${tooltipClasses.arrow}`]: {
+      color: theme.palette.common.black,
+      width: 50,
+    },
+    [`& .${tooltipClasses.tooltip}`]: {
+      backgroundColor: theme.palette.common.black,
+      width: "100%",
+      textAlign: "center",
+    },
+  }));
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -53,7 +106,6 @@ const ButtonAppBar = () => {
       cancelButtonColor: "red",
     }).then((result) => {
       if (result.isConfirmed) {
-       
         window.location.reload();
         dispatch(logoutUserAction());
         navigate("/");
@@ -146,7 +198,7 @@ const ButtonAppBar = () => {
             fullWidth
           />
         </ListItem>
-        
+
         <ListItem>
           <MyButton
             size="small"
@@ -172,7 +224,6 @@ const ButtonAppBar = () => {
                 color: "white",
                 backgroundColor: "#31996A",
                 marginRight: "20px",
-
               }}
               handleClick={() => navigate("/Userinfo")}
             />
@@ -185,7 +236,7 @@ const ButtonAppBar = () => {
                 marginRight: "20px",
                 backgroundColor: "#31996A",
               }}
-              handleClick={()=> navigate("/login")}
+              handleClick={() => navigate("/login")}
               fullWidth
             />
           )}
@@ -262,27 +313,42 @@ const ButtonAppBar = () => {
             </Typography>
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "flex" } }}>
-            <MyButton
-              size="small"
-              title="home"
-              variant="text"
-              sx={{ color: "white", marginRight: "20px" }}
-              handleClick={ClickToHome}
-            />
-            <MyButton
-              size="small"
-              title="Select Card"
-              variant="text"
-              sx={{ color: "white", marginRight: "20px" }}
-              handleClick={ClickToSelectCard}
-            />
-            <MyButton
-              size="small"
-              title="Card list"
-              variant="text"
-              sx={{ color: "white", marginRight: "20px" }}
-              handleClick={handleCardList}
-            />
+            <BootstrapTooltip title={tooltipTitle}>
+              <Grid item>
+                <MyButton
+                  size="small"
+                  title="home"
+                  variant="text"
+                  sx={{ color: "white", marginRight: "20px" }}
+                  handleClick={ClickToHome}
+                  Disabled={isDisabled}
+                />
+              </Grid>
+            </BootstrapTooltip>
+            <BootstrapTooltip title={tooltipTitle}>
+              <Grid item>
+                <MyButton
+                  size="small"
+                  title="Select Card"
+                  variant="text"
+                  sx={{ color: "white", marginRight: "20px" }}
+                  handleClick={ClickToSelectCard}
+                  Disabled={isDisabled}
+                />
+              </Grid>
+            </BootstrapTooltip>
+            <BootstrapTooltip title={tooltipTitle}>
+              <Grid item>
+                <MyButton
+                  size="small"
+                  title="Card list"
+                  variant="text"
+                  sx={{ color: "white", marginRight: "20px" }}
+                  handleClick={handleCardList}
+                  Disabled={isDisabled}
+                />
+              </Grid>
+            </BootstrapTooltip>
             {authState?.currentUser ? (
               <Account />
             ) : (
