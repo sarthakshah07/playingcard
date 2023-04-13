@@ -8,7 +8,7 @@ import "./_fieldtext.css"
 const FieldText = ({
   type,
   value,
-  onchange,
+  onChange,
   onBlur,
   label,
   variant,
@@ -31,7 +31,7 @@ const FieldText = ({
       id={id}
       label={label}
       value={value}
-      onChange={onchange}
+      onChange={onChange}
       onBlur={onBlur}
       InputProps={InputProps}
       variant={variant}

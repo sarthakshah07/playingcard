@@ -4,6 +4,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Header from "../Header";
 import Footer from "../Footer";
 
+
 function WrapperComponent(props) {
   const { children, isHeader ,isFooter} = props;
   return (

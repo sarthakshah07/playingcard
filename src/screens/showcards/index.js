@@ -147,7 +147,9 @@ const ShowCards = ({ state }) => {
                       
                     </Typography>
                     <Typography sx={{display:"flex",justifyContent:"center"}}>
-                    <Timer TommorowDate={TommorowDate}/>
+                      <Grid container border={1}>
+                      <Timer TommorowDate={TommorowDate}/>
+                      </Grid>
                     </Typography>
                     <br />
                     <Typography
@@ -230,7 +232,7 @@ const ShowCards = ({ state }) => {
                           row.bidOpen === "true" ? "green" : "red",
                         float: "right",
                         textAlign: "center",
-                        width: "25%",
+                        width: "50%",
                         height: "30px",
                         display: "flex",
                         alignItems: "center",

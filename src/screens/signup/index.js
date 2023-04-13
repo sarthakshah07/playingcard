@@ -22,6 +22,7 @@ import Divider from "@mui/material/Divider";
 import { useNavigate } from "react-router-dom";
 import { signUpUserAction } from "../../redux/auth/middleware";
 import { authSelector } from "../../redux/auth/authSlice";
+import Swal from "sweetalert2";
 const initialValues = {
   firstName: "",
   lastName: "",
@@ -30,7 +31,7 @@ const initialValues = {
   password: "",
   cPassword: "",
 };
-const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
+// const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
 const phoneRegExp =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 const signUpSchema = yup.object().shape({
@@ -55,8 +56,8 @@ const signUpSchema = yup.object().shape({
   password: yup
     .string()
     .required("required")
-    .min(4, "Password is too short - should be 4 chars min")
-    .matches(passwordRules, { message: "Please create a stronger password" }),
+    .min(4, "Password is too short - should be 4 chars min"),
+    // .matches(passwordRules, { message: "Please create a stronger password" }),
   cPassword: yup
     .string()
     .required("required")
@@ -81,8 +82,24 @@ const Signup = () => {
       initialValues: initialValues,
       validationSchema: signUpSchema,
       onSubmit: (val) => {
-        console.log("singup details", val);
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          zIndex: 1,
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener("mouseenter", Swal.stopTimer);
+            toast.addEventListener("mouseleave", Swal.resumeTimer);
+          },
+        });
+        Toast.fire({
+          icon: "success",
+          title: "Logged in successfully",
+        });
         dispatch(signUpUserAction(val));
+        navigate("/")
       },
     });
   const Navigatetologin = () => navigate("/");
@@ -236,7 +253,7 @@ const Signup = () => {
                         label="Password"
                         name="password"
                         touched={touched?.password}
-                        errors={errors?.password}
+                        // errors={errors?.password}
                         variant="standard"
                         InputProps={{
                           startAdornment: (
@@ -278,7 +295,7 @@ const Signup = () => {
                         id="cPassword"
                         name="cPassword"
                         touched={touched?.cPassword}
-                        errors={errors?.cPassword}
+                        // errors={errors?.cPassword}
                         variant="standard"
                         InputProps={{
                           startAdornment: (

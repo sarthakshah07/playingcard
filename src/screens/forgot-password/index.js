@@ -15,6 +15,7 @@ import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 import { useNavigate } from "react-router-dom";
 import FieldText from "../../components/fieldtext";
 import * as yup from "yup";
+import Swal from "sweetalert2";
 
 const resetPasswordSchema = yup.object().shape({
   email: yup.string().email().required("Email is required"),
@@ -28,8 +29,26 @@ const ForgotPasswordPage = () => {
     useFormik({
       initialValues: initialValues,
       validationSchema: resetPasswordSchema,
-      onSubmit: (val) => {
-        console.log("email", val);
+      onSubmit: (val, err) => {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "bottom-end",
+          zIndex: 1,
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener("mouseenter", Swal.stopTimer);
+            toast.addEventListener("mouseleave", Swal.resumeTimer);
+          },
+        });
+        Toast.fire({
+          icon: "success",
+          title: "Logged in successfully",
+        });
+        // dispatchEvent(loginUserByEmailAction(val));
+        navigate("/")
+        
       },
     });
   const handleclick = () => navigate("/");
@@ -42,7 +61,6 @@ const ForgotPasswordPage = () => {
               item
               sx={{
                 width: { xs: "95vw",lg:"25vw",sm:"60vw",md:"40vw"  },
-                // height: { xs: "5vh" },
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "baseline",
@@ -72,7 +90,7 @@ const ForgotPasswordPage = () => {
             </Grid>
             <Grid
               item
-              xs={11}
+              xs={12}
               className="mail"
               sx={{
                 display: "flex",
@@ -82,9 +100,9 @@ const ForgotPasswordPage = () => {
             >
               <FieldText
                 sx={{ mt: 1.5, mb: 1.5, width: {sm:"80%",md:"80%",lg:"80%",xs:"98%"} }}
-                type="email"
+                type="text"
                 id="email"
-                label="Email"
+                label="email"
                 name="email"
                 value={values.email}
                 onChange={handleChange}
@@ -99,10 +117,14 @@ const ForgotPasswordPage = () => {
                   ),
                 }}
               />
+              
+              
+            </Grid>
+            <Grid item xs={12} sx={{display:"flex", justifyContent:"center",marginBottom:2}}>
               {touched.email && errors.email ? (
                 <div className="error">{errors.email}</div>
               ) : null}
-            </Grid>
+              </Grid>
             <Grid item xs={12}>
               <MyButton
                 className="resetpsswd"
@@ -128,6 +150,7 @@ const ForgotPasswordPage = () => {
                 className="bcklogin"
                 fullWidth={false}
                 title="Back to log in"
+                type={"button"}
                 handleClick={handleclick}
                 sx={{scale:"1.5", color:"green",marginLeft:"10px"}}
               />

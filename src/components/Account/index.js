@@ -20,6 +20,8 @@ import { useNavigate } from "react-router-dom";
 export default function SplitButton() {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [selectedIndex, setSelectedIndex] = React.useState(1);
 
   const handleClick = () => {
@@ -42,8 +44,7 @@ export default function SplitButton() {
 
     setOpen(false);
   };
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+
   const handleLogout = () => {
     console.log("log");
     Swal.fire({
@@ -116,6 +117,7 @@ export default function SplitButton() {
       <Popper
         sx={{
           zIndex: 1,
+          
         }}
         open={open}
         anchorEl={anchorRef.current}
@@ -127,6 +129,7 @@ export default function SplitButton() {
           <Grow
             {...TransitionProps}
             style={{
+              borderRadius: "25px 10px 25px 10px",
               transformOrigin:
                 placement === "bottom" ? "center top" : "center bottom",
             }}
@@ -149,9 +152,9 @@ export default function SplitButton() {
                         variant="contained"
                         sx={{
                           color: "black",
-                          backgroundColor: "#FAF0CB",
+                          backgroundColor: "#31996A",
                           margin: "15%",
-                          borderRadius: "15px",
+                          borderRadius: "10px",
                           
                           
                         }}
@@ -162,7 +165,7 @@ export default function SplitButton() {
                         size="small"
                         title="logout"
                         variant="contained"
-                        sx={{ color: "black", backgroundColor: "#FAF0CB",borderRadius: "15px" }}
+                        sx={{ color: "black", backgroundColor: "#31996A",borderRadius: "10px" }}
                         handleClick={handleLogout}
                       />
                     </MenuItem>

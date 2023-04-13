@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Loader from "../components/loader";
 
 const Home = lazy(() => import("../screens/home"));
 const NotFound = lazy(() => import("../screens/page-not-found"));
@@ -12,7 +13,7 @@ const PaymentMethodPage =lazy(()=> import("../screens/PaymentMethod"))
   
 function AppNavigator() {
   return (
-    <Suspense fallback={<h1>Loading...</h1>}>
+    <Suspense fallback={<h1>vlksdfl</h1>}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LandingPage />} />

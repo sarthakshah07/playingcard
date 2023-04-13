@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import { useSelector } from "react-redux";
 import { lemSelector } from "../../redux/lem/lemSlice";
 
-const Loader = () => {
+const Loader = ( {background}) => {
   const lemData = useSelector(lemSelector);
   const { loading } = lemData;
 
@@ -16,6 +16,7 @@ const Loader = () => {
           justifyContent: "center",
           alignItems: "center",
           height: "100vh",
+          backgroundColor:{background}
         }}
       >
         <CircularProgress size={100} color="error" />
