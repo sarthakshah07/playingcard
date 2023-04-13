@@ -49,13 +49,13 @@ const ButtonAppBar = () => {
 
    
     if (authState?.currentUser) {
-      const newTitles = Titles.map((ele)=>ele)
-      console.log("ids",Titles.filter((res)=>res.includes('HOME')));
+      // const newTitles = Titles.map((ele)=>ele)
+      // console.log("ids",Titles.filter((res)=>res.includes('HOME')));
       setIsDisabled(false);
       // setTooltipTitle("yes")
-     if (Titles.filter((res)=>res.includes('HOME'))) {
-      setTooltipTitle("open home page")
-     }
+    //  if (Titles.filter((res)=>res.includes('HOME'))) {
+    //   setTooltipTitle("open home page")
+    //  }
     } else {
       setIsDisabled(true);
       setTooltipTitle("you Need to Login first to access this page");
