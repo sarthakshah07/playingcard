@@ -95,7 +95,7 @@ const ShowCards = ({ state }) => {
       cancelButtonColor: "red",
     }).then((result) => {
       if (result.isConfirmed) {
-        navigate("/");
+        navigate("/home");
       }
     });
   };
@@ -141,17 +141,13 @@ const ShowCards = ({ state }) => {
                         fontVariant: "small-caps",
                         fontWeight: "bold",
                         fontSize: "20px",
+                        margin:2
                       }}
                     >
                       Time Left:
                       
                     </Typography>
-                    <Typography sx={{display:"flex",justifyContent:"center"}}>
-                      <Grid container border={1}>
-                      <Timer TommorowDate={TommorowDate}/>
-                      </Grid>
-                    </Typography>
-                    <br />
+                    <Timer TommorowDate={TommorowDate}/>
                     <Typography
                       sx={{
                         mt: 3,

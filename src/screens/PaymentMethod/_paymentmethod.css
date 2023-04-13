@@ -1,11 +1,9 @@
 .cardheader{
-
 }
-
 .paymentmethodpage{
     width: 100% !important;
     height: 100vh !important;
-    display: flex; 
+    display: flex;
     justify-content: center !important;
     align-items: center;
 }
@@ -16,7 +14,7 @@
     align-content: stretch;
     flex-wrap: wrap !important;
     border-radius: 5% !important;
-    box-shadow: 5px 5px 50px 20px rgb(71, 71, 71) !important;
+     box-shadow: "15"!important;
 }
 .expirydate{
     display: flex;
@@ -26,16 +24,15 @@
     align-items: baseline;
     justify-content: flex-start
 }
-
 .cardlogo{
    border-radius: 5%;
    width: 100% !important;
 }
 .Cardholdername{
-    box-shadow: 2px 2px 2px rgb(0, 0, 0);
+    /* box-shadow: 2px 2px 2px rgb(0, 0, 0); */
 }
 .cardnumber{
-    box-shadow: 2px 2px 2px rgb(0, 0, 0);
+    /* box-shadow: 2px 2px 2px rgb(0, 0, 0); */
 }
 .Continuebutton{
     background: linear-gradient(180deg,rgba(254,163,64,0) 25.44%,rgba(12,5,70,0.5) 100%),#31996A !important;

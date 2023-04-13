@@ -42,26 +42,26 @@ const Login = () => {
       initialValues: initialValues,
       validationSchema: signInSchema,
       onSubmit: (val, err) => {
-        console.log("val",val);
-        // const Toast = Swal.mixin({
-        //   toast: true,
-        //   position: "bottom-end",
-        //   zIndex: 1,
-        //   showConfirmButton: false,
-        //   timer: 3000,
-        //   timerProgressBar: true,
-        //   didOpen: (toast) => {
-        //     toast.addEventListener("mouseenter", Swal.stopTimer);
-        //     toast.addEventListener("mouseleave", Swal.resumeTimer);
-        //   },
-        // });
-        // Toast.fire({
-        //   icon: "success",
-        //   title: "Logged in successfully",
-        // });
-        // dispatch(loginUserByEmailAction(val));
-        // navigate("/")
-        
+        navigate("/")
+        dispatch(loginUserByEmailAction(val));
+       
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "bottom-end",
+          zIndex: 1,
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener("mouseenter", Swal.stopTimer);
+            toast.addEventListener("mouseleave", Swal.resumeTimer);
+          },
+        });
+        Toast.fire({
+          icon: "success",
+          title: "Logged in successfully",
+          timer:3000
+        });
       },
     });
   const NavigateOnClick = () => {

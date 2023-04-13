@@ -53,12 +53,16 @@ const ButtonAppBar = () => {
       cancelButtonColor: "red",
     }).then((result) => {
       if (result.isConfirmed) {
+       
+        window.location.reload();
+        dispatch(logoutUserAction());
+        navigate("/");
         const Toast = Swal.mixin({
           toast: true,
           position: "top-end",
           zIndex: 1,
           showConfirmButton: false,
-          timer: 3000,
+          timer: 8000,
           timerProgressBar: true,
           didOpen: (toast) => {
             toast.addEventListener("mouseenter", Swal.stopTimer);
@@ -69,9 +73,6 @@ const ButtonAppBar = () => {
           icon: "success",
           title: "Logged out successfully",
         });
-        window.location.reload();
-        dispatch(logoutUserAction());
-        navigate("/");
       } else {
         const Toast = Swal.mixin({
           toast: true,
@@ -184,7 +185,7 @@ const ButtonAppBar = () => {
                 marginRight: "20px",
                 backgroundColor: "#31996A",
               }}
-              handleClick={handleLogout}
+              handleClick={()=> navigate("/login")}
               fullWidth
             />
           )}

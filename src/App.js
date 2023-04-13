@@ -10,7 +10,7 @@ const App = () => {
 
   return (
     <>
-      {/* <Loader /> */}
+      <Loader />
       {authState?.currentUser ? <AppNavigator /> : <AuthNavigator />}
     </>
   );
