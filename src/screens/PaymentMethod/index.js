@@ -50,7 +50,7 @@ const PaymentMethodPage = () => {
 
   return (
     <WrapperComponent isHeader>
-      <Grid container border={1} className="paymentmethodpage">
+      <Grid container  className="paymentmethodpage">
         <Card
           className="maincard"
           sx={{

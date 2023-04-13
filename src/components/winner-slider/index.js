@@ -17,7 +17,7 @@ const WinnerSlider = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const [sliderRef, setSliderRef] = useState(null);
-  console.log("slideref", sliderRef);
+  // console.log("slideref", sliderRef);
   const settings = {
     dots: false,
     infinite: true,
