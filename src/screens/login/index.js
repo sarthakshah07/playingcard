@@ -42,24 +42,25 @@ const Login = () => {
       initialValues: initialValues,
       validationSchema: signInSchema,
       onSubmit: (val, err) => {
-        const Toast = Swal.mixin({
-          toast: true,
-          position: "bottom-end",
-          zIndex: 1,
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.addEventListener("mouseenter", Swal.stopTimer);
-            toast.addEventListener("mouseleave", Swal.resumeTimer);
-          },
-        });
-        Toast.fire({
-          icon: "success",
-          title: "Logged in successfully",
-        });
-        dispatch(loginUserByEmailAction(val));
-        navigate("/")
+        console.log("val",val);
+        // const Toast = Swal.mixin({
+        //   toast: true,
+        //   position: "bottom-end",
+        //   zIndex: 1,
+        //   showConfirmButton: false,
+        //   timer: 3000,
+        //   timerProgressBar: true,
+        //   didOpen: (toast) => {
+        //     toast.addEventListener("mouseenter", Swal.stopTimer);
+        //     toast.addEventListener("mouseleave", Swal.resumeTimer);
+        //   },
+        // });
+        // Toast.fire({
+        //   icon: "success",
+        //   title: "Logged in successfully",
+        // });
+        // dispatch(loginUserByEmailAction(val));
+        // navigate("/")
         
       },
     });
@@ -102,7 +103,7 @@ const Login = () => {
                           fullWidth={true}
                           type="email"
                           value={values.email}
-                          onchange={handleChange}
+                          onChange={handleChange}
                           onBlur={handleBlur}
                           label="Email"
                           id="email"
@@ -130,7 +131,7 @@ const Login = () => {
                           type="password"
                           id="password"
                           value={values.password}
-                          onchange={handleChange}
+                          onChange={handleChange}
                           onBlur={handleBlur}
                           label="password"
                           name="password"

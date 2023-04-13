@@ -19,14 +19,13 @@ import WinnnerBanner from "../../assets/images/winnerbanner.png";
 import LooksOneIcon from "@mui/icons-material/LooksOne";
 import LooksTwoIcon from "@mui/icons-material/LooksTwo";
 import Looks3Icon from "@mui/icons-material/Looks3";
-import StarIcon from "@mui/icons-material/Star";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
-import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
-import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
+import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import {useRef} from 'react';
 import AboutUs from "../../components/aboutus";
+import MyButton from "../../components/MyButton";
 
 const LandingPage = () => {
   const handleDelete = () => {
@@ -37,6 +36,7 @@ const LandingPage = () => {
   const ref1 = useRef(null);
   const ref2 = useRef(null);
   const ref3 = useRef(null);
+  const ref4 = useRef(null);
   const current = new Date();
   const TommorowDate = `${current.getDate() + 1}/${
     current.getMonth() + 1
@@ -52,8 +52,8 @@ const LandingPage = () => {
  
   return (
     <WrapperComponent isHeader>
-      <Grid container >
-        <Grid item xs={12} height="94vh" data-aos="fade-right">
+      <Grid container  height={4300}>
+        <Grid item xs={12} height="94vh" data-aos="fade-right" ref={ref1}>
           <Grid
             container
             xs={12}
@@ -61,6 +61,7 @@ const LandingPage = () => {
             height="40vh"
             className="firstgrid"
             data-aos="fade-down"
+            
           >
             <Grid container xs={12} md={12} xl={6} sx={{justifyContent:{xs:"center",md:"center",sm:"center",xl:"end"}}}>
               <Grid
@@ -79,7 +80,6 @@ const LandingPage = () => {
               >
                 <Typography
                   variant="h4"
-                  
                   color="white"
                   data-aos="fade-down"
                 >
@@ -89,6 +89,7 @@ const LandingPage = () => {
                 <Typography
                   variant="h6"
                   textAlign="left"
+                  sx={{textAlign:{xs:"center",sm:"center",md:"left",lg:"left",xl:"left"}}}
                   color="white"
                   data-aos="fade-down"
                 >
@@ -252,7 +253,7 @@ const LandingPage = () => {
                   },
                 }}
                 variant="contained"
-                // onClick={()=> ref4.current?.scrollIntoView({behavior: 'smooth'})}
+                onClick={()=> ref4.current?.scrollIntoView({behavior: 'smooth'})}
                 onDelete={handleDelete}
                 deleteIcon={
                   <ExpandCircleDownOutlinedIcon
@@ -515,6 +516,13 @@ const LandingPage = () => {
                 </MyCard>
               </Grid>
             </Grid>
+            <Grid item   xs={10} sx={{width:"100%",marginTop:"20%", display:{xs:"none",sm:"none", md:"none",lg:"flex",xl:"flex"} ,justifyContent:"end"}}>
+             <MyButton 
+              title={(<KeyboardDoubleArrowUpIcon/>)}
+              variant="contained"
+              handleClick={()=>ref1.current?.scrollIntoView({behavior: 'smooth'})}
+              />
+             </Grid>
           </Grid>
           <Grid
             item
@@ -546,17 +554,6 @@ const LandingPage = () => {
               }}
               pb={10}
             >
-              {/* <Grid item xs={12} textAlign="center">
-                <Typography
-                  variant="h4"
-                  data-aos="zoom-out-left"
-                  data-aos-duration="4500"
-                  data-aos-delay="100"
-                  //  className="toto"
-                >
-                  WINNING HISTORY
-                </Typography>
-              </Grid> */}
               <Grid
                 item
                 xs={12}
@@ -580,17 +577,6 @@ const LandingPage = () => {
                   data-aos-duration="4500"
                   data-aos-delay="100"
                 />
-
-                {/* <Typography
-                  variant="h6"
-                  className="bigwin"
-                  fontSize="30px"
-                  data-aos="zoom-out-left"
-                  data-aos-duration="4500"
-                  data-aos-delay="800"
-                >
-                  Last Week{" "}
-                </Typography> */}
                 <Typography
                   variant="h5"
                   className="bigwin"
@@ -614,27 +600,22 @@ const LandingPage = () => {
                   alignItems: "center",
                 }}
               >
-                {/* <Paper
-                  item
-                  border={1}
-                  elevation={0}
-                  sx={{
-                    width: "80px",
-                    height: "51.4vh",
-                    position: "absolute",
-                    left: "39.4%",
-                    background:"linear-gradient(to right, #31996A, #fff)",
-                  }}
-                  className="grad"
-                ></Paper> */}
-
                 <WinnerSlider
                   data-aos="fade-up"
                   data-aos-duration="4500"
                   data-aos-delay="1800"
                 />
               </Grid>
+              
             </Grid>
+            <Grid item  xs={10} sx={{width:"100%", display:{xs:"none",sm:"none", md:"none",lg:"flex",xl:"flex"} ,justifyContent:"end"}}>
+             <MyButton 
+              title={(<KeyboardDoubleArrowUpIcon/>)}
+              // title="sdfjshdf"
+              variant="contained"
+              handleClick={()=>ref1.current?.scrollIntoView({behavior: 'smooth'})}
+              />
+             </Grid>
           </Grid>
           <Grid
             item
@@ -652,7 +633,7 @@ const LandingPage = () => {
               paddingTop: {xs:1, sm:1 ,lg:10,xl:10},
               minHeight: { sm: 1000, xs: 1000 },
             }}
-            ref={ref3}
+            ref={ref4}
           >
             <Grid
               container
@@ -667,25 +648,29 @@ const LandingPage = () => {
               }}
               pb={10}
             >
-              {/* <Grid item xs={12} textAlign="center">
-                <Typography
-                  variant="h4"
-                  data-aos="zoom-out-left"
-                  data-aos-duration="4500"
-                  data-aos-delay="100"
-                  //  className="toto"
-                >
-                  WINNING HISTORY
-                </Typography>
-              </Grid> */}
-              
-              
              <AboutUs/>
-
             </Grid>
+            <Grid item  xs={10} sx={{width:"100%",display:{xs:"none",sm:"none", md:"none",lg:"flex",xl:"flex"} ,justifyContent:"end"}}>
+             <MyButton 
+              title={(<KeyboardDoubleArrowUpIcon/>)}
+              // title="sdfjshdf"
+              variant="contained"
+              handleClick={()=>ref1.current?.scrollIntoView({behavior: 'smooth'})}
+              />
+             </Grid>
           </Grid>
         </Grid>
+        <Grid item border={1}  xs={10} sx={{width:"100%" ,justifyContent:"end"}}>
+             <MyButton 
+             sx={{display:"fixed",top:"10%"}}
+              title={(<KeyboardDoubleArrowUpIcon/>)}
+              // title="sdfjshdf"
+              variant="contained"
+              handleClick={()=>ref1.current?.scrollIntoView({behavior: 'smooth'})}
+              />
+        </Grid>
       </Grid>
+     
     </WrapperComponent>
   );
 };

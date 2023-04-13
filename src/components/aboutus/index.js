@@ -7,12 +7,7 @@ function AboutUs() {
     <Grid
       item
       xs={12}
-      border={1}
-      // className="winnerback"
       sx={{
-        borderRadius: "55px 10px 5px 10px",
-        // backgroundColor: "#31996A",
-        // height: {xs:300},
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -32,9 +27,9 @@ function AboutUs() {
       >
         About Us
       </Typography>
+      
       <Grid
         container
-        border={1}
         xs={12}
         lg={12}
         sx={{
@@ -43,7 +38,7 @@ function AboutUs() {
           alignItems: "center",
         }}
       >
-        <Grid item border={1} xs={10}>
+        <Grid item xs={12} md={10} padding={5} textAlign="justify">
           <Typography>
             Harvey Langholtz, professor of psychology at William & Mary, teaches
             both psychology of decision making and psychology of decision

@@ -16,7 +16,8 @@ const Footer = () => {
           minHeight: "350px",
           bottom: "350px",
           color: "#fff",
-          marginTop:4
+          marginTop:4,
+          paddingBottom:4
         }}
         justifyContent="center"
       >
@@ -105,7 +106,7 @@ const Footer = () => {
               </Grid>
               <Grid item md={6} xs={12} >
                 <Grid container
-                justifyContent="end"
+                justifyContent="center"
               >
                   <Grid
                     item
@@ -131,24 +132,27 @@ const Footer = () => {
                   <Grid
                     item
                     md={10}
-                    xs={12}
+                    xs={8}
+                    
                     sx={{ display: "flex", justifyContent: "center" }}
                   >
-                    <Grid container >
+                    <Grid container justifyContent="space-evenly">
                       <Grid
                         item
                         md={3}
-                        xs={3}   sx={{
+                        xs={3}   
+                        sx={{
                           display: "flex",
-                          justifyContent: "right",
+                          justifyContent: "center",
                           alignItems: "center",
                            paddingTop: { sm: 3, xs: 2 },
                         }}
+                        
                       >
                         <FacebookIcon
                           sx={{
                             scale: "1.65",
-                            marginRight: "40px",
+                            marginRight:{xs:"0px", md: "40px",}
                           }}
                         />
                       </Grid>
@@ -156,6 +160,7 @@ const Footer = () => {
                         item
                         md={3}
                         xs={3}
+                        
                         sx={{
                           display: "flex",
                           justifyContent: "center",
@@ -166,7 +171,7 @@ const Footer = () => {
                         <TwitterIcon
                           sx={{
                             scale: "1.65",
-                            marginRight: "40px",
+                            marginRight:{xs:"0px", md: "40px",}
                           }}
                         />
                       </Grid>
@@ -174,6 +179,7 @@ const Footer = () => {
                         item
                         md={3}
                         xs={3}
+                        
                         sx={{
                           display: "flex",
                           justifyContent: "center",
@@ -184,7 +190,7 @@ const Footer = () => {
                         <InstagramIcon
                           sx={{
                             scale: "1.65",
-                            marginRight: "40px",
+                            marginRight:{xs:"0px", md: "40px",}
                           }}
                         />
                       </Grid>
@@ -192,17 +198,18 @@ const Footer = () => {
                         item
                         md={3}
                         xs={3}
+                        
                         sx={{
                           display: "flex",
-                          justifyContent: "left",
-                          alignItems: "center",
+                          justifyContent: "center",
+                          alignItems: "end",
                            paddingTop: { sm: 3, xs: 1 },
                         }}
                       >
                         <YouTubeIcon
                           sx={{
-                            scale: "1.65",
-                            marginRight: "40px",
+                            scale: "1.75",
+                            marginRight:{xs:"0px", md: "40px",}
                           }}
                         />
                       </Grid>

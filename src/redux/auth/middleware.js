@@ -68,6 +68,7 @@ export const signUpUserAction = createAsyncThunk(
         
         dispatch(hideLoader());
         return null;
+      
       }
       return rejectWithValue(response);
     } catch (error) {

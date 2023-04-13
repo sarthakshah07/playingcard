@@ -9,16 +9,8 @@ import { useDispatch, useSelector } from "react-redux";
 import MyButton from "../MyButton";
 import Account from "../Account/index";
 
-import {
-  Divider,
-  Drawer,
-  Grid,
-  List,
-  ListItem,
-  Snackbar,
-} from "@mui/material";
+import { Divider, Drawer, Grid, List, ListItem } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import logoheader from "../../assets/images/cardlogo1.jpg";
 import logoheader2 from "../../assets/images/logoheader.png";
 import Swal from "sweetalert2";
 import { authSelector } from "../../redux/auth/authSlice";
@@ -26,13 +18,9 @@ import { authSelector } from "../../redux/auth/authSlice";
 const drawerWidth = 240;
 const ButtonAppBar = () => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const [open, setOpen] = React.useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const authState = useSelector(authSelector);
-
-
-console.log("header",authState.user);
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -44,10 +32,11 @@ console.log("header",authState.user);
   const ClickToHome = () => {
     console.log("home clicking");
     navigate("/");
+    window.location.reload();
   };
-  const ClickToSelectCard =()=>{
+  const ClickToSelectCard = () => {
     navigate("/home");
-  }
+  };
 
   const handleLogout = () => {
     console.log("log");
@@ -80,7 +69,7 @@ console.log("header",authState.user);
           icon: "success",
           title: "Logged out successfully",
         });
-        window.location.reload()
+        window.location.reload();
         dispatch(logoutUserAction());
         navigate("/");
       } else {
@@ -116,8 +105,8 @@ console.log("header",authState.user);
       <Typography
         variant="h4"
         sx={{
-          marginLeft: "15px",
           color: "black",
+          backgroundColor: "#31996A",
           fontFamily:
             "-apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serif",
         }}
@@ -131,9 +120,14 @@ console.log("header",authState.user);
             size="small"
             title="home"
             variant="text"
-            sx={{ color: "white", marginRight: "20px" }}
+            sx={{
+              color: "white",
+              marginRight: "20px",
+              backgroundColor: "#31996A",
+            }}
             // disabled={authState?.currentUser?true:false}
-            Disabled={true}
+            fullWidth
+            // Disabled={true}
             handleClick={ClickToHome}
           />
         </ListItem>
@@ -142,17 +136,71 @@ console.log("header",authState.user);
             size="small"
             title="Card list"
             variant="text"
-            sx={{ color: "white", marginRight: "20px" }}
+            sx={{
+              color: "white",
+              marginRight: "20px",
+              backgroundColor: "#31996A",
+            }}
             handleClick={handleCardList}
+            fullWidth
           />
+        </ListItem>
+        
+        <ListItem>
+          <MyButton
+            size="small"
+            title="Select Card"
+            variant="contained"
+            sx={{
+              color: "white",
+              marginRight: "20px",
+              backgroundColor: "#31996A",
+            }}
+            fullWidth
+            handleClick={ClickToSelectCard}
+          />
+        </ListItem>
+        <ListItem>
+          {authState?.currentUser ? (
+            <MyButton
+              size="small"
+              title="Userinfo"
+              variant="contained"
+              fullWidth
+              sx={{
+                color: "white",
+                backgroundColor: "#31996A",
+                marginRight: "20px",
+
+              }}
+              handleClick={() => navigate("/Userinfo")}
+            />
+          ) : (
+            <MyButton
+              title="lOGIN"
+              variant="contained"
+              sx={{
+                color: "white",
+                marginRight: "20px",
+                backgroundColor: "#31996A",
+              }}
+              handleClick={handleLogout}
+              fullWidth
+            />
+          )}
         </ListItem>
         <ListItem>
           <MyButton
             size="small"
             title="logout"
             variant="contained"
-            sx={{ color: "white", backgroundColor: "#FAF0CB" }}
+            sx={{
+              color: "white",
+              marginRight: "20px",
+              backgroundColor: "#31996A",
+            }}
             handleClick={handleLogout}
+            fullWidth
           />
         </ListItem>
       </List>
@@ -173,36 +221,33 @@ console.log("header",authState.user);
               },
             }}
           >
-            <Grid item  xs={4}>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="start"
-              onClick={handleDrawerToggle}
-            >
-              <MenuIcon />
+            <Grid item xs={4}>
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                edge="start"
+                onClick={handleDrawerToggle}
+              >
+                <MenuIcon />
               </IconButton>
             </Grid>
             <Grid item xs={8}>
-            <Typography variant="h4" sx={{ color: "white" }}>
+              <Typography variant="h4" sx={{ color: "white" }}>
                 Card Login
               </Typography>
             </Grid>
-           
-              
-           
           </Grid>
-           <Typography
+          <Typography
             variant="h6"
             component="div"
             sx={{
               flexGrow: 2,
               display: { xs: "none", sm: "flex" },
               alignItems: "center",
-              margin:1
+              margin: 1,
             }}
           >
-            <img src={logoheader2} style={{height:"70px"}} alt="img"></img>
+            <img src={logoheader2} style={{ height: "70px" }} alt="img"></img>
             <Typography
               variant="h4"
               sx={{
@@ -223,7 +268,7 @@ console.log("header",authState.user);
               sx={{ color: "white", marginRight: "20px" }}
               handleClick={ClickToHome}
             />
-             <MyButton
+            <MyButton
               size="small"
               title="Select Card"
               variant="text"
@@ -237,18 +282,21 @@ console.log("header",authState.user);
               sx={{ color: "white", marginRight: "20px" }}
               handleClick={handleCardList}
             />
-            {
-              authState?.currentUser?
+            {authState?.currentUser ? (
               <Account />
-              :
-              <MyButton title="lOGIN" variant="text" sx={{color:"white"}} handleClick={()=>navigate("/login")}/>
-            }
-            
+            ) : (
+              <MyButton
+                title="lOGIN"
+                variant="text"
+                sx={{ color: "white" }}
+                handleClick={() => navigate("/login")}
+              />
+            )}
           </Box>
         </Toolbar>
-      
+
         <Box component="nav">
-        <Drawer
+          <Drawer
             // container={container}
             variant="temporary"
             open={mobileOpen}
@@ -267,10 +315,9 @@ console.log("header",authState.user);
             {drawer}
           </Drawer>
         </Box>
-       
       </Grid>
     </Grid>
-  );   
+  );
 };
 
 export default ButtonAppBar;

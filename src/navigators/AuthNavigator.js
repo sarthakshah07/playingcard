@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Loader from "../components/loader";
 
 const Login = lazy(() => import("../screens/login"));
 const ForgotPassword = lazy(() => import("../screens/forgot-password"));
@@ -14,7 +15,7 @@ function AuthNavigator() {
     <Suspense
       fallback={
         <>
-          <h2></h2>
+          <h2><Loader/></h2>
         </>
       }   
     >

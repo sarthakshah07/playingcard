@@ -24,7 +24,8 @@ export const logoutAsync = async (request) => {
 };
 export const signUpAsync = async (request) => {
   try {
-    const response = await axiosInstance.get(SignUpUrl, request);
+    const response = await axiosInstance.post(SignUpUrl, request);
+    console.log("api response", response);
     return response;
   } catch (err) {
     return err;

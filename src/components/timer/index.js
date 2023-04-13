@@ -48,9 +48,11 @@ export default function Timer({TommorowDate,isStyle}) {
   return (
     <div className="App" >
       <CountdownCircleTimer
+      // size={0}
+      strokeWidth={10}
         {...timerProps}
         colors="#D14081"
-        style={{margin:"10px"}}
+        // style={{margin:"10px",border:"1px solid red"}}
         duration={daySeconds}
         initialRemainingTime={remainingTime % daySeconds}
         onComplete={(totalElapsedTime) => ({
