@@ -660,7 +660,7 @@ const LandingPage = () => {
              </Grid>
           </Grid>
         </Grid>
-        <Grid item border={1}  xs={10} sx={{width:"100%" ,justifyContent:"end"}}>
+        {/* <Grid item border={1}  xs={10} sx={{width:"100%" ,justifyContent:"end"}}>
              <MyButton 
              sx={{display:"fixed",top:"10%"}}
               title={(<KeyboardDoubleArrowUpIcon/>)}
@@ -668,7 +668,7 @@ const LandingPage = () => {
               variant="contained"
               handleClick={()=>ref1.current?.scrollIntoView({behavior: 'smooth'})}
               />
-        </Grid>
+        </Grid> */}
       </Grid>
      
     </WrapperComponent>

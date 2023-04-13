@@ -15,7 +15,6 @@ import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
 import { useNavigate } from "react-router-dom";
-
 function createData(Id, Amount, Status) {
   return { Id, Amount, Status };
 }
@@ -121,9 +120,8 @@ export default function Wallet() {
                 className="Slogin"
                 fullWidth={false}
                 title="Instant Withdraw"
-                // handleClick={Navigatetologin}
                 variant="outlined"
-                sx={{ width: "95vw", alignItems: "left" }}
+                sx={{ width: "95vw", alignItems: "left", color: "green", scale:"1" }}
               />
             </Grid>
             <Grid xs={12} item>
@@ -154,6 +152,7 @@ export default function Wallet() {
                     sx={{
                       width: "100%",
                       maxHeight: "100px",
+                      color: "green",
                     }}
                   />
                 </AccordionDetails>
@@ -201,7 +200,11 @@ export default function Wallet() {
                 </Accordion>
               </Grid>
             </Grid>
-            <Grid item xs={12}  sx={{display:"flex",justifyContent:"center",marginTop:1}}>
+            <Grid
+              item
+              xs={12}
+              sx={{ display: "flex", justifyContent: "center", marginTop: 1 }}
+            >
               <MyButton
                 className="signup"
                 fullWidth={false}

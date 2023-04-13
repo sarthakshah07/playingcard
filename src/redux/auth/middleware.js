@@ -11,7 +11,9 @@ export const loginUserByEmailAction = createAsyncThunk(
   async (request, { rejectWithValue, dispatch }) => {
     try {
       
-      dispatch(showLoader({ message: "logging in..........." }));
+      setTimeout(()=>{
+        dispatch(showLoader());
+      },2000)
       const response = await loginWithEmailAsync(request);
       console.log("res",response);
       if (response.status === 200) {
@@ -24,7 +26,7 @@ export const loginUserByEmailAction = createAsyncThunk(
         await setUser(fakeJson);
         setTimeout(() => {
           dispatch(hideLoader());
-        }, 1500);
+        }, 2000);
         window.location.reload()
         return fakeJson;
       }
@@ -41,7 +43,9 @@ export const logoutUserAction = createAsyncThunk(
   "auth/logout",
   async (request, { rejectWithValue, dispatch }) => {
     try {
-      dispatch(showLoader({ message: "logging in..........." }));
+      setTimeout(() => {
+        dispatch(showLoader());
+      }, 2000);
       const response = await logoutAsync(request);
       if (response.status === 200 ) {
         await removeUser();

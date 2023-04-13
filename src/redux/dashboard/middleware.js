@@ -13,14 +13,14 @@ export const fetchCardAction = createAsyncThunk(
       if (response?.status === 200) {
         setTimeout(() => {
           dispatch(hideLoader());
-        }, 1500);
+        }, 2000);
         return cardsData;
       }
       return rejectWithValue(response);
     } catch (error) {
       setTimeout(() => {
         dispatch(hideLoader());
-      }, 1500);
+      }, 2000);
       return rejectWithValue(error);
     }
   }
@@ -35,14 +35,14 @@ export const cardListAction = createAsyncThunk(
       if (response?.status === 200) {
         setTimeout(() => {
           dispatch(hideLoader());
-        }, 1500);
+        }, 2000);
         return userData;
       }
       return rejectWithValue(response);
     } catch (error) {
       setTimeout(() => {
         dispatch(hideLoader());
-      }, 1500);
+      }, 2000);
       return rejectWithValue(error);
     }
   }
