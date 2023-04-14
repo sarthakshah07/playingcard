@@ -8,7 +8,6 @@ import { logoutUserAction } from "../../redux/auth/middleware";
 import { useDispatch, useSelector } from "react-redux";
 import MyButton from "../MyButton";
 import Account from "../Account/index";
-
 import {
   Divider,
   Drawer,
@@ -261,14 +260,15 @@ const ButtonAppBar = () => {
 
   return (
     <Grid container justifyContent="center" bgcolor="#31996A">
-      <Grid item sm={8} xs={12}>
+      <Grid item sm={12} md={8} xs={12} lg={8} xl={8}>
         <Toolbar>
           <Grid
             container
             sx={{
               display: {
-                sm: "none",
+                sm: "flex",
                 xs: "flex",
+                md:"none",
                 justifyContent: "space-evenly",
               },
             }}
@@ -294,7 +294,7 @@ const ButtonAppBar = () => {
             component="div"
             sx={{
               flexGrow: 2,
-              display: { xs: "none", sm: "flex" },
+              display: { xs: "none", sm: "none",md:"flex" },
               alignItems: "center",
               margin: 1,
             }}
@@ -308,25 +308,27 @@ const ButtonAppBar = () => {
                 fontFamily:
                   "-apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serif",
               }}
+              whiteSpace="nowrap"
+          
             >
               Card Login
             </Typography>
           </Typography>
-          <Box sx={{ display: { xs: "none", sm: "flex" } }}>
+          <Box sx={{ display: { xs: "none", sm: "none",md:"flex" } ,justifyContent:"space-evenly"}}>
             <BootstrapTooltip title={tooltipTitle}>
-              <Grid item>
+              <Grid item  whiteSpace="nowrap">
                 <MyButton
                   size="small"
                   title="home"
                   variant="text"
-                  sx={{ color: "white", marginRight: "20px" }}
+                  sx={{ color: "white", marginRight: "20px",whiteSpace:"nowrap" }}
                   handleClick={ClickToHome}
                   Disabled={isDisabled}
                 />
               </Grid>
             </BootstrapTooltip>
             <BootstrapTooltip title={tooltipTitle}>
-              <Grid item>
+              <Grid item  whiteSpace="nowrap">
                 <MyButton
                   size="small"
                   title="Select Card"
@@ -338,7 +340,7 @@ const ButtonAppBar = () => {
               </Grid>
             </BootstrapTooltip>
             <BootstrapTooltip title={tooltipTitle}>
-              <Grid item>
+              <Grid item whiteSpace="nowrap">
                 <MyButton
                   size="small"
                   title="Card list"

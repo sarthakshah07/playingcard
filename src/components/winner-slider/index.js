@@ -63,13 +63,12 @@ const WinnerSlider = () => {
   }, []);
   return (
     <Grid item xs={11} sx={{height:{lg:250,xl:250,xs:250,sm:250},marginTop:{lg:10,xl:10,xs:10,sm:10}}}>
-      <Slider ref={setSliderRef} {...settings} >
+      <Slider ref={setSliderRef} {...settings}  >
         {data.map((element) => (
           <>
-          {/* <Card sx={{ background: "none", zIndex: 0,borderRadius:5 }}> */}
-             <Grid container justifyContent="center" sx={{boxShadow:10,border:.5,borderRadius:5 ,width:"95%"}}> 
-             {/* <Grid item xs={10} height={200} borderRadius={5} border="none" boxShadow={1}> */}
-            <Grid container justifyContent="center">
+             <Grid container justifyContent="center" sx={{borderRadius:5 ,width:"95%",padding:1}}> 
+            <Card sx={{display:"flex",justifyContent:"center",borderRadius:5,flexDirection:"column",width:"100%",boxShadow:"5px 5px 10px gray"}} >
+              <Grid item  sx={{display:"flex",justifyContent:"center"}}>
               <CardMedia
                 sx={{
                   height: 80,
@@ -77,12 +76,13 @@ const WinnerSlider = () => {
                   margin: 1,
                   display: "flex",
                   justifyContent: "center",
-                  boxShadow: 10,
+                  // boxShadow: 10,
                 }}
                 image={element.url}
                 title="green iguana"
               ></CardMedia>
-            </Grid>
+              </Grid>
+           
             <CardContent
               sx={{
                 margin: 1,
@@ -98,6 +98,7 @@ const WinnerSlider = () => {
                 {element.date}
               </Typography>
             </CardContent>
+            </Card>
             {/* </Grid> */}
               </Grid>
           {/* </Card> */}

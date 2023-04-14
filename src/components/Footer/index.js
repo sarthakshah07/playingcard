@@ -6,10 +6,12 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
+import WrapperComponent from "../WrapperComponent";
 const Footer = () => {
   return (
     <>
-      <Grid
+     <WrapperComponent>
+     <Grid
         container
         className="footercontainer"
         sx={{
@@ -20,8 +22,9 @@ const Footer = () => {
           paddingBottom:4
         }}
         justifyContent="center"
+        // xs={8}
       >
-        <Grid container md={8} marginTop={5}>
+        <Grid container md={8} marginTop={5} >
           <Grid item md={6} justifyContent="flex-end">
             <Grid container justifyContent="center">
               <Typography
@@ -221,6 +224,7 @@ const Footer = () => {
           </Grid>
         </Grid>
       </Grid>
+     </WrapperComponent>
     </>
   );
 };

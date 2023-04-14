@@ -52,46 +52,51 @@ const LandingPage = () => {
  
   return (
     <WrapperComponent isHeader>
-      <Grid container  height={4300}>
+      <Grid container sx={{height:{xs:5100,sm:5800,md:4800,lg:4300}}} width="100%">
         <Grid item xs={12} height="94vh" data-aos="fade-right" ref={ref1}>
           <Grid
             container
             xs={12}
             borderBottom={1}
-            height="40vh"
+            sx={{height:{xs:"75vh",sm:"40vh"}}}
             className="firstgrid"
             data-aos="fade-down"
-            
+                  
           >
-            <Grid container xs={12} md={12} xl={6} sx={{justifyContent:{xs:"center",md:"center",sm:"center",xl:"end"}}}>
+            <Grid item xs={12} md={12} xl={6}  sx={{ justifyContent:{xs:"center",md:"center",sm:"center",xl:"end"}}}>
               <Grid
-                item
-                xs={11}
-                sm={6}
-                md={4}
-                lg={7}
-                xl={8}
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                }}
+                container
+                
+                height="100%"
+                sx={{ justifyContent:{xs:"center",md:"center",sm:"center",xl:"end"}}}
+                alignItems="center"
+                // sx={{
+                //   display: "flex",
+                //   flexDirection: "column",
+                //   justifyContent: "center",
+                // }}
                 data-aos="fade-down"
               >
+                <Grid item  xs={11}  md={7} border={1}>
                 <Typography
                   variant="h4"
                   color="white"
                   data-aos="fade-down"
+                  whiteSpace="pre-line"
+                  sx={{textAlign:{xs:"center",sm:"center",md:"left",lg:"left",xl:"left"}}}
                 >
                   ONLINE LOTTERY IN INDIA
                 </Typography>
-                <br></br>
+                </Grid>
+                <Grid item border={1} xs={11}>
+                {/* <br></br> */}
                 <Typography
                   variant="h6"
                   textAlign="left"
                   sx={{textAlign:{xs:"center",sm:"center",md:"left",lg:"left",xl:"left"}}}
                   color="white"
                   data-aos="fade-down"
+                  whiteSpace="pre-wrap"
                 >
                   Online lottery is more popular than ever, and you can play the
                   best games from anywhere in India. The concept is nothing new
@@ -99,6 +104,7 @@ const LandingPage = () => {
                   We’re sharing all our tips and tricks for the best online
                   lottery experience!
                 </Typography>
+                </Grid>
               </Grid>
             </Grid>
             <Grid item xs={6} sx={{ display: {sm:"none",xs:"none",md:"none",lg:"none",xl:"flex"}, justifyContent: "end" }}>
@@ -115,7 +121,7 @@ const LandingPage = () => {
                   data-aos="fade-up"
                   data-aos-duration="4500"
                   data-aos-delay="1500"
-                ></img>
+                />
                 <img
                   src="card-images/ClubsCard/ACE_OF_CLUBS.png"
                   alt=""
@@ -129,7 +135,7 @@ const LandingPage = () => {
                   data-aos="fade-up"
                   data-aos-duration="4500"
                   data-aos-delay="1500"
-                ></img>
+                />
                 <img
                   src="card-images/DiamondsCard/ACE_OF_DIAMONDS.png"
                   alt=""
@@ -143,7 +149,7 @@ const LandingPage = () => {
                   data-aos="fade-up"
                   data-aos-duration="4500"
                   data-aos-delay="1500"
-                ></img>
+                />
                 <img
                   src="card-images/SpadesCard/ACE_OF_SPADES.png"
                   alt=""
@@ -157,7 +163,7 @@ const LandingPage = () => {
                   data-aos="fade-up"
                   data-aos-duration="4500"
                   data-aos-delay="1500"
-                ></img>
+                />
             </Grid>
           </Grid>
           <Grid
@@ -265,8 +271,8 @@ const LandingPage = () => {
           </Grid>
           {/* section 1 */}
           <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" ,marginBottom:"20px"}} id="section1">
-            <Grid container xs={12} md={8} >
-              <Grid item xs={12} sm={12} md={12} lg={6} xl={6} textAlign="center">
+            <Grid container xs={12} md={8} justifyContent="center" >
+              <Grid item xs={12} sm={12} md={12} lg={12} xl={12} textAlign="center">
                 <Typography
                   sx={{
                     mt: 3,
@@ -278,7 +284,7 @@ const LandingPage = () => {
                   Tommorrow's date : {TommorowDate}
                 </Typography>
               </Grid>
-              <Grid item xs={12} sm={12} md={12} lg={6} xl={6} >
+              <Grid item xs={12} sm={12} md={8} lg={8} xl={6} >
                 <Typography
                   sx={{
                     fontVariant: "small-caps",
@@ -552,7 +558,7 @@ const LandingPage = () => {
                 display: "flex",
                 justifyContent: "center",
               }}
-              pb={10}
+              pb={12}
             >
               <Grid
                 item
@@ -608,14 +614,14 @@ const LandingPage = () => {
               </Grid>
               
             </Grid>
-            <Grid item  xs={10} sx={{width:"100%", display:{xs:"none",sm:"none", md:"none",lg:"flex",xl:"flex"} ,justifyContent:"end"}}>
+            {/* <Grid item  xs={10} sx={{width:"100%", display:{xs:"none",sm:"none", md:"none",lg:"flex",xl:"flex"} ,justifyContent:"end"}}>
              <MyButton 
               title={(<KeyboardDoubleArrowUpIcon/>)}
               // title="sdfjshdf"
               variant="contained"
               handleClick={()=>ref1.current?.scrollIntoView({behavior: 'smooth'})}
               />
-             </Grid>
+             </Grid> */}
           </Grid>
           <Grid
             item
@@ -660,7 +666,7 @@ const LandingPage = () => {
              </Grid>
           </Grid>
         </Grid>
-        {/* <Grid item border={1}  xs={10} sx={{width:"100%" ,justifyContent:"end"}}>
+        {/* <Grid item   xs={10} sx={{width:"100%" ,justifyContent:"end"}}>
              <MyButton 
              sx={{display:"fixed",top:"10%"}}
               title={(<KeyboardDoubleArrowUpIcon/>)}

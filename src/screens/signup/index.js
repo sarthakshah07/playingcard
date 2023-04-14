@@ -139,7 +139,7 @@ const Signup = () => {
               <form noValidate onSubmit={handleSubmit}>
                 <Typography sx={{ mt: 1.5, mb: 1.5 }} color="text.secondary">
                   {/* <Textfield/> */}
-                  <Grid container xs={12} spacing={1}>
+                  <Grid container  spacing={1}>
                     <Grid item xs={12} md={6}>
                       <FieldText
                         fullWidth={true}
