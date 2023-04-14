@@ -9,6 +9,7 @@ import { loginWithEmailAsync, logoutAsync, signUpAsync } from "./services";
 export const loginUserByEmailAction = createAsyncThunk(
   "auth/loginByEmail",
   async (request, { rejectWithValue, dispatch }) => {
+    console.log("req",request);
     try {
       
       setTimeout(()=>{

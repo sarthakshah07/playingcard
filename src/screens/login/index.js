@@ -11,6 +11,7 @@ import {
   CardContent,
   CardHeader,
   Grid,
+  IconButton,
   InputAdornment,
   Typography,
 } from "@mui/material";
@@ -20,12 +21,13 @@ import { useNavigate } from "react-router-dom";
 import { loginUserByEmailAction } from "../../redux/auth/middleware";
 import { authSelector } from "../../redux/auth/authSlice";
 import Swal from "sweetalert2";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 // import NumberCounter from 'my-number-counter';
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const authData = useSelector(authSelector);
-  console.log("authData : ", authData);
+  const [showPassword, setShowPassword] = React.useState(false);
   const initialValues = {
     emaill: "",
     password: "",
@@ -42,9 +44,8 @@ const Login = () => {
       initialValues: initialValues,
       validationSchema: signInSchema,
       onSubmit: (val, err) => {
-        navigate("/")
         dispatch(loginUserByEmailAction(val));
-       
+        navigate("/")
         const Toast = Swal.mixin({
           toast: true,
           position: "bottom-end",
@@ -70,6 +71,7 @@ const Login = () => {
   const NavigateOnClickRegistraion = () => {
     navigate("/signUp");
   };
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
   return (
     <WrapperComponent>
       <Grid container justifyContent= "center" border={1} className="container">
@@ -128,7 +130,7 @@ const Login = () => {
                         sx={{ fontFamily:
                           "apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serifi"}}
                           fullWidth={true}
-                          type="password"
+                          type={showPassword ? "text" : "password"}
                           id="password"
                           value={values.password}
                           onChange={handleChange}
@@ -142,6 +144,22 @@ const Login = () => {
                             startAdornment: (
                               <InputAdornment position="start">
                                 <AccountCircle />
+                              </InputAdornment>
+                            ),
+                            endAdornment: (
+                              <InputAdornment position="end">
+                                <IconButton
+                                  aria-label="toggle password visibility"
+                                  onClick={handleClickShowPassword}
+                                  // onMouseDown={handleMouseDownPassword}
+                                  edge="end"
+                                >
+                                  {showPassword ? (
+                                    <VisibilityOff />
+                                  ) : (
+                                    <Visibility />
+                                  )}
+                                </IconButton>
                               </InputAdornment>
                             ),
                           }}

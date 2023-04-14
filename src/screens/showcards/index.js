@@ -3,12 +3,10 @@ import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
-
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import WrapperComponent from "../../components/WrapperComponent";
-
 import { Grid } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { dashboardSelector } from "../../redux/dashboard/dashboardSlice";
@@ -19,16 +17,15 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { useTimer } from "react-timer-hook";
-
 import Timer from "../../components/timer";
 import MyButton from "../../components/MyButton";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./_showcard.css";
 import Swal from "sweetalert2";
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
+const StyledTableCell = styled(TableCell)(({}) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
+    backgroundColor:" #D6E2F3 ",
+    color: "black",
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 20,
@@ -62,7 +59,6 @@ const ShowCards = ({ state }) => {
   const dispatch = useDispatch();
   const location = useLocation();
   const [value, setValue] = useState(new Date());
-
   useEffect(() => {
     const interval = setInterval(() => setValue(new Date()), 1000);
     return () => {
@@ -100,7 +96,6 @@ const ShowCards = ({ state }) => {
     });
   };
   const cardImg = location.state;
-
   return (
     <WrapperComponent isHeader>
       <Grid
@@ -111,7 +106,7 @@ const ShowCards = ({ state }) => {
       >
         <Grid item xs={10} sm={10} md={8} lg={8} xl={8} >
           {cardImg && (
-            <Card sx={{ boxShadow: "5px 4px 10px  black", borderRadius: "55px 10px 55px 10px"}}>
+            <Card sx={{ boxShadow: "5px 4px 15px  lightgray", borderRadius: "55px 10px 55px 10px"}}>
               <CardContent>
                 <Grid container xs={12}  sx={{ display: "flex" }}>
                   <Grid
@@ -131,7 +126,7 @@ const ShowCards = ({ state }) => {
                       style={{ height: "280px" }}
                     />
                   </Grid>
-                  <Grid item  
+                  <Grid item
                   xs={12}
                     md={6}
                      textAlign="center"
@@ -145,7 +140,6 @@ const ShowCards = ({ state }) => {
                       }}
                     >
                       Time Left:
-                      
                     </Typography>
                       <Timer TommorowDate={TommorowDate}/>
                     <Typography
@@ -184,8 +178,7 @@ const ShowCards = ({ state }) => {
       >
         <Grid item xs={10} md={8} marginBottom={4}  textAlign="center"  >
         <Typography variant="h4" sx={{backgroundColor:"#31996A",color:"white",padding:2}}>Cards History</Typography>
-          <Grid container overflow="auto" sx={{height:{xs:800}}}>
-
+          <Grid container  sx={{height:{xs:800}}}  className="scroll">
           <Table aria-label="customized table">
             <TableHead sx={{position:"sticky",top:0}}>
               <TableRow>
@@ -204,10 +197,6 @@ const ShowCards = ({ state }) => {
                 <StyledTableCell align="right" style={{ fontSize: "30px" }}>
                   BidCard
                 </StyledTableCell>
-                <StyledTableCell align="right" style={{ fontSize: "30px" }}>
-               
-               
-                </StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -225,7 +214,7 @@ const ShowCards = ({ state }) => {
                     <Typography
                       sx={{
                         backgroundColor:
-                          row.bidOpen === "true" ? "green" : "red",
+                          row.bidOpen === "true" ? "#31996A" : "#C03838",
                         float: "right",
                         textAlign: "center",
                         width: "50%",
@@ -234,13 +223,13 @@ const ShowCards = ({ state }) => {
                         alignItems: "center",
                         justifyContent: "center",
                         borderRadius: "15px",
+                        color:"white"
                       }}
                     >
                       {" "}
-                      {row.bidOpen === "true" ? "won" : "lost"}
+                      {row.bidOpen === "true" ? "won"  : "lost" }
                     </Typography>
                   </StyledTableCell>
-
                   <StyledTableCell align="right">
                     <img src={row.url} style={{ height: "90px" }} alt=""></img>
                   </StyledTableCell>
@@ -252,10 +241,16 @@ const ShowCards = ({ state }) => {
             </TableBody>
           </Table>
           </Grid>
-         
         </Grid>
       </Grid>
     </WrapperComponent>
   );
 };
 export default ShowCards;
+
+
+
+
+
+
+

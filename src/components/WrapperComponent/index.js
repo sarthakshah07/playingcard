@@ -8,7 +8,7 @@ import Footer from "../Footer";
 function WrapperComponent(props) {
   const { children, isHeader ,isFooter} = props;
   return (
-    <Box sx={{ width: "100%"}}>
+    <Box sx={{ width: "100%" ,scrollBehavior:"smooth"}} >
       <CssBaseline />
       <Box  sx={{fontFamily:"apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serif"}}>
         {isHeader && <Header />}

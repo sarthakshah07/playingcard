@@ -46,7 +46,7 @@ export default function Timer({ TommorowDate, isStyle }) {
   };
 
   return (
-    <Grid container border  xs={12}  justifyContent="space-evenly" className="App">
+    <Grid container border   justifyContent="space-evenly" className="App">
       <Grid item >
         <CountdownCircleTimer
           // size={0}
