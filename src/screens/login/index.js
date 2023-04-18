@@ -29,11 +29,14 @@ const Login = () => {
   const authData = useSelector(authSelector);
   const [showPassword, setShowPassword] = React.useState(false);
   const initialValues = {
-    emaill: "",
+    // email: "",
+    userName: "",
     password: "",
   };
   const signInSchema = yup.object().shape({
-    email: yup.string().email().required("Email is required"),
+    // email: yup.string().email().required("userName is required"),
+    userName: yup.string().email().required("userName is required"),
+
     password: yup
       .string()
       .required("Password is required")
@@ -45,26 +48,11 @@ const Login = () => {
       validationSchema: signInSchema,
       onSubmit: (val, err) => {
         dispatch(loginUserByEmailAction(val));
+        console.log("111111111111");
         navigate("/")
-        const Toast = Swal.mixin({
-          toast: true,
-          position: "bottom-end",
-          zIndex: 1,
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.addEventListener("mouseenter", Swal.stopTimer);
-            toast.addEventListener("mouseleave", Swal.resumeTimer);
-          },
-        });
-        Toast.fire({
-          icon: "success",
-          title: "Logged in successfully",
-          timer:3000
-        });
       },
     });
+    console.log("authfts",authData);
   const NavigateOnClick = () => {
     navigate("/forgot-password");
   };
@@ -98,20 +86,20 @@ const Login = () => {
                 <form noValidate onSubmit={handleSubmit}>
                   <Typography sx={{ mt: 1.5, mb: 1.5 }} color="text.secondary">
                     <Grid container>
-                      <Grid item xs={12}>
+                      {/* <Grid item xs={12}>
                         <FieldText
                         sx={{ fontFamily:
                           "apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serifi"}}
                           fullWidth={true}
                           type="email"
-                          value={values.email}
+                          value={values.userName}
                           onChange={handleChange}
                           onBlur={handleBlur}
-                          label="Email"
+                          label="email"
                           id="email"
                           name="email"
-                          touched={touched?.userName}
-                          errors={errors?.userName}
+                          touched={touched?.email}
+                          errors={errors?.email}
                           variant="standard"
                           InputProps={{
                             startAdornment: (
@@ -123,6 +111,33 @@ const Login = () => {
                         />
                         {touched.email && errors.email ? (
                           <div className="error">{errors.email}</div>
+                        ) : null}
+                      </Grid> */}
+                      <Grid item xs={12}>
+                        <FieldText
+                        sx={{ fontFamily:
+                          "apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serifi"}}
+                          fullWidth={true}
+                          type="userName"
+                          value={values.userName}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          label="userName"
+                          id="userName"
+                          name="userName"
+                          touched={touched?.userName}
+                          errors={errors?.userName}
+                          variant="standard"
+                          InputProps={{
+                            startAdornment: (
+                              <InputAdornment position="start">
+                                <AccountCircle />
+                              </InputAdornment>
+                            ),
+                          }}
+                        />
+                        {touched.userName && errors.userName ? (
+                          <div className="error">{errors.userName}</div>
                         ) : null}
                       </Grid>
                       <Grid item xs={12}>
