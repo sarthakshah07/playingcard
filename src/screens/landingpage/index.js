@@ -7,7 +7,6 @@ import {
   CardContent,
   Chip,
   Grid,
-  Paper,
   Stack,
   Typography,
 } from "@mui/material";
@@ -26,6 +25,7 @@ import "aos/dist/aos.css";
 import {useRef} from 'react';
 import AboutUs from "../../components/aboutus";
 import MyButton from "../../components/MyButton";
+import FAQS from "../../components/FAQS";
 
 const LandingPage = () => {
   const handleDelete = () => {
@@ -52,7 +52,7 @@ const LandingPage = () => {
  
   return (
     <WrapperComponent isHeader>
-      <Grid container sx={{height:{xs:5100,sm:5800,md:4800,lg:4300}}} width="100%">
+      <Grid container sx={{height:{xs:5100,sm:5800,md:4800,lg:5300}}} width="100%">
         <Grid item xs={12} height="94vh" data-aos="fade-right" ref={ref1}>
           <Grid
             container
@@ -66,18 +66,13 @@ const LandingPage = () => {
             <Grid item xs={12} md={12} xl={6}  sx={{ justifyContent:{xs:"center",md:"center",sm:"center",xl:"end"}}}>
               <Grid
                 container
-                
+                spacing={0}
                 height="100%"
                 sx={{ justifyContent:{xs:"center",md:"center",sm:"center",xl:"end"}}}
                 alignItems="center"
-                // sx={{
-                //   display: "flex",
-                //   flexDirection: "column",
-                //   justifyContent: "center",
-                // }}
                 data-aos="fade-down"
               >
-                <Grid item  xs={11}  md={7} border={1}>
+                <Grid item  xs={11}  md={7} >
                 <Typography
                   variant="h4"
                   color="white"
@@ -88,7 +83,7 @@ const LandingPage = () => {
                   ONLINE LOTTERY IN INDIA
                 </Typography>
                 </Grid>
-                <Grid item border={1} xs={11}>
+                <Grid item  xs={11} lg={7}>
                 {/* <br></br> */}
                 <Typography
                   variant="h6"
@@ -107,7 +102,7 @@ const LandingPage = () => {
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item xs={6} sx={{ display: {sm:"none",xs:"none",md:"none",lg:"none",xl:"flex"}, justifyContent: "end" }}>
+            <Grid item xs={6} sx={{ display: {sm:"none",xs:"none",md:"none ",lg:"none",xl:"flex"}, justifyContent: "end" }} >
                 <img
                   src="card-images/HeartsCard/ACE_OF_HEARTS.png"
                   alt=""
@@ -117,6 +112,7 @@ const LandingPage = () => {
                     top:180,
                     right: 180,
                     rotate: "290deg",
+                    // height:{xl:200,sm:20,lg:"10px"}
                   }}
                   data-aos="fade-up"
                   data-aos-duration="4500"
@@ -358,9 +354,9 @@ const LandingPage = () => {
               justifyContent: "start",
               alignItems: "center",
               // backgroundColor: "#31996A",
-              marginTop: "10px",
-              paddingTop: 40,
-              minHeight: { sm: 2500, xs: 2000, md:1500,lg:1100 },
+              // marginTop: "10px",
+              paddingTop:{sm: 40, xs:20, md:20, lg:40},
+              minHeight: { sm: 1500, xs: 2200, md:1500,lg:1100 },
             }}
             className="firstgrid"
             id="section3"
@@ -381,7 +377,7 @@ const LandingPage = () => {
                 maxHeight: 200,
               }}
             >
-              <Grid item xs={12} textAlign="center" height={100}>
+              <Grid item xs={12} textAlign="center" sx={{height:{xs:150,sm:100}}}>
                 <Typography variant="h4" className="toto" data-aos="fade-left">
                   HOW TO PLAY THE GAME
                 </Typography>
@@ -394,7 +390,7 @@ const LandingPage = () => {
                     borderRadius: "55px 5px 55px 5px",
                     boxShadow: "20px 20px 20px",
                     backgroundColor: "#31996A",
-                    padding: "50px",
+                    padding: {lg:"50px",xs:"20px",sm:"30px",md:"40px"},
                   }}
                 >
                   <CardContent
@@ -415,8 +411,8 @@ const LandingPage = () => {
                   <CardContent
                     sx={{
                       textAlign: "justify",
-                      width: "90%",
-                      marginLeft: "20%",
+                      width: "100%",
+                      marginLeft:{sm: "0%",xs:"0",lg:"10%"},
                     }}
                   >
                     <Typography
@@ -442,7 +438,7 @@ const LandingPage = () => {
                     borderRadius: "55px 5px 55px 5px",
                     boxShadow: "20px 20px 20px",
                     backgroundColor: "#31996A",
-                    padding: "50px",
+                    padding: {lg:"50px",xs:"20px",sm:"30px",md:"40px"},
                   }}
                 >
                   <CardContent
@@ -464,7 +460,7 @@ const LandingPage = () => {
                     sx={{
                       textAlign: "justify",
                       width: "100%",
-                      marginLeft: "20%",
+                      marginLeft:{sm: "0%",xs:"0",lg:"10%"},
                     }}
                   >
                     <Typography
@@ -487,7 +483,7 @@ const LandingPage = () => {
                     borderRadius: "55px 5px 55px 5px",
                     boxShadow: "20px 20px 20px",
                     backgroundColor: "#31996A",
-                    padding: "50px",
+                    padding: {lg:"50px",xs:"20px",sm:"30px",md:"40px"},
                   }}
                 >
                   <CardContent
@@ -506,7 +502,7 @@ const LandingPage = () => {
                     sx={{
                       textAlign: "justify",
                       width: "100%",
-                      marginLeft: "20%",
+                      marginLeft:{sm: "0%",xs:"0",lg:"10%"},
                     }}
                   >
                     <Typography
@@ -655,6 +651,48 @@ const LandingPage = () => {
               pb={10}
             >
              <AboutUs/>
+            </Grid>
+            <Grid item  xs={10} sx={{width:"100%",display:{xs:"none",sm:"none", md:"none",lg:"flex",xl:"flex"} ,justifyContent:"end"}}>
+             <MyButton 
+              title={(<KeyboardDoubleArrowUpIcon/>)}
+              // title="sdfjshdf"
+              variant="contained"
+              handleClick={()=>ref1.current?.scrollIntoView({behavior: 'smooth'})}
+              />
+             </Grid>
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            id="section3"
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              // justifyContent: {md:"start", sm:"center",xs:"center"},
+              justifyContent:"center",
+              alignItems: "center",
+              // backgroundColor: "#31996A",
+              marginTop: "10px",
+              paddingTop: {xs:1, sm:1 ,lg:10,xl:10},
+              minHeight: { sm: 1000, xs: 1000 },
+            }}
+            // ref={ref4}
+          >
+            <Grid
+              container
+              xs={10}
+              md={8}
+              sx={{
+                boxShadow: "5px 5px 30px  black",
+                borderRadius: "55px 10px 55px 10px",
+                backgroundColor: "#31996A",
+                display: "flex",
+                justifyContent: "center",
+                position:"fixed"
+              }}
+              pb={10}
+            >
+             <FAQS/>
             </Grid>
             <Grid item  xs={10} sx={{width:"100%",display:{xs:"none",sm:"none", md:"none",lg:"flex",xl:"flex"} ,justifyContent:"end"}}>
              <MyButton 

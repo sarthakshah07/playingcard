@@ -1,8 +1,8 @@
 import axiosInstance from "../../services/api";
 
 // login apis url
- const LoginUserUrl = "/api/login";
-// const LoginUserUrl = "/login";
+//  const LoginUserUrl = "/api/login";
+const LoginUserUrl = "/login";
 const LogoutUserUrl = "/api/logout";
 const SignUpUrl = "/api/register";
 
