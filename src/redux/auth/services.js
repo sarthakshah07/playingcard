@@ -4,7 +4,7 @@ import axiosInstance from "../../services/api";
 //  const LoginUserUrl = "/api/login";
 const LoginUserUrl = "/login";
 const LogoutUserUrl = "/api/logout";
-const SignUpUrl = "/api/register";
+const SignUpUrl = "users/add";
 
 export const loginWithEmailAsync = async (request) => {
   try {

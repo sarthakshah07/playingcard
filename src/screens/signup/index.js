@@ -27,7 +27,7 @@ const initialValues = {
   firstName: "",
   lastName: "",
   email: "",
-  contactNo: "",
+  phone: "",
   password: "",
   cPassword: "",
 };
@@ -48,11 +48,11 @@ const signUpSchema = yup.object().shape({
     .required("Required"),
   contactNo: yup
     .string()
-    .matches(phoneRegExp, "Phone number is not valid")
+    .matches(phoneRegExp, "contactNo is not valid")
     // .number()
     .required("Required")
-    .min(10, "Phone number is not valid")
-    .max(10, "Phone number is not valid"),
+    .min(10, "contactNois not valid")
+    .max(10, "contactNo is not valid"),
   password: yup
     .string()
     .required("required")
@@ -146,7 +146,7 @@ const Signup = () => {
                         className="firstname"
                         type="text"
                         value={values.firstName}
-                        onchange={handleChange}
+                        onChange={handleChange}
                         onBlur={handleBlur}
                         label="First Name"
                         id="firstName"
@@ -171,7 +171,7 @@ const Signup = () => {
                         fullWidth={true}
                         type="text"
                         value={values.lastName}
-                        onchange={handleChange}
+                        onChange={handleChange}
                         onBlur={handleBlur}
                         label="Last Name"
                         id="lastName"
@@ -191,12 +191,34 @@ const Signup = () => {
                         <div className="error">{errors.lastName}</div>
                       ) : null}
                     </Grid>
+                    <FieldText
+                        sx={{ fontFamily:
+                          "apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serifi"}}
+                          fullWidth={true}
+                          type="userName"
+                          value={values.userName}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          label="userName"
+                          id="userName"
+                          name="userName"
+                          touched={touched?.userName}
+                          errors={errors?.userName}
+                          variant="standard"
+                          InputProps={{
+                            startAdornment: (
+                              <InputAdornment position="start">
+                                <AccountCircle />
+                              </InputAdornment>
+                            ),
+                          }}
+                        />
                     <Grid item xs={12}>
                       <FieldText
                         fullWidth={true}
                         type="email"
                         value={values.email}
-                        onchange={handleChange}
+                        onChange={handleChange}
                         onBlur={handleBlur}
                         label="Email"
                         id="email"
@@ -221,9 +243,9 @@ const Signup = () => {
                         fullWidth={true}
                         type="tel"
                         value={values.contactNo}
-                        onchange={handleChange}
+                        onChange={handleChange}
                         onBlur={handleBlur}
-                        label="Contact Number"
+                        label="contactNo"
                         id="contactNo"
                         name="contactNo"
                         touched={touched?.contactNo}
@@ -237,7 +259,7 @@ const Signup = () => {
                           ),
                         }}
                       />
-                      {touched.contactNo && errors.contactNo ? (
+                      {touched.contactNo && errors.contactNo? (
                         <div className="error">{errors.contactNo}</div>
                       ) : null}
                     </Grid>
@@ -248,7 +270,7 @@ const Signup = () => {
                         type={showPassword ? "text" : "password"}
                         id="Password"
                         value={values.Password}
-                        onchange={handleChange}
+                        onChange={handleChange}
                         onBlur={handleBlur}
                         label="Password"
                         name="password"
@@ -289,7 +311,7 @@ const Signup = () => {
                         fullWidth={true}
                         type={showPassword ? "text" : "password"}
                         value={values.cPassword}
-                        onchange={handleChange}
+                        onChange={handleChange}
                         onBlur={handleBlur}
                         label="Confirm Password"
                         id="cPassword"

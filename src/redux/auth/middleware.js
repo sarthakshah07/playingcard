@@ -1,6 +1,6 @@
 
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { useState } from "react";
+
 import { removeUser, setUser } from "../../services/token";
 import { hideLoader, showLoader } from "../lem/lemSlice";
 import { loginWithEmailAsync, logoutAsync, signUpAsync } from "./services";
@@ -14,13 +14,13 @@ export const loginUserByEmailAction = createAsyncThunk(
   "auth/loginByEmail",
   async (request, { rejectWithValue, dispatch }) => {
   
-    console.log("req",request);
+    // console.log("req",request);
     try {
       setTimeout(()=>{
         dispatch(showLoader());
       },2000)
       const response = await loginWithEmailAsync(request);
-      console.log("res",response);
+      // console.log("res",response);
       if (response.status === 200) {
       console.log("res",response);
         setTimeout(() => {
@@ -54,7 +54,7 @@ export const loginUserByEmailAction = createAsyncThunk(
         return ;
       }
       else{
-       console.log("sdfhgsjdhfg");
+      
         setTimeout(() => {
           dispatch(hideLoader());
         }, 2000);
@@ -113,18 +113,35 @@ export const logoutUserAction = createAsyncThunk(
 );
 export const signUpUserAction = createAsyncThunk(
   "auth/signup",
+ 
   async (request, { rejectWithValue, dispatch }) => {
+    //  console.log("req",request);
     try {
-      console.log("dispatch",request);
-      dispatch(showLoader({ message: "sign up..........." }));
+      setTimeout(()=>{
+        dispatch(showLoader());
+      },2000)
       const response = await signUpAsync(request);
+          console.log("REQUEST",request);
+         console.log("Response",response);
+       dispatch(showLoader({ message: "sign up..........." }));
+     
       if (response.status === 200) {
-        await setUser(request);
+        // console.log("res",response);
+        setTimeout(() => {
+          dispatch(hideLoader());
+        }, 2000);
         
+        await setUser(response.data.user.token);
+        //  console.log("Response",response);
+        const fakeJson={
+
+        }
+        window.location.reload()
         dispatch(hideLoader());
         return null;
-      
+        
       }
+      // console.log("res",response);
       return rejectWithValue(response);
     } catch (error) {
       dispatch(hideLoader());

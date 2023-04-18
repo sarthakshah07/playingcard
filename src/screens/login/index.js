@@ -86,33 +86,7 @@ const Login = () => {
                 <form noValidate onSubmit={handleSubmit}>
                   <Typography sx={{ mt: 1.5, mb: 1.5 }} color="text.secondary">
                     <Grid container>
-                      {/* <Grid item xs={12}>
-                        <FieldText
-                        sx={{ fontFamily:
-                          "apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serifi"}}
-                          fullWidth={true}
-                          type="email"
-                          value={values.userName}
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          label="email"
-                          id="email"
-                          name="email"
-                          touched={touched?.email}
-                          errors={errors?.email}
-                          variant="standard"
-                          InputProps={{
-                            startAdornment: (
-                              <InputAdornment position="start">
-                                <AccountCircle />
-                              </InputAdornment>
-                            ),
-                          }}
-                        />
-                        {touched.email && errors.email ? (
-                          <div className="error">{errors.email}</div>
-                        ) : null}
-                      </Grid> */}
+                     
                       <Grid item xs={12}>
                         <FieldText
                         sx={{ fontFamily:
@@ -136,9 +110,7 @@ const Login = () => {
                             ),
                           }}
                         />
-                        {touched.userName && errors.userName ? (
-                          <div className="error">{errors.userName}</div>
-                        ) : null}
+                        
                       </Grid>
                       <Grid item xs={12}>
                         <FieldText
