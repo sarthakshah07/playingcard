@@ -35,7 +35,7 @@ const Login = () => {
   };
   const signInSchema = yup.object().shape({
     // email: yup.string().email().required("userName is required"),
-    userName: yup.string().email().required("userName is required"),
+    userName: yup.string().required("userName is required"),
 
     password: yup
       .string()
@@ -47,6 +47,7 @@ const Login = () => {
       initialValues: initialValues,
       validationSchema: signInSchema,
       onSubmit: (val, err) => {
+        console.log("value",val)
         dispatch(loginUserByEmailAction(val));
         console.log("111111111111");
         navigate("/")
@@ -175,7 +176,7 @@ const Login = () => {
                           type="submit"
                         />{" "}
                         <MyButton
-                          className="signin"
+                           className="signin"
                           size="small"
                           title="Signup"
                           variant="contained"

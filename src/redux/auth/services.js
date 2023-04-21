@@ -5,6 +5,8 @@ import axiosInstance from "../../services/api";
 const LoginUserUrl = "/login";
 const LogoutUserUrl = "/api/logout";
 const SignUpUrl = "users/add";
+const ForgotUserUrl = "forgotpassword";
+// const ResetUserUrl = "resetpassword"
 
 export const loginWithEmailAsync = async (request) => {
   try {
@@ -29,6 +31,27 @@ export const signUpAsync = async (request) => {
     console.log("api response", response);
     return response;
   } catch (err) {
+    console.log("error",err);
     return err;
   }
 };
+export const forgotAsync = async (request) => {
+  try {
+    const response = await axiosInstance.post(ForgotUserUrl, request);
+    console.log("api response", response);
+    return response;
+  } catch (err) {
+    console.log("error",err);
+    return err;
+  }
+};
+// export const resetAsync = async (request) => {
+//   try {
+//     const response = await axiosInstance.post(ResetUserUrl, request);
+//     console.log("api response", response);
+//     return response;
+//   } catch (err) {
+//     console.log("error",err);
+//     return err;
+//   }
+// };
