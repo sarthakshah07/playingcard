@@ -157,7 +157,7 @@ const ButtonAppBar = () => {
       <Typography
         variant="h4"
         sx={{
-          color: "black",
+          color: "white",
           backgroundColor: "#31996A",
           fontFamily:
             "-apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serif",

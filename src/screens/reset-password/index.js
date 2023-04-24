@@ -59,11 +59,11 @@ const ResetPasswordPage = () => {
 
   return (
     <WrapperComponent>
-      <Grid container className="container-fluid">
-        <Card
+      <Grid container className="container-fluid" >
+        <Card 
           className="resetpsswdCard"
           xs={12}
-          sx={{ minHeight: "fit-content", padding: "5%" }}
+          sx={{ minHeight: "fit-content", padding: "5%" , display:"flex"}}
         >
           <form noValidate onSubmit={handleSubmit}>
             <Grid

@@ -28,12 +28,12 @@ export const loginUserByEmailAction = createAsyncThunk(
         setTimeout(() => {
           dispatch(hideLoader());
         }, 2000);
-        await setUser(response.data.user.token);
+        // await setUser(response.data.user.token);
         const fakeJson={
 
         }
-        // await setUser(fakeJson)
-        // window.location.reload()
+        await setUser(fakeJson)
+         window.location.reload()
         const Toast = Swal.mixin({
           toast: true,
           position: "bottom-end",
@@ -171,7 +171,7 @@ export const forgotUserAction = createAsyncThunk(
           dispatch(hideLoader());
         }, 2000);
         
-        // await setUser(response.data.user.token);
+         await setUser(response.data.user.token);
         //  console.log("Response",response);
         const fakeJson={
 

@@ -397,7 +397,7 @@ const LandingPage = () => {
                     sx={{ display: "flex", justifyContent: "center" }}
                   >
                     <LooksOneIcon
-                      style={{ scale: "2", marginRight: "20px" }}
+                      style={{ scale: "2", marginRight: "20px" , color:"white"}}
                       data-aos="fade-left"
                     />
                     <Typography
@@ -445,7 +445,7 @@ const LandingPage = () => {
                     sx={{ display: "flex", justifyContent: "center" }}
                   >
                     <LooksTwoIcon
-                      style={{ scale: "2", marginRight: "20px" }}
+                      style={{ scale: "2", marginRight: "20px" , color:"white"}}
                       data-aos="fade-left"
                     />
                     <Typography
@@ -489,7 +489,7 @@ const LandingPage = () => {
                   <CardContent
                     sx={{ display: "flex", justifyContent: "center" }}
                   >
-                    <Looks3Icon style={{ scale: "2", marginRight: "20px" }} />
+                    <Looks3Icon style={{ scale: "2", marginRight: "20px", color:"white" }} />
                     <Typography
                       variant="h5"
                       color="white"

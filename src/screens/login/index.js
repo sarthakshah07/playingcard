@@ -29,13 +29,13 @@ const Login = () => {
   const authData = useSelector(authSelector);
   const [showPassword, setShowPassword] = React.useState(false);
   const initialValues = {
-    // email: "",
-    userName: "",
+     email: "",
+    // userName: "",
     password: "",
   };
   const signInSchema = yup.object().shape({
-    // email: yup.string().email().required("userName is required"),
-    userName: yup.string().required("userName is required"),
+     email: yup.string().email().required("userName is required"),
+    // userName: yup.string().required("userName is required"),
 
     password: yup
       .string()
@@ -88,7 +88,7 @@ const Login = () => {
                   <Typography sx={{ mt: 1.5, mb: 1.5 }} color="text.secondary">
                     <Grid container>
                      
-                      <Grid item xs={12}>
+                      {/* <Grid item xs={12}>
                         <FieldText
                         sx={{ fontFamily:
                           "apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serifi"}}
@@ -102,6 +102,31 @@ const Login = () => {
                           name="userName"
                           touched={touched?.userName}
                           errors={errors?.userName}
+                          variant="standard"
+                          InputProps={{
+                            startAdornment: (
+                              <InputAdornment position="start">
+                                <AccountCircle />
+                              </InputAdornment>
+                            ),
+                          }}
+                        />
+                        
+                      </Grid> */}
+                       <Grid item xs={12}>
+                        <FieldText
+                        sx={{ fontFamily:
+                          "apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serifi"}}
+                          fullWidth={true}
+                          type="email"
+                          value={values.email}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          label="email"
+                          id="email"
+                          name="email"
+                          touched={touched?.email}
+                          errors={errors?.email}
                           variant="standard"
                           InputProps={{
                             startAdornment: (
@@ -174,14 +199,18 @@ const Login = () => {
                           title="sign in"
                           variant="contained"
                           type="submit"
+                          
                         />{" "}
                         <MyButton
+                        
                            className="signin"
                           size="small"
                           title="Signup"
                           variant="contained"
                           handleClick={NavigateOnClickRegistraion}
+                         
                         />
+                        
                       </Grid>
                       <Grid
                         item

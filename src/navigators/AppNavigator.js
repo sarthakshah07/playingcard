@@ -13,7 +13,7 @@ const PaymentMethodPage =lazy(()=> import("../screens/PaymentMethod"))
   
 function AppNavigator() {
   return (
-    <Suspense fallback={<h1>vlksdfl</h1>}>
+    <Suspense fallback={<h1></h1>}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LandingPage />} />

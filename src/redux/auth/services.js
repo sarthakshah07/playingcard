@@ -1,12 +1,12 @@
 import axiosInstance from "../../services/api";
 
 // login apis url
-//  const LoginUserUrl = "/api/login";
-const LoginUserUrl = "/login";
-const LogoutUserUrl = "/api/logout";
-const SignUpUrl = "users/add";
-const ForgotUserUrl = "forgotpassword";
-// const ResetUserUrl = "resetpassword"
+  const LoginUserUrl = "/api/login";
+// const LoginUserUrl = "/login";
+ const LogoutUserUrl = "/api/logout";
+ const SignUpUrl = "users/add";
+ const ForgotUserUrl = "forgotpassword";
+const ResetUserUrl = "resetpassword"
 
 export const loginWithEmailAsync = async (request) => {
   try {

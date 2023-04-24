@@ -25,8 +25,8 @@ const Footer = () => {
         // xs={8}
       >
         <Grid container md={8} marginTop={5} >
-          <Grid item md={6} justifyContent="flex-end">
-            <Grid container justifyContent="center">
+          <Grid item md={6} justifyContent="flex-end" >
+            <Grid container justifyContent="center" >
               <Typography
                 variant="h4"
                 sx={{
@@ -41,8 +41,8 @@ const Footer = () => {
                 More About Game
               </Typography>
             </Grid>
-            <Grid container justifyContent="center">
-              <Grid item md={8} xs={10}>
+            <Grid container justifyContent="center" >
+              <Grid item md={8} xs={10} >
                 <Typography
                   sx={{
                     fontFamily:
@@ -58,14 +58,16 @@ const Footer = () => {
                   one side only, so that each player knows only the cards he
                   holds and not those held by anyone else.
                 </Typography>
+                <br/>
               </Grid>
             </Grid>
           </Grid>
-          <Grid item md={6} xs={12}>
-            <Grid container>
-              <Grid item md={6} xs={12}>
-                <Grid container>
-                  <Grid item md={12} xs={12}>
+          <Grid item md={6} xs={12} > 
+            <Grid container >
+              <Grid item md={6} xs={12} >
+
+                <Grid container >
+                  <Grid item md={12} xs={12} >
                     <Typography
                       variant="h4"
                       sx={{
@@ -81,7 +83,7 @@ const Footer = () => {
                       Open Hours
                     </Typography>
                   </Grid>
-                  <Grid
+                  <Grid  
                     item
                     md={12}
                     xs={12}
@@ -104,11 +106,13 @@ const Footer = () => {
                       <br />
                       sat-sun : closed
                     </Typography>
+                      
                   </Grid>
                 </Grid>
               </Grid>
-              <Grid item md={6} xs={12} >
-                <Grid container
+             
+              <Grid item md={6} xs={12}  >
+                <Grid container  
                 justifyContent="center"
               >
                   <Grid
@@ -117,6 +121,7 @@ const Footer = () => {
                     xs={12}
                     sx={{ display: "flex", justifyContent: "center" }}
                   >
+               
                     <Typography
                       variant="h4"
                       sx={{
@@ -127,16 +132,17 @@ const Footer = () => {
                         fontWeight: "600",
                         fontSize: "1.8rem!important;",
                         Padding: "1rem 0",
+                        marginBottom:1
                       }}
                     >
                       Keep Connected
                     </Typography>
                   </Grid>
-                  <Grid
+                  <Grid  
                     item
                     md={10}
                     xs={8}
-                    
+                 
                     sx={{ display: "flex", justifyContent: "center" }}
                   >
                     <Grid container justifyContent="space-evenly">
@@ -155,11 +161,11 @@ const Footer = () => {
                         <FacebookIcon
                           sx={{
                             scale: "1.65",
-                            marginRight:{xs:"0px", md: "40px",}
+                            marginRight:{xs:"0px", md: "0px",}
                           }}
                         />
                       </Grid>
-                      <Grid
+                      <Grid  
                         item
                         md={3}
                         xs={3}
@@ -174,11 +180,11 @@ const Footer = () => {
                         <TwitterIcon
                           sx={{
                             scale: "1.65",
-                            marginRight:{xs:"0px", md: "40px",}
+                            marginRight:{xs:"0px", md: "0px",}
                           }}
                         />
                       </Grid>
-                      <Grid
+                      <Grid  
                         item
                         md={3}
                         xs={3}
@@ -193,11 +199,11 @@ const Footer = () => {
                         <InstagramIcon
                           sx={{
                             scale: "1.65",
-                            marginRight:{xs:"0px", md: "40px",}
+                            marginRight:{xs:"0px", md: "0px",}
                           }}
                         />
                       </Grid>
-                      <Grid
+                      <Grid  
                         item
                         md={3}
                         xs={3}
@@ -206,13 +212,13 @@ const Footer = () => {
                           display: "flex",
                           justifyContent: "center",
                           alignItems: "end",
-                           paddingTop: { sm: 3, xs: 1 },
+                           paddingTop: { sm: 3, xs: 2 },
                         }}
                       >
                         <YouTubeIcon
                           sx={{
                             scale: "1.75",
-                            marginRight:{xs:"0px", md: "40px",}
+                            marginRight:{xs:"0px", md: "0px",}
                           }}
                         />
                       </Grid>

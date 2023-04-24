@@ -74,6 +74,7 @@ export default function Wallet() {
       alignItems="center"
       marginTop={5}
     >
+      
       <Grid
         sx={{
           height: { sm: "100%", xs: "100%" },

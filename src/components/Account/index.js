@@ -151,7 +151,7 @@ export default function SplitButton() {
                         title="Userinfo"
                         variant="contained"
                         sx={{
-                          color: "black",
+                          color: "white",
                           backgroundColor: "#31996A",
                           margin: "15%",
                           borderRadius: "10px",
@@ -165,7 +165,7 @@ export default function SplitButton() {
                         size="small"
                         title="logout"
                         variant="contained"
-                        sx={{ color: "black", backgroundColor: "#31996A",borderRadius: "10px" }}
+                        sx={{ color: "white", backgroundColor: "#31996A",borderRadius: "10px" }}
                         handleClick={handleLogout}
                       />
                     </MenuItem>
