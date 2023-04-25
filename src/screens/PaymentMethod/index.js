@@ -101,7 +101,7 @@ const PaymentMethodPage = () => {
                   className="Cardholdername"
                   type="text"
                   value={values.nameOnCard}
-                  onchange={handleChange}
+                  onChange={handleChange}
                   onBlur={handleBlur}
                   id="Name"
                   name="nameOnCard"
@@ -132,7 +132,7 @@ const PaymentMethodPage = () => {
                   className="cardnumber"
                   type="tel"
                   value={values.cardNumber}
-                  onchange={handleChange}
+                  onChange={handleChange}
                   onBlur={handleBlur}
                   id="number"
                   name="cardNumber"
@@ -173,7 +173,7 @@ const PaymentMethodPage = () => {
                       className="cardnumber"
                       type="tel"
                       value={values.expiryMonth}
-                      onchange={handleChange}
+                      onChange={handleChange}
                       onBlur={handleBlur}
                       label="Month"
                       id="expiryMonth"
@@ -198,7 +198,7 @@ const PaymentMethodPage = () => {
                       className="cardnumber"
                       type="tel"
                       value={values.expiryYear}
-                      onchange={handleChange}
+                      onChange={handleChange}
                       onBlur={handleBlur}
                       label="Year"
                       id="number"
@@ -223,7 +223,7 @@ const PaymentMethodPage = () => {
                       className="cardnumber"
                       type="tel"
                       value={values.cvv}
-                      onchange={handleChange}
+                      onChange={handleChange}
                       onBlur={handleBlur}
                       label="CVV"
                       id="number"

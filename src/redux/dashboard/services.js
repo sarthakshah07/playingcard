@@ -1,8 +1,8 @@
 import axiosInstance from "../../services/api";
 
 // login apis url
-const fetchCardsUrl = "api/users";
-// const fetchCardsUrl = "/users";
+// const fetchCardsUrl = "api/users";
+const fetchCardsUrl = "/users";
 
 export const fetchCardsAsync = async (request) => {
   try {

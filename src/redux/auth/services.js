@@ -1,12 +1,12 @@
 import axiosInstance from "../../services/api";
 
 // login apis url
-  const LoginUserUrl = "/api/login";
-// const LoginUserUrl = "/login";
+  // const LoginUserUrl = "/api/login";
+ const LoginUserUrl = "/login";
  const LogoutUserUrl = "/api/logout";
- const SignUpUrl = "users/add";
- const ForgotUserUrl = "forgotpassword";
-const ResetUserUrl = "resetpassword"
+ const SignUpUrl = "/users/add";
+ const ForgotUserUrl = "/forgotpassword";
+const ResetUserUrl = "/resetpassword"
 
 export const loginWithEmailAsync = async (request) => {
   try {
@@ -45,13 +45,13 @@ export const forgotAsync = async (request) => {
     return err;
   }
 };
-// export const resetAsync = async (request) => {
-//   try {
-//     const response = await axiosInstance.post(ResetUserUrl, request);
-//     console.log("api response", response);
-//     return response;
-//   } catch (err) {
-//     console.log("error",err);
-//     return err;
-//   }
-// };
+export const resetAsync = async (request) => {
+  try {
+    const response = await axiosInstance.post(ResetUserUrl, request);
+    console.log("api response", response);
+    return response;
+  } catch (err) {
+    console.log("error",err);
+    return err;
+  }
+};

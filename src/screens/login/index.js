@@ -29,13 +29,13 @@ const Login = () => {
   const authData = useSelector(authSelector);
   const [showPassword, setShowPassword] = React.useState(false);
   const initialValues = {
-     email: "",
-    // userName: "",
+     //email: "",
+     userName: "",
     password: "",
   };
   const signInSchema = yup.object().shape({
-     email: yup.string().email().required("userName is required"),
-    // userName: yup.string().required("userName is required"),
+    //  email: yup.string().email().required("userName is required"),
+    userName: yup.string().required("userName is required"),
 
     password: yup
       .string()
@@ -49,7 +49,7 @@ const Login = () => {
       onSubmit: (val, err) => {
         console.log("value",val)
         dispatch(loginUserByEmailAction(val));
-        console.log("111111111111");
+        // console.log("111111111111");
         navigate("/")
       },
     });
@@ -88,7 +88,7 @@ const Login = () => {
                   <Typography sx={{ mt: 1.5, mb: 1.5 }} color="text.secondary">
                     <Grid container>
                      
-                      {/* <Grid item xs={12}>
+                    <Grid item xs={12}>
                         <FieldText
                         sx={{ fontFamily:
                           "apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serifi"}}
@@ -112,8 +112,8 @@ const Login = () => {
                           }}
                         />
                         
-                      </Grid> */}
-                       <Grid item xs={12}>
+                      </Grid>  
+                       {/* <Grid item xs={12}>
                         <FieldText
                         sx={{ fontFamily:
                           "apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serifi"}}
@@ -137,7 +137,7 @@ const Login = () => {
                           }}
                         />
                         
-                      </Grid>
+                      </Grid> */}
                       <Grid item xs={12}>
                         <FieldText
                         sx={{ fontFamily:
@@ -199,7 +199,7 @@ const Login = () => {
                           title="sign in"
                           variant="contained"
                           type="submit"
-                          
+                       
                         />{" "}
                         <MyButton
                         
@@ -207,7 +207,7 @@ const Login = () => {
                           size="small"
                           title="Signup"
                           variant="contained"
-                          handleClick={NavigateOnClickRegistraion}
+                         handleClick={NavigateOnClickRegistraion}
                          
                         />
                         

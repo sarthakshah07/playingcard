@@ -3,9 +3,9 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 import { removeUser, setUser } from "../../services/token";
 import { hideLoader, showLoader } from "../lem/lemSlice";
-import { loginWithEmailAsync, logoutAsync, signUpAsync, forgotAsync , 
-  // resetAsync
-} from "./services";
+import { loginWithEmailAsync, logoutAsync, signUpAsync, 
+  // forgotAsync , 
+   resetAsync} from "./services";
 // import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
@@ -15,7 +15,7 @@ export const loginUserByEmailAction = createAsyncThunk(
   
   "auth/loginByEmail",
   async (request, { rejectWithValue, dispatch }) => {
-  
+  console.log("login123",request)
     // console.log("req",request);
     try {
       setTimeout(()=>{
@@ -28,12 +28,12 @@ export const loginUserByEmailAction = createAsyncThunk(
         setTimeout(() => {
           dispatch(hideLoader());
         }, 2000);
-        // await setUser(response.data.user.token);
+         await setUser(response.data.user.token);
         const fakeJson={
 
         }
-        await setUser(fakeJson)
-         window.location.reload()
+        // await setUser(fakeJson)
+        window.location.reload()
         const Toast = Swal.mixin({
           toast: true,
           position: "bottom-end",
@@ -152,53 +152,15 @@ export const signUpUserAction = createAsyncThunk(
   }
 );
 
-export const forgotUserAction = createAsyncThunk(
-  "auth/forgot",
- 
-  async (request, { rejectWithValue, dispatch }) => {
-    try {
-      setTimeout(()=>{
-        dispatch(showLoader());
-      },2000)
-      const response = await forgotAsync(request);
-          console.log("REQUEST",request);
-         console.log("Response",response);
-       dispatch(showLoader({ message: "forgot..........." }));
-     
-      if (response.status === 200) {
-         console.log("res",response);
-        setTimeout(() => {
-          dispatch(hideLoader());
-        }, 2000);
-        
-         await setUser(response.data.user.token);
-        //  console.log("Response",response);
-        const fakeJson={
-
-        }
-        window.location.reload()
-        dispatch(hideLoader());
-        return null;
-        
-      }
-      // console.log("res",response);
-      return rejectWithValue(response);
-    } catch (error) {
-      dispatch(hideLoader());
-      return rejectWithValue(error);
-    }
-  }
-);
-
-// export const resetUserAction = createAsyncThunk(
-//   "auth/reset",
+// export const forgotUserAction = createAsyncThunk(
+//   "auth/forgot",
  
 //   async (request, { rejectWithValue, dispatch }) => {
 //     try {
 //       setTimeout(()=>{
 //         dispatch(showLoader());
 //       },2000)
-//       const response = await resetAsync(request);
+//       const response = await forgotAsync(request);
 //           console.log("REQUEST",request);
 //          console.log("Response",response);
 //        dispatch(showLoader({ message: "forgot..........." }));
@@ -209,7 +171,7 @@ export const forgotUserAction = createAsyncThunk(
 //           dispatch(hideLoader());
 //         }, 2000);
         
-//         // await setUser(response.data.user.token);
+//          await setUser(response.data.user.token);
 //         //  console.log("Response",response);
 //         const fakeJson={
 
@@ -227,4 +189,42 @@ export const forgotUserAction = createAsyncThunk(
 //     }
 //   }
 // );
+
+export const resetUserAction = createAsyncThunk(
+  "auth/reset",
+ 
+  async (request, { rejectWithValue, dispatch }) => {
+    try {
+      setTimeout(()=>{
+        dispatch(showLoader());
+      },2000)
+      const response = await resetAsync(request);
+          console.log("REQUEST",request);
+         console.log("Response",response);
+       dispatch(showLoader({ message: "reset..........." }));
+     
+      if (response.status === 200) {
+         console.log("res",response);
+        setTimeout(() => {
+          dispatch(hideLoader());
+        }, 2000);
+        
+         await setUser(response.data.user.token);
+         console.log("Response",response);
+        // const fakeJson={
+
+        // }
+         window.location.reload()
+        dispatch(hideLoader());
+        return null;
+        
+      }
+      // console.log("res",response);
+      return rejectWithValue(response);
+    } catch (error) {
+      dispatch(hideLoader());
+      return rejectWithValue(error);
+    }
+  }
+);
 

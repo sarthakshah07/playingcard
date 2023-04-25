@@ -22,7 +22,7 @@ sword{
   background: linear-gradient(180deg,rgba(254,163,64,0) 25.44%,rgba(12,5,70,0.5) 100%),#31996A;
   height:"100%" !important;
 }
-Slogin{
+.Slogin{
   margin-left: 37% !important;
 }
 .error{
