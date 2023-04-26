@@ -19,7 +19,7 @@ import Swal from "sweetalert2";
 import { showLoader } from "../../redux/lem/lemSlice";
 import { useDispatch } from "react-redux";
 import Loader from "../../components/loader";
-// import { forgotUserAction } from "../../redux/auth/middleware";
+ import { forgotUserAction } from "../../redux/auth/middleware";
 
 const resetPasswordSchema = yup.object().shape({
   email: yup.string().email().required("Email is required"),
@@ -52,7 +52,7 @@ const ForgotPasswordPage = () => {
           title: "Logged in successfully",
         });
      
-        // dispatch(forgotUserAction(val));
+         dispatch(forgotUserAction(val.email));
          console.log("val", val);
          navigate("/reset-password")
        

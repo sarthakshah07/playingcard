@@ -35,8 +35,12 @@ export const signUpAsync = async (request) => {
     return err;
   }
 };
-export const forgotAsync = async (request) => {
+export const forgotAsync = async (email) => {
   try {
+    const request = {
+      
+    "email": email
+    }
     const response = await axiosInstance.post(ForgotUserUrl, request);
     console.log("api response", response);
     return response;
@@ -45,8 +49,12 @@ export const forgotAsync = async (request) => {
     return err;
   }
 };
-export const resetAsync = async (request) => {
+export const resetAsync = async (password) => {
   try {
+    const request = {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjk5LCJpYXQiOjE2ODI1MTIyMTcsImV4cCI6MTY4MjU5ODYxN30.m_kZTxMebXyDiSnZM9gvgfI74jak-8qZMKxGKLjk1AA",
+      "password": password
+  }
     const response = await axiosInstance.post(ResetUserUrl, request);
     console.log("api response", response);
     return response;

@@ -1,4 +1,4 @@
-import React from "react";ilityOff
+import React from "react";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -377,7 +377,7 @@ const Signup = () => {
                     Already have a account ?
                   </Typography>
                 </Grid>
-                <Grid item xs={12} textAlign="center">
+                <Grid item xs={12} textAlign="center" justifyContent="center">
                   <MyButton
                     className="Slogin"
                     fullWidth={false}

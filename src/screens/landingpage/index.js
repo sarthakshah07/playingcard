@@ -52,7 +52,7 @@ const LandingPage = () => {
  
   return (
     <WrapperComponent isHeader>
-      <Grid container sx={{height:{xs:5100,sm:5800,md:4800,lg:5300}}} width="100%">
+      <Grid container sx={{height:{xs:6500,sm:5800,md:4800,lg:5300}}} width="100%">
         <Grid item xs={12} height="94vh" data-aos="fade-right" ref={ref1}>
           <Grid
             container

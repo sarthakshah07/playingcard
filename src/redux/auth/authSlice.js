@@ -1,8 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getUser } from "../../services/token";
-import { 
-  // forgotUserAction ,
-  loginUserByEmailAction, logoutUserAction, signUpUserAction , resetUserAction} from "./middleware";
+import { forgotUserAction , loginUserByEmailAction, logoutUserAction, signUpUserAction , resetUserAction} from "./middleware";
 
 const INITIAL_STATE = {
   currentUser: undefined || getUser(),
@@ -25,10 +23,10 @@ const authSlice = createSlice({
       ...state,
       currentUser: payload,
     }));
-    // builder.addCase(forgotUserAction.fulfilled, (state, { payload }) => ({
-    //   ...state,
-    //   currentUser: payload,
-    // }));
+    builder.addCase(forgotUserAction.fulfilled, (state, { payload }) => ({
+      ...state,
+      currentUser: payload,
+    }));
     builder.addCase(resetUserAction.fulfilled, (state, { payload }) => ({
       ...state,
       currentUser: payload,

@@ -43,8 +43,9 @@ const PaymentMethodPage = () => {
     useFormik({
       initialValues: initialValues,
       validationSchema: CardPaymentSchema,
-      onSubmit: () => {
-        console.log("singup details");
+      onSubmit: (val) => {
+        // console.log("signup details");
+        console.log("val", val)
       },
     });
 

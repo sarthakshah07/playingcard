@@ -74,14 +74,15 @@ const ResetPasswordPage = () => {
         icon: "success",
         title: "Logged in successfully",
       });
-
-      dispatch(resetUserAction(val));
-      navigate("/");
+    console.log("val", val)
+       dispatch(resetUserAction(val.password));
+          
+       navigate("/login");
     },
   });
   const Navigatetocontinue = (val) => {
-    // console.log("val", val);
-    // navigate("/forgot-password");
+      console.log("value", val);
+     navigate("/login");
   };
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (event) => {
@@ -223,11 +224,12 @@ const ResetPasswordPage = () => {
             <Grid container>
               <Grid item>
                 <MyButton
+                type="submit"
                   className="pswd"
                   size="small"
                   title="continue"
                   variant="contained"
-                  handleClick={Navigatetocontinue}
+                  // handleClick={Navigatetocontinue}
                 />
               </Grid>
               <Grid item marginLeft={2}>
