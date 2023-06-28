@@ -22,36 +22,55 @@ import { loginUserByEmailAction } from "../../redux/auth/middleware";
 import { authSelector } from "../../redux/auth/authSlice";
 import Swal from "sweetalert2";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { useEffect } from "react";
+import { useState } from "react";
 // import NumberCounter from 'my-number-counter';
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const authData = useSelector(authSelector);
+  const authState = useSelector(authSelector);
   const [showPassword, setShowPassword] = React.useState(false);
+  const [users,setUsers]=useState(false)
   const initialValues = {
-    // email: "",
-    userName: "",
+     //email: "",
+     userName: "",
     password: "",
   };
   const signInSchema = yup.object().shape({
-    // email: yup.string().email().required("userName is required"),
-    userName: yup.string().email().required("userName is required"),
-
+    //  email: yup.string().email().required("userName is required"),
+    userName: yup.string().required("userName is required"),
     password: yup
       .string()
       .required("Password is required")
       .min(4, "Password is too short - should be 4 chars min"),
   });
+
+  useEffect(() => {
+    console.log("authState",authData);
+    if (authData?.currentUser) {
+      console.log("true");
+      setUsers(true); 
+    } else {
+      console.log("false");
+      setUsers(false);
+    }
+  })
   const { handleChange, handleSubmit, handleBlur, values, touched, errors } =
     useFormik({
       initialValues: initialValues,
       validationSchema: signInSchema,
       onSubmit: (val, err) => {
         dispatch(loginUserByEmailAction(val));
-        console.log("111111111111");
-        navigate("/")
       },
     });
+
+
+    useEffect(()=>{
+      const newitem= localStorage.getItem("secure:user")
+      console.log("log",localStorage.getItem("secure:user"));
+    })
+
     console.log("authfts",authData);
   const NavigateOnClick = () => {
     navigate("/forgot-password");
@@ -86,34 +105,8 @@ const Login = () => {
                 <form noValidate onSubmit={handleSubmit}>
                   <Typography sx={{ mt: 1.5, mb: 1.5 }} color="text.secondary">
                     <Grid container>
-                      {/* <Grid item xs={12}>
-                        <FieldText
-                        sx={{ fontFamily:
-                          "apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serifi"}}
-                          fullWidth={true}
-                          type="email"
-                          value={values.userName}
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          label="email"
-                          id="email"
-                          name="email"
-                          touched={touched?.email}
-                          errors={errors?.email}
-                          variant="standard"
-                          InputProps={{
-                            startAdornment: (
-                              <InputAdornment position="start">
-                                <AccountCircle />
-                              </InputAdornment>
-                            ),
-                          }}
-                        />
-                        {touched.email && errors.email ? (
-                          <div className="error">{errors.email}</div>
-                        ) : null}
-                      </Grid> */}
-                      <Grid item xs={12}>
+                     
+                    <Grid item xs={12}>
                         <FieldText
                         sx={{ fontFamily:
                           "apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serifi"}}
@@ -136,10 +129,33 @@ const Login = () => {
                             ),
                           }}
                         />
-                        {touched.userName && errors.userName ? (
-                          <div className="error">{errors.userName}</div>
-                        ) : null}
-                      </Grid>
+                        
+                      </Grid>  
+                       {/* <Grid item xs={12}>
+                        <FieldText
+                        sx={{ fontFamily:
+                          "apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serifi"}}
+                          fullWidth={true}
+                          type="email"
+                          value={values.email}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          label="email"
+                          id="email"
+                          name="email"
+                          touched={touched?.email}
+                          errors={errors?.email}
+                          variant="standard"
+                          InputProps={{
+                            startAdornment: (
+                              <InputAdornment position="start">
+                                <AccountCircle />
+                              </InputAdornment>
+                            ),
+                          }}
+                        />
+                        
+                      </Grid> */}
                       <Grid item xs={12}>
                         <FieldText
                         sx={{ fontFamily:
@@ -201,14 +217,18 @@ const Login = () => {
                           title="sign in"
                           variant="contained"
                           type="submit"
+                       
                         />{" "}
                         <MyButton
-                          className="signin"
+                        
+                           className="signin"
                           size="small"
                           title="Signup"
                           variant="contained"
-                          handleClick={NavigateOnClickRegistraion}
+                         handleClick={NavigateOnClickRegistraion}
+                         
                         />
+                        
                       </Grid>
                       <Grid
                         item

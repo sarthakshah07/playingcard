@@ -180,16 +180,7 @@ const Userinfo = () => {
                         </Grid>
                         <Grid item  xs={12} sm={12} md={12} lg={6} xl={6}>
                           <FieldText
-                            // sx={{
-                            //   mt: 1.5,
-                            //   mb: 1.5,
-                            //   width: {
-                            //     sm: "80%",
-                            //     md: "80%",
-                            //     lg: "40%",
-                            //     xs: "18%",
-                            //   },
-                            // }}
+                           
                             fullWidth
                             type="email"
                             id="email"

@@ -26,6 +26,10 @@
 .cards{
   margin-right: 50px;
 }
+.MuiChip-icon{
+  background-color: #31996A;
+
+}
 @keyframes rotatee {
   from{color: black;}
 

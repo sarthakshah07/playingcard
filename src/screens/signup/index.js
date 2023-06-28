@@ -1,4 +1,3 @@
-
 import React from "react";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
@@ -26,9 +25,10 @@ import Swal from "sweetalert2";
 const initialValues = {
   firstName: "",
   lastName: "",
+  userName:"",
   email: "",
-  contactNo: "",
-  password: "",
+  phone: "",
+  passwordHash: "",
   cPassword: "",
 };
 // const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
@@ -46,23 +46,23 @@ const signUpSchema = yup.object().shape({
     .min(2, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
-  contactNo: yup
+  phone: yup
     .string()
-    .matches(phoneRegExp, "Phone number is not valid")
+    .matches(phoneRegExp, "phone is not valid")
     // .number()
     .required("Required")
-    .min(10, "Phone number is not valid")
-    .max(10, "Phone number is not valid"),
-  password: yup
+    .min(10, "contactNois not valid")
+    .max(10, "phone is not valid"),
+  passwordHash: yup
     .string()
     .required("required")
     .min(4, "Password is too short - should be 4 chars min"),
-    // .matches(passwordRules, { message: "Please create a stronger password" }),
+  // .matches(passwordRules, { message: "Please create a stronger password" }),
   cPassword: yup
     .string()
     .required("required")
     .min(4, "Password is too short - should be 4 chars min")
-    .oneOf([yup.ref("password"), null], "Passwords must match"),
+    .oneOf([yup.ref("passwordHash"), null], "Passwords must match"),
 });
 const Signup = () => {
   const [showPassword, setShowPassword] = React.useState(false);
@@ -73,9 +73,10 @@ const Signup = () => {
   const initialValues = {
     firstName: "",
     lastName: "",
+    userName:"",
     email: "",
-    contactNo: "",
-    password: "",
+    phone: "",
+    passwordHash: "",
   };
   const { handleChange, handleSubmit, handleBlur, values, touched, errors } =
     useFormik({
@@ -99,10 +100,10 @@ const Signup = () => {
           title: "Logged in successfully",
         });
         dispatch(signUpUserAction(val));
-        navigate("/")
+        navigate("/");
       },
     });
-  const Navigatetologin = () => navigate("/");
+  const Navigatetologin = () => navigate("/Login");
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
@@ -139,14 +140,14 @@ const Signup = () => {
               <form noValidate onSubmit={handleSubmit}>
                 <Typography sx={{ mt: 1.5, mb: 1.5 }} color="text.secondary">
                   {/* <Textfield/> */}
-                  <Grid container  spacing={1}>
+                  <Grid container spacing={1}>
                     <Grid item xs={12} md={6}>
                       <FieldText
                         fullWidth={true}
                         className="firstname"
                         type="text"
                         value={values.firstName}
-                        onchange={handleChange}
+                        onChange={handleChange}
                         onBlur={handleBlur}
                         label="First Name"
                         id="firstName"
@@ -171,7 +172,7 @@ const Signup = () => {
                         fullWidth={true}
                         type="text"
                         value={values.lastName}
-                        onchange={handleChange}
+                        onChange={handleChange}
                         onBlur={handleBlur}
                         label="Last Name"
                         id="lastName"
@@ -191,12 +192,36 @@ const Signup = () => {
                         <div className="error">{errors.lastName}</div>
                       ) : null}
                     </Grid>
+                    <FieldText
+                      sx={{
+                        fontFamily:
+                          "apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serifi",
+                      }}
+                      fullWidth={true}
+                      type="userName"
+                      value={values.userName}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      label="userName"
+                      id="userName"
+                      name="userName"
+                      touched={touched?.userName}
+                      errors={errors?.userName}
+                      variant="standard"
+                      InputProps={{
+                        startAdornment: (
+                          <InputAdornment position="start">
+                            <AccountCircle />
+                          </InputAdornment>
+                        ),
+                      }}
+                    />
                     <Grid item xs={12}>
                       <FieldText
                         fullWidth={true}
                         type="email"
                         value={values.email}
-                        onchange={handleChange}
+                        onChange={handleChange}
                         onBlur={handleBlur}
                         label="Email"
                         id="email"
@@ -220,14 +245,14 @@ const Signup = () => {
                       <FieldText
                         fullWidth={true}
                         type="tel"
-                        value={values.contactNo}
-                        onchange={handleChange}
+                        value={values.phone}
+                        onChange={handleChange}
                         onBlur={handleBlur}
-                        label="Contact Number"
-                        id="contactNo"
-                        name="contactNo"
-                        touched={touched?.contactNo}
-                        errors={errors?.contactNo}
+                        label="phone"
+                        id="phone"
+                        name="phone"
+                        touched={touched?.phone}
+                        errors={errors?.phone}
                         variant="standard"
                         InputProps={{
                           startAdornment: (
@@ -237,8 +262,8 @@ const Signup = () => {
                           ),
                         }}
                       />
-                      {touched.contactNo && errors.contactNo ? (
-                        <div className="error">{errors.contactNo}</div>
+                      {touched.phone && errors.phone ? (
+                        <div className="error">{errors.phone}</div>
                       ) : null}
                     </Grid>
                     <Grid item xs={12} md={6}>
@@ -247,13 +272,13 @@ const Signup = () => {
                         // type="password"
                         type={showPassword ? "text" : "password"}
                         id="Password"
-                        value={values.Password}
-                        onchange={handleChange}
+                        value={values.passwordHash}
+                        onChange={handleChange}
                         onBlur={handleBlur}
                         label="Password"
-                        name="password"
-                        touched={touched?.password}
-                        // errors={errors?.password}
+                        name="passwordHash"
+                        touched={touched?.passwordHash}
+                        // errors={errors?.passwordHash}
                         variant="standard"
                         InputProps={{
                           startAdornment: (
@@ -279,8 +304,8 @@ const Signup = () => {
                           ),
                         }}
                       />
-                      {touched.password && errors.password ? (
-                        <div className="error">{errors.password}</div>
+                      {touched.passwordHash && errors.passwordHash ? (
+                        <div className="error">{errors.passwordHash}</div>
                       ) : null}
                     </Grid>
                     <Grid item xs={12} md={6}>
@@ -289,7 +314,7 @@ const Signup = () => {
                         fullWidth={true}
                         type={showPassword ? "text" : "password"}
                         value={values.cPassword}
-                        onchange={handleChange}
+                        onChange={handleChange}
                         onBlur={handleBlur}
                         label="Confirm Password"
                         id="cPassword"
@@ -352,7 +377,7 @@ const Signup = () => {
                     Already have a account ?
                   </Typography>
                 </Grid>
-                <Grid item xs={12} textAlign="center">
+                <Grid item xs={12} textAlign="center" justifyContent="center">
                   <MyButton
                     className="Slogin"
                     fullWidth={false}

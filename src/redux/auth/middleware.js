@@ -1,37 +1,32 @@
 
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { useState } from "react";
+
 import { removeUser, setUser } from "../../services/token";
 import { hideLoader, showLoader } from "../lem/lemSlice";
-import { loginWithEmailAsync, logoutAsync, signUpAsync } from "./services";
-// import { useNavigate } from "react-router-dom";
+import { loginWithEmailAsync, logoutAsync, signUpAsync,  forgotAsync ,  resetAsync} from "./services";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
-
+import { useState } from "react";
+import Popup from "../../components/Popup";
 
 export const loginUserByEmailAction = createAsyncThunk(
   
   "auth/loginByEmail",
   async (request, { rejectWithValue, dispatch }) => {
-  
-    console.log("req",request);
+         
+            console.log("login123",request)
     try {
       setTimeout(()=>{
         dispatch(showLoader());
       },2000)
       const response = await loginWithEmailAsync(request);
-      console.log("res",response);
       if (response.status === 200) {
-      console.log("res",response);
         setTimeout(() => {
           dispatch(hideLoader());
         }, 2000);
-        await setUser(response.data.user.token);
+         await setUser(response.data.user.token);
         const fakeJson={
 
         }
-        // await setUser(fakeJson)
-        window.location.reload()
         const Toast = Swal.mixin({
           toast: true,
           position: "bottom-end",
@@ -49,12 +44,11 @@ export const loginUserByEmailAction = createAsyncThunk(
           title: "Logged in successfully",
           timer:3000
         });
-       
-        // navigate("/")
-        return ;
+       window.location.href = "/"
+        return response;
       }
       else{
-       console.log("sdfhgsjdhfg");
+      
         setTimeout(() => {
           dispatch(hideLoader());
         }, 2000);
@@ -113,18 +107,35 @@ export const logoutUserAction = createAsyncThunk(
 );
 export const signUpUserAction = createAsyncThunk(
   "auth/signup",
+ 
   async (request, { rejectWithValue, dispatch }) => {
+    //  console.log("req",request);
     try {
-      console.log("dispatch",request);
-      dispatch(showLoader({ message: "sign up..........." }));
+      setTimeout(()=>{
+        dispatch(showLoader());
+      },2000)
       const response = await signUpAsync(request);
+          console.log("REQUEST",request);
+         console.log("Response",response);
+       dispatch(showLoader({ message: "sign up..........." }));
+     
       if (response.status === 200) {
-        await setUser(request);
+        // console.log("res",response);
+        setTimeout(() => {
+          dispatch(hideLoader());
+        }, 2000);
         
+        await setUser(response.data.user.token);
+        //  console.log("Response",response);
+        const fakeJson={
+
+        }
+        window.location.reload()
         dispatch(hideLoader());
         return null;
-      
+        
       }
+      // console.log("res",response);
       return rejectWithValue(response);
     } catch (error) {
       dispatch(hideLoader());
@@ -132,3 +143,120 @@ export const signUpUserAction = createAsyncThunk(
     }
   }
 );
+
+export const forgotUserAction = createAsyncThunk(
+  "auth/forgot",
+ 
+  async (request, { rejectWithValue, dispatch }) => {
+
+    try {
+      // setTimeout(()=>{
+      //   dispatch(showLoader());
+      // },2000)
+      const response = await forgotAsync(request);
+          console.log("REQUEST",request);
+         console.log("Response",response);
+         
+        //  const newErrMsg= JSON.stringify(errorMsg)
+      //  dispatch(showLoader({ message: "forgot..........." }));
+      if (response.status === 200) {
+
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "bottom-end",
+          zIndex: 1,
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener("mouseenter", Swal.stopTimer);
+            toast.addEventListener("mouseleave", Swal.resumeTimer);
+          },
+        });
+        Toast.fire({
+          icon: "success",
+          title: "email sent successfully",
+        });
+        setTimeout(() => {
+          dispatch(hideLoader());
+        }, 2000);
+        
+        //  await setUser(response.data.user.token);
+        //  console.log("Response",response);
+        // const fakeJson={
+
+        // }
+        // window.location.reload()
+      
+        dispatch(hideLoader());
+        window.location.href="/reset-password"
+        return response;
+        
+      }else{
+        window.location.href="/verify-email"
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "bottom-end",
+          zIndex: 1,
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener("mouseenter", Swal.stopTimer);
+            toast.addEventListener("mouseleave", Swal.resumeTimer);
+          },
+        });
+        Toast.fire({
+          icon: "error",
+          title:"Email does not Exist",
+        });
+     
+        
+      }
+      // console.log("res",response);
+      return rejectWithValue(response);
+    } catch (error) {
+      dispatch(hideLoader());
+      return rejectWithValue(error);
+    }
+  }
+);
+
+export const resetUserAction = createAsyncThunk(
+  "auth/reset",
+ 
+  async (request, { rejectWithValue, dispatch }) => {
+    try {
+      setTimeout(()=>{
+        dispatch(showLoader());
+      },2000)
+      const response = await resetAsync(request);
+          console.log("REQUEST",request);
+         console.log("Response",response);
+       dispatch(showLoader({ message: "reset..........." }));
+     
+      if (response.status === 200) {
+         console.log("res",response);
+        setTimeout(() => {
+          dispatch(hideLoader());
+        }, 2000);
+        
+         await setUser(response.data.user.token);
+         console.log("Response",response);
+        // const fakeJson={
+
+        // }
+         window.location.reload()
+        dispatch(hideLoader());
+        return null;
+        
+      }
+      // console.log("res",response);
+      return rejectWithValue(response);
+    } catch (error) {
+      dispatch(hideLoader());
+      return rejectWithValue(error);
+    }
+  }
+);
+

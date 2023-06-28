@@ -19,6 +19,7 @@ import Swal from "sweetalert2";
 import { showLoader } from "../../redux/lem/lemSlice";
 import { useDispatch } from "react-redux";
 import Loader from "../../components/loader";
+ import { forgotUserAction } from "../../redux/auth/middleware";
 
 const resetPasswordSchema = yup.object().shape({
   email: yup.string().email().required("Email is required"),
@@ -34,24 +35,11 @@ const ForgotPasswordPage = () => {
       initialValues: initialValues,
       validationSchema: resetPasswordSchema,
       onSubmit: (val, err) => {
-        const Toast = Swal.mixin({
-          toast: true,
-          position: "bottom-end",
-          zIndex: 1,
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.addEventListener("mouseenter", Swal.stopTimer);
-            toast.addEventListener("mouseleave", Swal.resumeTimer);
-          },
-        });
-        Toast.fire({
-          icon: "success",
-          title: "Logged in successfully",
-        });
-        // dispatchEvent(loginUserByEmailAction(val));
-        // navigate("/")
+      
+     
+         dispatch(forgotUserAction(val.email));
+         console.log("val", val.email);
+        //  navigate("/reset-password")
        
         
       },
@@ -136,7 +124,7 @@ const ForgotPasswordPage = () => {
                 fullWidth={false}
                 title="Reset Password"
                 variant="contained"
-                // handleClick={SendPassword}
+                 handleClick={handleSubmit}
                 type="submit"
               />
             </Grid>

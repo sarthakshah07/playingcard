@@ -64,13 +64,18 @@ const Faqs = () => {
               id="panel1a-header"
               sx={{borderBottom:".5px solid gray"}}
             >
-              <Typography>Accordion 1</Typography>
+              <Typography>How many cards are there in a deck of Card Games ?</Typography>
             </AccordionSummary>
             <AccordionDetails  sx={{backgroundColor:"wheat"}}>
               <Typography>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                eget.
+                
+ The Playing Card Factory decks are made of fifty-two playing cards, including thirteen cards in each of four suits, Clubs ♣, Diamonds ♦, Hearts ♥ and Spades ♠, with reversible face cards. Our decks also include 1 Jokers, each with a different colour combination.
+
+Each suit includes an Ace, King, Queen, and Jack, and cards from two through ten, with each card depicting symbols (pips) of its suit.
+
+Our playing cards are poker size (2.5×3.5 inches (64×89 mm), or B8 size according to ISO 216)
+
+
               </Typography>
             </AccordionDetails>
           </Accordion>
@@ -85,13 +90,11 @@ const Faqs = () => {
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
-              <Typography>Accordion 1</Typography>
+              <Typography>How long does it take for my cards to ship after i have placed my order ?</Typography>
             </AccordionSummary>
             <AccordionDetails  sx={{backgroundColor:"wheat"}}>
               <Typography>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                eget.
+              Normal production timeline is 4-5 business days from when we receive your order. This may vary shorter or longer due to volume of orders.
               </Typography>
             </AccordionDetails>
           </Accordion>
@@ -106,13 +109,11 @@ const Faqs = () => {
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
-              <Typography>Accordion 1</Typography>
+              <Typography>How long does it take to create an order for playing cards?</Typography>
             </AccordionSummary>
             <AccordionDetails sx={{backgroundColor:"wheat"}}>
               <Typography>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                eget.
+              Once you have picked an image(s) or design you would like to use, it takes about 1 minutes to complete the order process.
               </Typography>
             </AccordionDetails>
           </Accordion>
@@ -127,13 +128,11 @@ const Faqs = () => {
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
-              <Typography>Accordion 1</Typography>
+              <Typography>How do i check the balance of my gift card</Typography>
             </AccordionSummary>
             <AccordionDetails  sx={{backgroundColor:"wheat"}}>
               <Typography>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                eget.
+              You can check the balance of your gift card anytime by selecting Gift Card Balance under the Order Info main menu option.
               </Typography>
             </AccordionDetails>
           </Accordion>
