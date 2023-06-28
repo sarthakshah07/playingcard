@@ -145,7 +145,7 @@ const Footer = () => {
                  
                     sx={{ display: "flex", justifyContent: "center" }}
                   >
-                    <Grid container justifyContent="space-evenly">
+                    <Grid container  sx={{height:{xs:50,sm:50,md:50,lg:50}}}  justifyContent="space-evenly">
                       <Grid
                         item
                         md={3}

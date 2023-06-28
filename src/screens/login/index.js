@@ -22,12 +22,16 @@ import { loginUserByEmailAction } from "../../redux/auth/middleware";
 import { authSelector } from "../../redux/auth/authSlice";
 import Swal from "sweetalert2";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { useEffect } from "react";
+import { useState } from "react";
 // import NumberCounter from 'my-number-counter';
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const authData = useSelector(authSelector);
+  const authState = useSelector(authSelector);
   const [showPassword, setShowPassword] = React.useState(false);
+  const [users,setUsers]=useState(false)
   const initialValues = {
      //email: "",
      userName: "",
@@ -36,23 +40,37 @@ const Login = () => {
   const signInSchema = yup.object().shape({
     //  email: yup.string().email().required("userName is required"),
     userName: yup.string().required("userName is required"),
-
     password: yup
       .string()
       .required("Password is required")
       .min(4, "Password is too short - should be 4 chars min"),
   });
+
+  useEffect(() => {
+    console.log("authState",authData);
+    if (authData?.currentUser) {
+      console.log("true");
+      setUsers(true); 
+    } else {
+      console.log("false");
+      setUsers(false);
+    }
+  })
   const { handleChange, handleSubmit, handleBlur, values, touched, errors } =
     useFormik({
       initialValues: initialValues,
       validationSchema: signInSchema,
       onSubmit: (val, err) => {
-        console.log("value",val)
         dispatch(loginUserByEmailAction(val));
-        // console.log("111111111111");
-        navigate("/")
       },
     });
+
+
+    useEffect(()=>{
+      const newitem= localStorage.getItem("secure:user")
+      console.log("log",localStorage.getItem("secure:user"));
+    })
+
     console.log("authfts",authData);
   const NavigateOnClick = () => {
     navigate("/forgot-password");

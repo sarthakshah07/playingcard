@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+        import { createSlice } from "@reduxjs/toolkit";
 import { getUser } from "../../services/token";
 import { forgotUserAction , loginUserByEmailAction, logoutUserAction, signUpUserAction , resetUserAction} from "./middleware";
 

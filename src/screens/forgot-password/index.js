@@ -35,26 +35,11 @@ const ForgotPasswordPage = () => {
       initialValues: initialValues,
       validationSchema: resetPasswordSchema,
       onSubmit: (val, err) => {
-        const Toast = Swal.mixin({
-          toast: true,
-          position: "bottom-end",
-          zIndex: 1,
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.addEventListener("mouseenter", Swal.stopTimer);
-            toast.addEventListener("mouseleave", Swal.resumeTimer);
-          },
-        });
-        Toast.fire({
-          icon: "success",
-          title: "Logged in successfully",
-        });
+      
      
          dispatch(forgotUserAction(val.email));
-         console.log("val", val);
-         navigate("/reset-password")
+         console.log("val", val.email);
+        //  navigate("/reset-password")
        
         
       },
